@@ -1,18 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccyjpftf2o3vl"]
+[gd_scene load_steps=7 format=3 uid="uid://ccyjpftf2o3vl"]
 
 [ext_resource type="Script" path="res://addons/game-pack-codz/objects/weapons/scripts/gun.gd" id="1_mujju"]
 [ext_resource type="PackedScene" uid="uid://bgg1l3g7xuqj3" path="res://objects/weapons/models/player_arms.tscn" id="2_5hb37"]
-[ext_resource type="PackedScene" uid="uid://chcyi6nmqwdgx" path="res://objects/weapons/models/gr11.glb" id="3_7cw1f"]
-[ext_resource type="Texture2D" uid="uid://2cs3gd42emu1" path="res://objects/weapons/models/muzzleflash.png" id="4_wgwdp"]
-[ext_resource type="ArrayMesh" uid="uid://eldx3bksb278" path="res://objects/weapons/models/muzzleflash.obj" id="5_tm402"]
 [ext_resource type="AnimationLibrary" uid="uid://b83evm3bol7m" path="res://objects/weapons/anims/gr_11_ads_anims.res" id="6_udd8p"]
 [ext_resource type="AnimationLibrary" uid="uid://c1y21p687fmlo" path="res://objects/weapons/anims/gr_11_anims.res" id="7_otb1f"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u643n"]
-blend_mode = 1
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("4_wgwdp")
 
 [sub_resource type="Animation" id="Animation_itln5"]
 length = 0.001
@@ -63,7 +54,6 @@ mouse_filter = 2
 mouse_force_pass_scroll_events = false
 
 [node name="cursor" type="ColorRect" parent="CanvasLayer/HUD"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -78,7 +68,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="inventory" type="ColorRect" parent="CanvasLayer/HUD"]
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -94,7 +83,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.313726)
 
 [node name="Label" type="Label" parent="CanvasLayer/HUD/inventory"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -106,30 +94,6 @@ horizontal_alignment = 1
 
 [node name="Player_Arms" parent="." instance=ExtResource("2_5hb37")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85253)
-
-[node name="gun" parent="Player_Arms" instance=ExtResource("3_7cw1f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73272, -7.42844, 0.36208)
-
-[node name="muzzle_flash" type="MeshInstance3D" parent="Player_Arms/gun"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.11209, 7.75983, 0)
-visible = false
-material_override = SubResource("StandardMaterial3D_u643n")
-mesh = ExtResource("5_tm402")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Player_Arms/gun/muzzle_flash"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.76837e-07, -0.0196034, 0.585318)
-light_color = Color(1, 0.635294, 0.333333, 1)
-omni_range = 11.1185
-
-[node name="flashlight" type="Node3D" parent="Player_Arms"]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Player_Arms/flashlight"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.34991, 0.408689, -1.0661)
-light_energy = 0.7
-light_volumetric_fog_energy = 0.721
-distance_fade_begin = 15.33
-spot_range = 14.8943
-spot_angle = 27.26
 
 [node name="animations" type="Node" parent="."]
 

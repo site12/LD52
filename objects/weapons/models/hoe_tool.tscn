@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnkgw1blwr67s"]
+
+[ext_resource type="ArrayMesh" uid="uid://cethlaxu6gwb1" path="res://objects/weapons/models/hoe_tool.obj" id="1_edms2"]
+
+[node name="hoe_tool" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_edms2")
