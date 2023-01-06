@@ -1,20 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://c620gwkafg1pd"]
+[gd_scene load_steps=12 format=3 uid="uid://c620gwkafg1pd"]
 
 [ext_resource type="Texture2D" uid="uid://bmol31j0lack2" path="res://textures/default_walls.png" id="1_f0vj6"]
+[ext_resource type="Texture2D" uid="uid://1xyj6l1kwohl" path="res://skies/panorama_image.png" id="1_lulns"]
 [ext_resource type="Texture2D" uid="uid://cs8jwv6b4pcjw" path="res://textures/default_ground.png" id="1_mh6kq"]
 [ext_resource type="PackedScene" uid="uid://q5tn0wj7n516" path="res://entities/players/player.tscn" id="2_w58yd"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g72n2"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bssrq"]
+panorama = ExtResource("1_lulns")
 
 [sub_resource type="Sky" id="Sky_8oq2e"]
-sky_material = SubResource("ProceduralSkyMaterial_g72n2")
+sky_material = SubResource("PanoramaSkyMaterial_bssrq")
 
 [sub_resource type="Environment" id="Environment_vk5er"]
 background_mode = 2
 sky = SubResource("Sky_8oq2e")
 tonemap_mode = 2
+sdfgi_enabled = true
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jov6v"]

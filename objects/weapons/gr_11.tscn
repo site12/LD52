@@ -1,8 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfap4qkh5jlka"]
 
 [ext_resource type="Script" path="res://addons/game-pack-codz/objects/weapons/scripts/gr_11.gd" id="1_bwos0"]
-[ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://addons/game-pack-codz/objects/weapons/gun.tscn" id="1_mfqi1"]
+[ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_mfqi1"]
 
 [node name="GR11" instance=ExtResource("1_mfqi1")]
 script = ExtResource("1_bwos0")
-gun_name = "GR 11"

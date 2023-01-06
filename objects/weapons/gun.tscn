@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://ccyjpftf2o3vl"]
 
 [ext_resource type="Script" path="res://addons/game-pack-codz/objects/weapons/scripts/gun.gd" id="1_mujju"]
-[ext_resource type="PackedScene" uid="uid://bgg1l3g7xuqj3" path="res://addons/game-pack-codz/objects/weapons/models/player_arms.tscn" id="2_5hb37"]
-[ext_resource type="PackedScene" uid="uid://chcyi6nmqwdgx" path="res://addons/game-pack-codz/objects/weapons/models/gr11.glb" id="3_7cw1f"]
-[ext_resource type="Texture2D" uid="uid://2cs3gd42emu1" path="res://addons/game-pack-codz/objects/weapons/models/muzzleflash.png" id="4_wgwdp"]
-[ext_resource type="ArrayMesh" uid="uid://eldx3bksb278" path="res://addons/game-pack-codz/objects/weapons/models/muzzleflash.obj" id="5_tm402"]
-[ext_resource type="AnimationLibrary" uid="uid://b83evm3bol7m" path="res://addons/game-pack-codz/objects/weapons/anims/gr_11_ads_anims.res" id="6_udd8p"]
-[ext_resource type="AnimationLibrary" uid="uid://c1y21p687fmlo" path="res://addons/game-pack-codz/objects/weapons/anims/gr_11_anims.res" id="7_otb1f"]
+[ext_resource type="PackedScene" uid="uid://bgg1l3g7xuqj3" path="res://objects/weapons/models/player_arms.tscn" id="2_5hb37"]
+[ext_resource type="PackedScene" uid="uid://chcyi6nmqwdgx" path="res://objects/weapons/models/gr11.glb" id="3_7cw1f"]
+[ext_resource type="Texture2D" uid="uid://2cs3gd42emu1" path="res://objects/weapons/models/muzzleflash.png" id="4_wgwdp"]
+[ext_resource type="ArrayMesh" uid="uid://eldx3bksb278" path="res://objects/weapons/models/muzzleflash.obj" id="5_tm402"]
+[ext_resource type="AnimationLibrary" uid="uid://b83evm3bol7m" path="res://objects/weapons/anims/gr_11_ads_anims.res" id="6_udd8p"]
+[ext_resource type="AnimationLibrary" uid="uid://c1y21p687fmlo" path="res://objects/weapons/anims/gr_11_anims.res" id="7_otb1f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u643n"]
 blend_mode = 1
@@ -63,6 +63,7 @@ mouse_filter = 2
 mouse_force_pass_scroll_events = false
 
 [node name="cursor" type="ColorRect" parent="CanvasLayer/HUD"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -77,6 +78,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="inventory" type="ColorRect" parent="CanvasLayer/HUD"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -92,6 +94,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.313726)
 
 [node name="Label" type="Label" parent="CanvasLayer/HUD/inventory"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
