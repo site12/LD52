@@ -1,7 +1,7 @@
 #this extension of the player class handles zombies specific player stuff
 
 extends Player
-class_name ZombiesPlayer
+class_name MainPlayer
 
 #player specific info
 var points:int = 0

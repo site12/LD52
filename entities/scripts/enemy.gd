@@ -1,16 +1,15 @@
 extends CharacterBody3D
-class_name Zombie
+class_name Enemy
 
 
 #constants for speed and health
 const SPEED:float = 1.5
 var health:float = 1.0
 
-#zombie's current state
-var current_behavior = "targeting_window"
+#enemy's current state
+var current_behavior = "targeting_player"
 
-#where the zombie will target
-var targeted_window:Barrier = null
+#where the enemy will target
 var targeted_player:Player = null
 
 #onready variables
@@ -28,9 +27,7 @@ func get_navmesh() -> NavigationMesh:
 func _physics_process(delta) -> void:
 	$mesh/health.text = str(health)
 	if not health <=0:
-		if current_behavior == "targeting_window":
-			update_target_location(get_window_loc())
-		elif current_behavior == "targeting_player":
+		if current_behavior == "targeting_player":
 			update_target_location(get_closest_player_loc())
 		var current_loc = global_transform.origin
 		var next_loc = navagent.get_next_location()
@@ -51,10 +48,7 @@ func _on_navigation_agent_3d_velocity_computed(safe_velocity):
 func update_target_location(target_loc)-> void:
 	navagent.set_target_location(target_loc)
 
-#returns the location of the targeted window
-func get_window_loc()-> Vector3:
-	return targeted_window.global_transform.origin
-	
+
 #if a closest player exists, then set the location. if not the zombie will stand still
 func get_closest_player_loc()-> Vector3:
 	var loc:Vector3 = global_transform.origin
@@ -70,7 +64,7 @@ func get_closest_player_loc()-> Vector3:
 		return nearest_player_loc
 	return loc
 
-#this function applies damage to the zombie and kills it if need be
+#this function applies damage to the enemy and kills it if need be
 func take_damage(dmg) -> bool:
 	var new_health = health - dmg
 	if new_health <= 0:
@@ -82,30 +76,26 @@ func take_damage(dmg) -> bool:
 	return false
 	
 
-#this function kills the zombie
+#this function kills the enemy
 func die():
 	#$NavigationAgent3D.queue_free()
 	$CollisionShape3D.queue_free()
 	$timers/death_timer.start()
-	
-#this handles attacking both windows and players that are within range
+
+
+##TO ADD
+#this handles attacking players that are within range
 func _on_navigation_agent_3d_target_reached():
 	$timers/attack_timer.start()
-	if current_behavior == "targeting_window":
-		current_behavior = "stopped"
+	pass
 		
 
-#this handles attacking both windows and players that are within range
+#TO ADD
+#this handles attacking players that are within range
 func _on_attack_timer_timeout():
-	if current_behavior == "stopped" and targeted_window != null:
-		if targeted_window.get_window_health() !=0:
-			targeted_window.attack_window(self,1)
-		else:
-			$timers/attack_timer.stop()
-			targeted_window = null
-			current_behavior = "targeting_player"
+	pass
 
-#this function frees the zombie object from the game
+#this function frees the enemy object from the game
 func _on_death_timer_timeout():
 	self.queue_free()
 

@@ -19,10 +19,25 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://objects/scripts/door.gd"
 }, {
+"base": "CharacterBody3D",
+"class": &"Enemy",
+"language": &"GDScript",
+"path": "res://entities/scripts/enemy.gd"
+}, {
+"base": "Node3D",
+"class": &"EnemySpawner",
+"language": &"GDScript",
+"path": "res://objects/scripts/enemy_spawner.gd"
+}, {
 "base": "Node3D",
 "class": &"Gun",
 "language": &"GDScript",
 "path": "res://objects/weapons/scripts/gun.gd"
+}, {
+"base": "Player",
+"class": &"MainPlayer",
+"language": &"GDScript",
+"path": "res://entities/scripts/main_player.gd"
 }, {
 "base": "CharacterBody3D",
 "class": &"Player",
@@ -33,31 +48,16 @@ _global_script_classes=[{
 "class": &"TBPlugin",
 "language": &"GDScript",
 "path": "res://addons/tbloader/src/plugin.gd"
-}, {
-"base": "CharacterBody3D",
-"class": &"Zombie",
-"language": &"GDScript",
-"path": "res://entities/scripts/zombie.gd"
-}, {
-"base": "Node3D",
-"class": &"ZombieSpawner",
-"language": &"GDScript",
-"path": "res://objects/scripts/zombie_spawner.gd"
-}, {
-"base": "Player",
-"class": &"ZombiesPlayer",
-"language": &"GDScript",
-"path": "res://entities/scripts/zombies_player.gd"
 }]
 _global_script_class_icons={
 "Barrier": "",
 "Door": "",
+"Enemy": "",
+"EnemySpawner": "",
 "Gun": "",
+"MainPlayer": "",
 "Player": "",
-"TBPlugin": "",
-"Zombie": "",
-"ZombieSpawner": "",
-"ZombiesPlayer": ""
+"TBPlugin": ""
 }
 
 [application]

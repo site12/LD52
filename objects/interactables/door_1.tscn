@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://65t5082fn1l1"]
+[gd_scene load_steps=4 format=3 uid="uid://65t5082fn1l1"]
 
-[ext_resource type="PackedScene" uid="uid://d4ds6iuopcxb2" path="res://maps/farmhouse/assets/door_frame.tscn" id="1_ghma6"]
-[ext_resource type="Script" path="res://addons/game-pack-codz/objects/scripts/door.gd" id="1_vew8a"]
-[ext_resource type="PackedScene" uid="uid://08koel3kysxg" path="res://addons/game-pack-codz/objects/interactables/models/door_1.glb" id="2_828f5"]
+[ext_resource type="Script" path="res://objects/scripts/door.gd" id="1_qxjyx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3av8h"]
 size = Vector3(1, 1, 2)
@@ -11,12 +9,7 @@ size = Vector3(1, 1, 2)
 size = Vector3(1, 1, 0.483179)
 
 [node name="door_1" type="Node3D" groups=["doors"]]
-script = ExtResource("1_vew8a")
-
-[node name="door_frame" parent="." instance=ExtResource("1_ghma6")]
-
-[node name="door_prop" parent="." instance=ExtResource("2_828f5")]
-transform = Transform3D(1.39947, 0, 0, 0, 1.04562, 0, 0, 0, 1, -0.696948, -0.0127373, 0)
+script = ExtResource("1_qxjyx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

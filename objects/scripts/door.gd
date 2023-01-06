@@ -8,10 +8,10 @@ class_name Door
 #activate when opened. Also if the door is just a prop or is an actual door.
 @export var price:int = 500
 @export var linked_doors:Node3D = null 
-@export var linked_spawner_1:ZombieSpawner
-@export var linked_spawner_2:ZombieSpawner
-@export var linked_spawner_3:ZombieSpawner
-@export var linked_spawner_4:ZombieSpawner
+@export var linked_spawner_1:EnemySpawner
+@export var linked_spawner_2:EnemySpawner
+@export var linked_spawner_3:EnemySpawner
+@export var linked_spawner_4:EnemySpawner
 @export var is_prop:bool = false
 
 
@@ -24,7 +24,7 @@ func hide_ui():
 #this function activates the linked spawners for the next round and gets rid of the stuff blocking the way
 func purchase_door():
 	print("purchasing door " + name)
-	var linked_spawners:Array[ZombieSpawner] = [linked_spawner_1,linked_spawner_2,linked_spawner_3,linked_spawner_4]
+	var linked_spawners:Array[EnemySpawner] = [linked_spawner_1,linked_spawner_2,linked_spawner_3,linked_spawner_4]
 	for spawner in linked_spawners:
 		if spawner != null:
 			spawner.activated = true
