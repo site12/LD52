@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://cob3ptky5luxy"]
+
+[ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_js1k8"]
+[ext_resource type="Script" path="res://objects/weapons/scripts/hoe.gd" id="2_3qcdp"]
+[ext_resource type="PackedScene" uid="uid://bc1ysfisjn70q" path="res://objects/weapons/sounds/revolver/revolver_fire.tscn" id="3_6b5ml"]
+[ext_resource type="PackedScene" uid="uid://cjwr2u2vhwyyk" path="res://objects/weapons/sounds/revolver/revolver_empty.tscn" id="4_5gyn6"]
+[ext_resource type="PackedScene" uid="uid://dnkgw1blwr67s" path="res://objects/weapons/models/hoe_tool.tscn" id="5_868bv"]
+
+[node name="hoe" instance=ExtResource("1_js1k8")]
+script = ExtResource("2_3qcdp")
+gun_name = "Hoe"
+gunfire = ExtResource("3_6b5ml")
+dryfire = ExtResource("4_5gyn6")
+max_ammo_in_clip = 6
+max_ammo_in_reserve = 84
+
+[node name="hoe_tool" parent="Player_Arms" index="1" instance=ExtResource("5_868bv")]
+transform = Transform3D(-0.743511, 1.2921, 4.7726, 0.0863023, 4.82891, -1.2939, -4.94366, -0.110029, -0.740371, 3.73938, -2.03311, 0.441652)

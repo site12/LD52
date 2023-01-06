@@ -3,15 +3,15 @@
 extends Node3D
 class_name Gun
 #references for the player that owns the weapon, the animation player, and the raycast for dealing damage
-@onready var player:ZombiesPlayer = null : set = set_player, get = get_player
+@onready var player:MainPlayer = null : set = set_player, get = get_player
 @onready var anim_player = $animations/AnimationPlayer
 @onready var ray = $RayCast3D
 
 @export var gun_name = "Gun"
 
 #references for sounds, what state the player is currently in, and whether the player is walking or aiming
-@export var gunfire = preload("res://addons/game-pack-codz/objects/weapons/sounds/revolver/revolver_fire.tscn")
-@export var dryfire = preload("res://addons/game-pack-codz/objects/weapons/sounds/revolver/revolver_empty.tscn")
+@export var gunfire = preload("res://objects/weapons/sounds/revolver/revolver_fire.tscn")
+@export var dryfire = preload("res://objects/weapons/sounds/revolver/revolver_empty.tscn")
 var player_state = ["idle","walking","shooting","aiming","reloading"]
 var current_state = player_state[0]
 var aiming = false
@@ -45,7 +45,6 @@ func get_player():
 #this handles firing the weapon, aiming the weapon, and reloading the weapon
 func _unhandled_input(event:InputEvent) -> void:
 	fire_weapon()
-	aim_weapon()
 	reload_weapon()
 	
 
@@ -71,7 +70,7 @@ func crouch():
 
 #handles shooting the weapon
 func fire_weapon():
-	if Input.is_action_just_pressed("shoot") and not current_state == player_state[4]:
+	if Input.is_action_just_pressed("attack") and not current_state == player_state[4]:
 		if ammo_in_clip != 0:
 			
 			#player is shooting
@@ -79,15 +78,15 @@ func fire_weapon():
 			ammo_in_clip -= 1
 			var s = gunfire.instantiate()
 			add_child(s)
-			print("shooting")
-			if ray.is_colliding() and ray.get_collider().get_name().contains("zombie"):
+			print("attacking")
+			if ray.is_colliding() and ray.get_collider().get_name().contains("enemy"):
 				## apply damage to zombie thru game mode
 				player.game_mode.apply_damage_to_zombie(ray.get_collider(),player,body_damage)
 		else:
 			var s = dryfire.instantiate()
 			add_child(s)
 			
-	if Input.is_action_just_released("shoot") and not current_state == player_state[4]:
+	if Input.is_action_just_released("attack") and not current_state == player_state[4]:
 		#player is finished shooting, return to idle
 		if not aiming:
 			if not walking:
@@ -118,27 +117,6 @@ func reload_weapon():
 			else:
 				current_state = player_state[1]
 			$CanvasLayer/HUD/cursor.visible = true
-
-#handles aiming the weapon
-func aim_weapon():
-	
-	if Input.is_action_just_pressed("aim"):
-		
-		if not current_state == player_state[4]:
-			#player is aiming
-			current_state = player_state[3]
-			aiming = true
-			
-			$CanvasLayer/HUD/cursor.visible = false
-	if Input.is_action_just_released("aim"):
-		
-		#player is idle
-		if not walking:
-			current_state = player_state[0]
-		else:
-			current_state = player_state[1]
-		aiming = false
-		$CanvasLayer/HUD/cursor.visible = true
 
 
 	
