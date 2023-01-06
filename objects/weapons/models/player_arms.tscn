@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgg1l3g7xuqj3"]
+
+[ext_resource type="PackedScene" uid="uid://bdrec0u3vkbs1" path="res://addons/game-pack-codz/objects/weapons/models/Player_Arms.glb" id="1_bfvod"]
+
+[node name="Player_Arms" instance=ExtResource("1_bfvod")]
+
+[node name="Skeleton3D" parent="Armature001" index="0"]
+transform = Transform3D(0.0214309, -0.99977, -8.10267e-10, 0.933415, 0.0200086, -0.358237, 0.358155, 0.00767737, 0.93363, 0, 0, 0)
+bones/0/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 0.000474975)
+bones/1/rotation = Quaternion(0.203475, -0.048525, -0.00552503, 0.999475)
+bones/2/rotation = Quaternion(-0.011525, -0.024525, 0.022475, 0.999475)
+bones/3/rotation = Quaternion(-0.133525, 0.255475, -0.044525, 0.990475)
+bones/5/rotation = Quaternion(0.024475, -0.232525, 4.98848, 1.76548)
+bones/9/rotation = Quaternion(-0.00552503, 0.000474975, 0.038475, 0.016475)
+bones/10/rotation = Quaternion(0.00847497, -0.000525026, -0.049525, 6.35248)
+bones/13/rotation = Quaternion(0.00147497, -0.000525026, 2.81348, 0.999475)
+bones/17/rotation = Quaternion(0.000474975, 0.000474975, 0.041475, 0.030475)
+bones/19/rotation = Quaternion(0.245475, -0.335525, -0.058525, 0.908475)
+bones/20/rotation = Quaternion(0.207475, 0.194475, 0.074475, 0.975475)
+bones/21/rotation = Quaternion(-0.186525, 0.038475, 0.043475, 0.509475)
+
+[node name="Cube001" parent="Armature001/Skeleton3D" index="0"]
+transform = Transform3D(1, -1.86265e-09, -1.59493e-11, 0, 1, 2.78388e-10, -1.48794e-08, -8.4584e-11, 1, 0, 0, 0)
+
+[node name="Cube002" parent="Armature001/Skeleton3D" index="1"]
+visible = false

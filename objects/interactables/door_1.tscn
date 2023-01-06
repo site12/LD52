@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://65t5082fn1l1"]
+
+[ext_resource type="PackedScene" uid="uid://d4ds6iuopcxb2" path="res://maps/farmhouse/assets/door_frame.tscn" id="1_ghma6"]
+[ext_resource type="Script" path="res://addons/game-pack-codz/objects/scripts/door.gd" id="1_vew8a"]
+[ext_resource type="PackedScene" uid="uid://08koel3kysxg" path="res://addons/game-pack-codz/objects/interactables/models/door_1.glb" id="2_828f5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3av8h"]
+size = Vector3(1, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aueqi"]
+size = Vector3(1, 1, 0.483179)
+
+[node name="door_1" type="Node3D" groups=["doors"]]
+script = ExtResource("1_vew8a")
+
+[node name="door_frame" parent="." instance=ExtResource("1_ghma6")]
+
+[node name="door_prop" parent="." instance=ExtResource("2_828f5")]
+transform = Transform3D(1.39947, 0, 0, 0, 1.04562, 0, 0, 0, 1, -0.696948, -0.0127373, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="interact" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/interact"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = 52.0
+offset_right = 49.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hold F to Buy [xxxx]"
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37114e-08, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_3av8h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52967, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_aueqi")

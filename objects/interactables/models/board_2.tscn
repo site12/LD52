@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://qf2bsyp6204k"]
+
+[ext_resource type="PackedScene" uid="uid://daalow3nxpu5e" path="res://addons/game-pack-codz/objects/interactables/models/board_2.glb" id="1_n14yj"]
+[ext_resource type="Script" path="res://disable_filter.gd" id="2_eaifv"]
+
+[node name="board_2" instance=ExtResource("1_n14yj")]
+
+[node name="Prop_WoodPlank_02_Single_B" parent="." index="0"]
+transform = Transform3D(0.01, 0, 0, 0, -1.19209e-09, -0.01, 0, 0.01, -1.19209e-09, 0, 0, 0)
+script = ExtResource("2_eaifv")
