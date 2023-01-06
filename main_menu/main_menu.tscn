@@ -1,0 +1,218 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcfgbtulat788"]
+
+[ext_resource type="Texture2D" uid="uid://ddegd7sntlsa3" path="res://main_menu/resources/icon_monochrome_dark.png" id="1_clkgm"]
+[ext_resource type="Script" path="res://main_menu/intro.gd" id="1_m12wi"]
+[ext_resource type="VideoStream" path="res://main_menu/resources/site12intro.ogv" id="2_vwdne"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sehbh"]
+font_size = 45
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_qnk4p"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../intro_screen/godot_logo:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../intro_screen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_88agt"]
+resource_name = "godot_splash"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../intro_screen/godot_logo:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5, 1, 1.7, 2)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../intro_screen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i16dl"]
+_data = {
+"RESET": SubResource("Animation_qnk4p"),
+"godot_splash": SubResource("Animation_88agt")
+}
+
+[node name="main_menu" type="Node"]
+script = ExtResource("1_m12wi")
+
+[node name="main_menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="main_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="main_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.709804)
+
+[node name="screen" type="HBoxContainer" parent="main_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="VBoxContainer" parent="main_menu/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="middle" type="VBoxContainer" parent="main_menu/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="title" type="Label" parent="main_menu/screen/middle"]
+layout_mode = 2
+mouse_filter = 1
+text = "LD 52 Game"
+label_settings = SubResource("LabelSettings_sehbh")
+horizontal_alignment = 1
+
+[node name="spacer" type="Label" parent="main_menu/screen/middle"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 1
+text = "LD 52 Game"
+label_settings = SubResource("LabelSettings_sehbh")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="main_menu/screen/middle"]
+custom_minimum_size = Vector2(150, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+text = "Play"
+
+[node name="right" type="VBoxContainer" parent="main_menu/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="intro_screen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="background" type="ColorRect" parent="intro_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="vbcontainer" type="VBoxContainer" parent="intro_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="godot_logo" type="TextureRect" parent="intro_screen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+pivot_offset = Vector2(512, 512)
+mouse_filter = 2
+texture = ExtResource("1_clkgm")
+
+[node name="site12_intro" type="VideoStreamPlayer" parent="intro_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -544.0
+offset_right = 960.0
+offset_bottom = 544.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(960, 544)
+mouse_filter = 2
+stream = ExtResource("2_vwdne")
+autoplay = true
+
+[node name="animations" type="Node" parent="."]
+
+[node name="anim_player" type="AnimationPlayer" parent="animations"]
+libraries = {
+"": SubResource("AnimationLibrary_i16dl")
+}
+
+[connection signal="finished" from="intro_screen/site12_intro" to="." method="_on_site_12_intro_finished"]
