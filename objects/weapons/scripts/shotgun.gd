@@ -5,10 +5,13 @@ class_name Shotgun
 
 #this handles the animations every frame and handles the player state and updates the ammo count
 func _physics_process(delta):
-	handle_animations()
+	#handle_animations()
 	walk()
 	ammo_count()
 	#print(current_state)
+
+func fire_anim():
+	$animations/AnimationTree["parameters/playback"].travel("shotgunshoot")
 
 #uses the player's current state to play animations accordingly
 func handle_animations():

@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cob3ptky5luxy"]
+[gd_scene load_steps=20 format=3 uid="uid://cob3ptky5luxy"]
 
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_js1k8"]
 [ext_resource type="Script" path="res://objects/weapons/scripts/hoe.gd" id="2_3qcdp"]
 [ext_resource type="PackedScene" uid="uid://0lxi44hf6f27" path="res://objects/weapons/sounds/hoe/swing.tscn" id="3_lml4m"]
-[ext_resource type="PackedScene" path="res://objects/weapons/models/hoe_tool.tscn" id="5_868bv"]
+[ext_resource type="PackedScene" uid="uid://dnkgw1blwr67s" path="res://objects/weapons/models/hoe_tool.tscn" id="5_868bv"]
 
 [sub_resource type="Animation" id="Animation_xllps"]
 length = 0.001
@@ -130,6 +130,41 @@ _data = {
 "walk": SubResource("Animation_2m5cx")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1quwl"]
+animation = &"hoe/idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_arrpb"]
+animation = &"hoe/walk"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_73jfh"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_1quwl")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_arrpb")
+blend_point_1/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qirmg"]
+animation = &"hoe/use_hoe"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s7ger"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4o6bq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pyh4t"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ok31c"]
+states/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_73jfh")
+states/BlendSpace1D/position = Vector2(363, 100)
+states/hoeuse_hoe/node = SubResource("AnimationNodeAnimation_qirmg")
+states/hoeuse_hoe/position = Vector2(566, 100)
+transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_s7ger"), "BlendSpace1D", "hoeuse_hoe", SubResource("AnimationNodeStateMachineTransition_4o6bq"), "hoeuse_hoe", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_pyh4t")]
+graph_offset = Vector2(-80, 49)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_qyfut"]
+
 [node name="hoe" instance=ExtResource("1_js1k8")]
 script = ExtResource("2_3qcdp")
 gun_name = "Hoe"
@@ -144,6 +179,13 @@ libraries = {
 "": SubResource("AnimationLibrary_n8w0l"),
 "hoe": SubResource("AnimationLibrary_kyf5c")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="animations" index="1"]
+tree_root = SubResource("AnimationNodeStateMachine_ok31c")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_qyfut")
+parameters/BlendSpace1D/blend_position = 0.0561896
 
 [node name="RayCast3D" parent="." index="3"]
 target_position = Vector3(0, -10, 0)
