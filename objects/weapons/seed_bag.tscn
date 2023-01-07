@@ -166,6 +166,8 @@ graph_offset = Vector2(-80, 49)
 
 [node name="seedbag" instance=ExtResource("1_o85yc")]
 script = ExtResource("2_j3xn1")
+gun_name = "Seed"
+max_ammo_in_reserve = 30
 
 [node name="seedbag" parent="Player_Arms" index="1" instance=ExtResource("4_ai305")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29678, 0.0124862, -0.00288439)

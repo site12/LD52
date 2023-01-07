@@ -1,11 +1,13 @@
+#the watering can class, extends from gun
+
 extends Gun
 
+#this handles the animations every frame and handles the player state and updates the ammo count
+func _physics_process(delta):
+	walk()
+	ammo_count()
+	#print(current_state)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func fire_anim():
+	$animations/AnimationTree["parameters/playback"].travel("hoeuse_hoe")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjwr2u2vhwyyk"]
 
-[ext_resource type="Script" path="res://objects/weapons/sounds/revolver/revolver_dry.gd" id="1_ia6vv"]
 [ext_resource type="AudioStream" uid="uid://djs6e8x4x5cth" path="res://objects/weapons/sounds/revolver/trigger_pull.wav" id="1_qtg50"]
+[ext_resource type="Script" path="res://objects/weapons/sounds/audio_timeout.gd" id="2_a6mcu"]
 
 [node name="revolver_sound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_qtg50")
 volume_db = -15.0
 pitch_scale = 0.68
 autoplay = true
-script = ExtResource("1_ia6vv")
+script = ExtResource("2_a6mcu")
