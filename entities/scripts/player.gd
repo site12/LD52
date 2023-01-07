@@ -36,17 +36,29 @@ func _unhandled_input(event:InputEvent) -> void:
 			pivot.rotate_y(-event.relative.x * 0.005)
 			camera.rotate_x(-event.relative.y * 0.005)
 			camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-80),deg_to_rad(80))
-	
+
+
+	# Changing weapon
+	if Input.is_action_just_released("next_weapon"):
+		current_weapon += 1
+		if current_weapon > Weapon.size():
+			current_weapon = 0
+
+	if Input.is_action_just_released("last_weapon"):
+		current_weapon -= 1
+		if current_weapon == -1:
+			current_weapon = Weapon.size()
+
 	handle_interactions()
 	
 #handles interacting with windows
 func handle_interactions()->void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("attack"):
 		attempting_to_interact = true
 		attempt_to_interact(interactable_object)
 		print(interactable_object)
 		
-	if Input.is_action_just_released("interact"):
+	if Input.is_action_just_released("attack"):
 		attempting_to_interact = false
 		if interactable_object != null:
 			if interactable_object.is_in_group("windows"):
