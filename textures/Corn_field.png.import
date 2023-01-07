@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rmnrwvm2hosb"
-path.s3tc="res://.godot/imported/Roofs_12-256x256.png-4da4bbbaf5bb7068bb1649adb3c8f794.s3tc.ctex"
-path.etc2="res://.godot/imported/Roofs_12-256x256.png-4da4bbbaf5bb7068bb1649adb3c8f794.etc2.ctex"
+uid="uid://c05ny5scq2ewr"
+path.s3tc="res://.godot/imported/Corn_field.png-685155e64a558cffc97d32ba27529782.s3tc.ctex"
+path.etc2="res://.godot/imported/Corn_field.png-685155e64a558cffc97d32ba27529782.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/Roofs_12-256x256.png"
-dest_files=["res://.godot/imported/Roofs_12-256x256.png-4da4bbbaf5bb7068bb1649adb3c8f794.s3tc.ctex", "res://.godot/imported/Roofs_12-256x256.png-4da4bbbaf5bb7068bb1649adb3c8f794.etc2.ctex"]
+source_file="res://textures/Corn_field.png"
+dest_files=["res://.godot/imported/Corn_field.png-685155e64a558cffc97d32ba27529782.s3tc.ctex", "res://.godot/imported/Corn_field.png-685155e64a558cffc97d32ba27529782.etc2.ctex"]
 
 [params]
 
