@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8eisdv5yqmnc"
-path="res://.godot/imported/Wood_14-256x256.png-82af593364c5a8c066e542385db97053.ctex"
+uid="uid://fu7d4d767gjb"
+path="res://.godot/imported/wood_house_siding.png-037a5af87b6a97cc9f49e952a432127a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Wood_14-256x256.png"
-dest_files=["res://.godot/imported/Wood_14-256x256.png-82af593364c5a8c066e542385db97053.ctex"]
+source_file="res://textures/wood_house_siding.png"
+dest_files=["res://.godot/imported/wood_house_siding.png-037a5af87b6a97cc9f49e952a432127a.ctex"]
 
 [params]
 

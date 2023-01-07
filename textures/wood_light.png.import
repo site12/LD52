@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccfequ2jny2yl"
-path.s3tc="res://.godot/imported/floor1_barn_texture.png-f1612cbe40b1df651e682f185a1a1696.s3tc.ctex"
-path.etc2="res://.godot/imported/floor1_barn_texture.png-f1612cbe40b1df651e682f185a1a1696.etc2.ctex"
+uid="uid://dmljsoae2lv4o"
+path.s3tc="res://.godot/imported/wood_light.png-d7aff33739e2d2a13da5fbb0c272a3b1.s3tc.ctex"
+path.etc2="res://.godot/imported/wood_light.png-d7aff33739e2d2a13da5fbb0c272a3b1.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/floor1_barn_texture.png"
-dest_files=["res://.godot/imported/floor1_barn_texture.png-f1612cbe40b1df651e682f185a1a1696.s3tc.ctex", "res://.godot/imported/floor1_barn_texture.png-f1612cbe40b1df651e682f185a1a1696.etc2.ctex"]
+source_file="res://textures/wood_light.png"
+dest_files=["res://.godot/imported/wood_light.png-d7aff33739e2d2a13da5fbb0c272a3b1.s3tc.ctex", "res://.godot/imported/wood_light.png-d7aff33739e2d2a13da5fbb0c272a3b1.etc2.ctex"]
 
 [params]
 
