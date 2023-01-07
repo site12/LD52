@@ -21,7 +21,7 @@ func handle_animations():
 		anim_player.play("shotgun/walk")
 		pass
 	elif current_state == player_state[2]:
-		#anim_player.play("hoe/use_hoe")
+		anim_player.play("shotgun/shoot")
 		pass
 	elif current_state == player_state[3]:
 		pass

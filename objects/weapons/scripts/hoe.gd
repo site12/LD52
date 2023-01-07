@@ -21,6 +21,7 @@ func handle_animations():
 		pass
 	elif current_state == player_state[2]:
 		anim_player.play("hoe/use_hoe")
+		pass
 	elif current_state == player_state[3]:
 		pass
 		#anim_player.play("gr_11_ads_anims/ads_stop")

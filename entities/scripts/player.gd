@@ -4,7 +4,7 @@ extends CharacterBody3D
 class_name Player
 
 #constants for speed and jump stuff
-const SPEED = 5.0
+const SPEED = 7.0
 const JUMP_VELOCITY = 4.5
 enum Weapon {HOE, GUN, WATERING_CAN, SCYTH}
 
