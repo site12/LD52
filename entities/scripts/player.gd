@@ -126,7 +126,6 @@ func attempt_to_interact(object):
 func update_weapon():
 	var gun_spot = $pivot/Camera3D/gun_spot
 	for weapon in $pivot/Camera3D/gun_spot.get_children():
-		weapon.active = false
 		gun_spot.remove_child(weapon)
 	match current_weapon:
 		Weapon.HOE:

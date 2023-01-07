@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bmol31j0lack2" path="res://textures/default_walls.png" id="1_f0vj6"]
 [ext_resource type="Texture2D" uid="uid://1xyj6l1kwohl" path="res://skies/panorama_image.png" id="1_lulns"]
 [ext_resource type="Texture2D" uid="uid://cs8jwv6b4pcjw" path="res://textures/default_ground.png" id="1_mh6kq"]
-[ext_resource type="PackedScene" uid="uid://q5tn0wj7n516" path="res://entities/players/player.tscn" id="2_w58yd"]
 [ext_resource type="PackedScene" uid="uid://blhhvycgbhhmj" path="res://objects/interactables/dirt_patch.tscn" id="4_q4qfy"]
+[ext_resource type="PackedScene" uid="uid://dg58bvyt562ba" path="res://entities/players/player.tscn" id="5_iwr2o"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bssrq"]
 panorama = ExtResource("1_lulns")
@@ -73,11 +73,11 @@ mesh = SubResource("ArrayMesh_3gi5p")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TBLoader/Default Layer/entity_0_geometry_col"]
 shape = SubResource("ConcavePolygonShape3D_h4khi")
 
-[node name="player" parent="." instance=ExtResource("2_w58yd")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7.5, 0, 6)
-
 [node name="dirt_patch" parent="." instance=ExtResource("4_q4qfy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.825, -0.3, 5.002)
 
 [node name="dirt_patch2" parent="." instance=ExtResource("4_q4qfy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.764, -0.3, 1.708)
+
+[node name="player" parent="." instance=ExtResource("5_iwr2o")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5.46831, 2.98023e-05, 5.39511)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg58bvyt562ba"]
+[gd_scene load_steps=7 format=3 uid="uid://q5tn0wj7n516"]
 
-[ext_resource type="Script" path="res://entities/scripts/main_player.gd" id="1_ga1bi"]
-[ext_resource type="PackedScene" uid="uid://co46tlyuaqvmw" path="res://objects/weapons/shotgun.tscn" id="2_dayko"]
+[ext_resource type="Script" path="res://entities/scripts/main_player.gd" id="1_ji1ny"]
+[ext_resource type="PackedScene" uid="uid://cob3ptky5luxy" path="res://objects/weapons/hoe.tscn" id="2_46ttq"]
+[ext_resource type="PackedScene" uid="uid://co46tlyuaqvmw" path="res://objects/weapons/shotgun.tscn" id="3_n3omw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gkjur"]
 
@@ -15,7 +16,7 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
 floor_constant_speed = true
 floor_max_angle = 1.309
 floor_snap_length = 0.3
-script = ExtResource("1_ga1bi")
+script = ExtResource("1_ji1ny")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -34,7 +35,9 @@ current = true
 [node name="gun_spot" type="Node3D" parent="pivot/Camera3D"]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -2.59798e-08, -0.222863, 0.198117)
 
-[node name="shotgun" parent="pivot/Camera3D/gun_spot" instance=ExtResource("2_dayko")]
+[node name="shotgun" parent="pivot/Camera3D/gun_spot" instance=ExtResource("2_omra2")]
+
+[node name="shotgun" parent="pivot/Camera3D/gun_spot" instance=ExtResource("3_n3omw")]
 
 [node name="RayCast3D" type="RayCast3D" parent="pivot/Camera3D"]
 target_position = Vector3(0, 0, -10)
