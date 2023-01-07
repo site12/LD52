@@ -71,6 +71,13 @@ boot_splash/use_filter=false
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/size/mode=2
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/tbloader/plugin.cfg")

@@ -39,7 +39,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_yxf1c"]
 resource_name = "idle"
-length = 1.2
+length = 2.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -48,7 +48,7 @@ tracks/0/path = NodePath("../Player_Arms:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.2),
+"times": PackedFloat32Array(0, 1.2, 2.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0.85253), Vector3(0, -0.05, 0.853), Vector3(0, 0, 0.85253)]
@@ -136,15 +136,6 @@ gun_name = "Hoe"
 gunfire = ExtResource("3_lml4m")
 infinite_ammo = true
 
-[node name="cursor" parent="CanvasLayer/HUD" index="0"]
-layout_mode = 1
-
-[node name="inventory" parent="CanvasLayer/HUD" index="1"]
-layout_mode = 1
-
-[node name="Label" parent="CanvasLayer/HUD/inventory" index="0"]
-layout_mode = 1
-
 [node name="Player_Arms" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85253)
 
@@ -156,3 +147,6 @@ libraries = {
 "": SubResource("AnimationLibrary_n8w0l"),
 "hoe": SubResource("AnimationLibrary_kyf5c")
 }
+
+[node name="RayCast3D" parent="." index="3"]
+target_position = Vector3(0, -10, 0)
