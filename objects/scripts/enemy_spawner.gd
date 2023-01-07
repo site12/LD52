@@ -8,7 +8,7 @@ class_name EnemySpawner
 
 #references to the enemy and to the navigationmesh on the map
 @onready var enemy = preload("res://entities/enemies/enemy.tscn")
-@onready var nav_mesh:NavigationMesh = get_tree().get_root().get_node("zm_tutorial/NavigationRegion3D").navigation_mesh
+@onready var nav_mesh:NavigationMesh = get_tree().get_root().get_node("dev_map/NavigationRegion3D").navigation_mesh
 
 
 #gets rid of debug volumes in game

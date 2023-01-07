@@ -84,8 +84,9 @@ func fire_weapon():
 			add_child(s)
 			print("attacking")
 			if ray.is_colliding() and ray.get_collider().get_name().contains("enemy"):
+				ray.get_collider().take_damage(5)
 				## apply damage to zombie thru game mode
-				player.game_mode.apply_damage_to_zombie(ray.get_collider(),player,body_damage)
+				# player.game_mode.apply_damage_to_zombie(ray.get_collider(),player,body_damage)
 		else:
 			var s = dryfire.instantiate()
 			add_child(s)
