@@ -11,7 +11,7 @@ enum GrowthState {
 }
 
 const GROWTH_TIMES = {
-	Global.SeedType.CARROT : [5, 15, 40, 60],
+	Global.SeedType.CARROT : [5, 10, 20, 30],
 	Global.SeedType.POTATO : [5, 15, 40, 60],
 	Global.SeedType.CORN : [5, 15, 40, 60]
 }
@@ -23,6 +23,7 @@ const GROWTH_TIMES = {
 var watered:bool = false
 var fertilized:bool = false
 var growth_state:GrowthState = GrowthState.RAW
+
 var crop_planted:Global.SeedType
 
 var ui_showing = false
@@ -58,6 +59,58 @@ func plant(seedtype:Global.SeedType):
 		crop_planted = seedtype
 		$seed_mound.visible = true
 		apply_plant_texture()
+		var t = GROWTH_TIMES[crop_planted]
+		var g1_timer = get_tree().create_timer(t[0])
+		g1_timer.timeout.connect(growth_stage_1)
+		var g2_timer = get_tree().create_timer(t[1])
+		g2_timer.timeout.connect(growth_stage_2)
+		var g3_timer = get_tree().create_timer(t[2])
+		g3_timer.timeout.connect(growth_stage_3)
+		var done_timer = get_tree().create_timer(t[3])
+		done_timer.timeout.connect(plant_done)
+
+func growth_stage_1():
+	$seed_mound.visible = false
+	$growth_stages/Growth_1.visible = true
+func growth_stage_2():
+	$growth_stages/Growth_1.visible = false
+	$growth_stages/Growth_2.visible = true
+func growth_stage_3():
+	$growth_stages/Growth_2.visible = false
+	$growth_stages/Growth_3.visible = true
+
+
+func plant_done():
+	$growth_stages/Growth_3.visible = false
+	var health
+	match crop_planted:
+		Global.SeedType.CARROT:
+			health = 10
+		Global.SeedType.POTATO:
+			health = 25
+		Global.SeedType.CORN:
+			health = 15
+	if watered: health *= 1.5
+	if fertilized: health *= 1.5
+	$enemy_spawner.spawn_enemy(health)
+	reset_dirt()
+
+
+
+func reset_dirt():
+	watered = false
+	fertilized = false
+	growth_state = GrowthState.RAW
+
+	var mat = get_node("entity_1_geometry").get_active_material(0).duplicate()
+	mat.albedo_color = dirt_colors["raw"]
+	get_node("entity_1_geometry").set_surface_override_material(0, mat)
+	$seed_mound.set_surface_override_material(0, mat)
+
+	for stage in $growth_stages.get_children():
+		for crop in stage.get_children(): crop.visible = false
+		stage.visible = false
+
 
 
 		
@@ -71,7 +124,11 @@ func plant(seedtype:Global.SeedType):
 	
 	# get_node("entity_1_geometry").get_active_material(0).albedo_color = dirt_colors[dirt_state]
 func apply_plant_texture():
-	pass
+	match crop_planted:
+		Global.SeedType.CARROT:
+			$growth_stages/Growth_1/carrot_growth_1.visible = true
+			$growth_stages/Growth_2/carrot_growth_2.visible = true
+			$growth_stages/Growth_3/carrot_growth_3.visible = true
 
 func show_ui():
 	if not ui_showing:

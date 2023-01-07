@@ -1,14 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b472rl8vw03d5"]
+[gd_scene load_steps=4 format=3 uid="uid://b472rl8vw03d5"]
 
 [ext_resource type="Script" path="res://entities/scripts/enemy.gd" id="1_vheyf"]
+[ext_resource type="PackedScene" uid="uid://lidleuyxti7j" path="res://objects/crops/Carrot/carrot_growth_3.tscn" id="2_746hg"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_p30fp"]
-radius = 0.4
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhv4g"]
-albedo_color = Color(0.54902, 0.0901961, 0.0823529, 1)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x2o0r"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38b37"]
 radius = 0.4
 
 [node name="enemy" type="CharacterBody3D"]
@@ -18,13 +13,11 @@ floor_snap_length = 0.3
 script = ExtResource("1_vheyf")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_p30fp")
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1, 0)
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_hhv4g")
 
 [node name="temp_face" type="Label3D" parent="mesh"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.515753, 0.54542, 0.0289227)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.512645, 0.54542, 0.036372)
 text = "x     x
 ...."
 
@@ -41,7 +34,7 @@ max_neighbors = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_x2o0r")
+shape = SubResource("CapsuleShape3D_38b37")
 
 [node name="timers" type="Node" parent="."]
 
@@ -49,6 +42,9 @@ shape = SubResource("CapsuleShape3D_x2o0r")
 wait_time = 1.5
 
 [node name="attack_timer" type="Timer" parent="timers"]
+
+[node name="carrot_growth_3" parent="." instance=ExtResource("2_746hg")]
+transform = Transform3D(1, 0, 0, 0, 1.86, 0, 0, 0, 1, -0.0409542, 0.967997, 0.00993416)
 
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
