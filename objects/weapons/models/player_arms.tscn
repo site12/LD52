@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgg1l3g7xuqj3"]
+[gd_scene load_steps=4 format=3 uid="uid://bgg1l3g7xuqj3"]
 
-[ext_resource type="PackedScene" uid="uid://bdrec0u3vkbs1" path="res://addons/game-pack-codz/objects/weapons/models/Player_Arms.glb" id="1_bfvod"]
+[ext_resource type="PackedScene" uid="uid://bdrec0u3vkbs1" path="res://objects/weapons/models/Player_Arms.glb" id="1_bfvod"]
+[ext_resource type="Texture2D" uid="uid://3fxoaqote7a7" path="res://objects/weapons/models/PlayerArms.png" id="2_conqx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xixlf"]
+albedo_texture = ExtResource("2_conqx")
 
 [node name="Player_Arms" instance=ExtResource("1_bfvod")]
 
@@ -21,6 +25,7 @@ bones/21/rotation = Quaternion(-0.186525, 0.038475, 0.043475, 0.509475)
 
 [node name="Cube001" parent="Armature001/Skeleton3D" index="0"]
 transform = Transform3D(1, -1.86265e-09, -1.59493e-11, 0, 1, 2.78388e-10, -1.48794e-08, -8.4584e-11, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_xixlf")
 
 [node name="Cube002" parent="Armature001/Skeleton3D" index="1"]
 visible = false
