@@ -20,8 +20,11 @@ var walking = false
 #gun specific info
 @export var max_ammo_in_clip:int = 6
 @export var max_ammo_in_reserve:int = 84
+@export var infinite_ammo:bool = false
 var ammo_in_clip:int = max_ammo_in_clip
 var ammo_in_reserve:int = max_ammo_in_reserve
+
+
 
 #gun damage info
 var body_damage:int = 60
@@ -29,6 +32,7 @@ var headshot_damage:int = 90
 
 #gets a reference to the player that owns the gun
 func _ready():
+	
 	set_player(get_parent().get_parent().get_parent().get_parent())
 
 #this function really isn't needed because it will return a nullpointer if called away from a player
@@ -72,10 +76,11 @@ func crouch():
 func fire_weapon():
 	if Input.is_action_just_pressed("attack") and not current_state == player_state[4]:
 		if ammo_in_clip != 0:
-			
+			if infinite_ammo != true:
+				ammo_in_clip -= 1
 			#player is shooting
 			current_state = player_state[2]
-			ammo_in_clip -= 1
+			
 			var s = gunfire.instantiate()
 			add_child(s)
 			print("attacking")
@@ -122,7 +127,10 @@ func reload_weapon():
 	
 #updates the ammo count in the HUD
 func ammo_count():
-	$CanvasLayer/HUD/inventory/Label.text = str(gun_name)+"\n"+ str(ammo_in_clip)+"/"+str(ammo_in_reserve)
+	if infinite_ammo:
+		$CanvasLayer/HUD/inventory/Label.text = str(gun_name)+"\n"
+	else:
+		$CanvasLayer/HUD/inventory/Label.text = str(gun_name)+"\n"+ str(ammo_in_clip)+"/"+str(ammo_in_reserve)
 	
 	
 

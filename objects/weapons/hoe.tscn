@@ -1,18 +1,152 @@
-[gd_scene load_steps=6 format=3 uid="uid://cob3ptky5luxy"]
+[gd_scene load_steps=11 format=3 uid="uid://cob3ptky5luxy"]
 
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_js1k8"]
 [ext_resource type="Script" path="res://objects/weapons/scripts/hoe.gd" id="2_3qcdp"]
-[ext_resource type="PackedScene" uid="uid://bc1ysfisjn70q" path="res://objects/weapons/sounds/revolver/revolver_fire.tscn" id="3_6b5ml"]
-[ext_resource type="PackedScene" uid="uid://cjwr2u2vhwyyk" path="res://objects/weapons/sounds/revolver/revolver_empty.tscn" id="4_5gyn6"]
-[ext_resource type="PackedScene" uid="uid://dnkgw1blwr67s" path="res://objects/weapons/models/hoe_tool.tscn" id="5_868bv"]
+[ext_resource type="PackedScene" uid="uid://0lxi44hf6f27" path="res://objects/weapons/sounds/hoe/swing.tscn" id="3_lml4m"]
+[ext_resource type="PackedScene" path="res://objects/weapons/models/hoe_tool.tscn" id="5_868bv"]
+
+[sub_resource type="Animation" id="Animation_xllps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Arms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.85253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Arms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8w0l"]
+_data = {
+"RESET": SubResource("Animation_xllps")
+}
+
+[sub_resource type="Animation" id="Animation_yxf1c"]
+resource_name = "idle"
+length = 2.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Arms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.85253), Vector3(0, -0.05, 0.853), Vector3(0, 0, 0.85253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Arms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ghkkk"]
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Arms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.85253), Vector3(0, 0, 0.85253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Arms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.419085, 0.231123, -0.87077), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2m5cx"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Arms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.85253), Vector3(0, -0.158033, 0.910706), Vector3(0, 0, 0.85253), Vector3(0, -0.158, 0.753), Vector3(0, 0, 0.85253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Arms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kyf5c"]
+_data = {
+"idle": SubResource("Animation_yxf1c"),
+"use_hoe": SubResource("Animation_ghkkk"),
+"walk": SubResource("Animation_2m5cx")
+}
 
 [node name="hoe" instance=ExtResource("1_js1k8")]
 script = ExtResource("2_3qcdp")
 gun_name = "Hoe"
-gunfire = ExtResource("3_6b5ml")
-dryfire = ExtResource("4_5gyn6")
-max_ammo_in_clip = 6
-max_ammo_in_reserve = 84
+gunfire = ExtResource("3_lml4m")
+infinite_ammo = true
+
+[node name="Player_Arms" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85253)
 
 [node name="hoe_tool" parent="Player_Arms" index="1" instance=ExtResource("5_868bv")]
 transform = Transform3D(-0.743511, 1.2921, 4.7726, 0.0863023, 4.82891, -1.2939, -4.94366, -0.110029, -0.740371, 3.73938, -2.03311, 0.441652)
+
+[node name="AnimationPlayer" parent="animations" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_n8w0l"),
+"hoe": SubResource("AnimationLibrary_kyf5c")
+}
+
+[node name="RayCast3D" parent="." index="3"]
+target_position = Vector3(0, -10, 0)
