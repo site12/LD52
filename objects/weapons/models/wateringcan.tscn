@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bufbtkug6vi8r"]
+
+[ext_resource type="ArrayMesh" uid="uid://dboxcscqmskav" path="res://objects/weapons/models/wateringcan.obj" id="1_hu1yw"]
+[ext_resource type="Texture2D" uid="uid://yeh6fuvvy5en" path="res://objects/weapons/models/wateringcan.png" id="2_j8h85"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm4o0"]
+albedo_texture = ExtResource("2_j8h85")
+
+[node name="wateringcan" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_hu1yw")
+surface_material_override/0 = SubResource("StandardMaterial3D_pm4o0")

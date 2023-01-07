@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnkgw1blwr67s"]
+[gd_scene load_steps=4 format=3 uid="uid://d2jy3fqwmrgvf"]
 
 [ext_resource type="ArrayMesh" uid="uid://cethlaxu6gwb1" path="res://objects/weapons/models/hoe_tool.obj" id="1_edms2"]
 [ext_resource type="Texture2D" uid="uid://dkaj25lcvdsx4" path="res://objects/weapons/models/Hoe_UV.png" id="2_npit1"]
