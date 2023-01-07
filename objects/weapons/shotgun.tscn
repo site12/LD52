@@ -172,7 +172,7 @@ gun_name = "Shotgun"
 max_ammo_in_reserve = 48
 
 [node name="Player_Arms" parent="." index="1"]
-transform = Transform3D(0.995863, 0.0908585, 0, -0.0908584, 0.995864, 0, 0, 0, 1, -2.11862, 0.297646, 0.85253)
+transform = Transform3D(0.995863, 0.0908585, 0, -0.0908585, 0.995864, 0, 0, 0, 1, -2.11862, 0.297646, 0.85253)
 
 [node name="shotgun" parent="Player_Arms" index="1" instance=ExtResource("2_ge6ul")]
 transform = Transform3D(0.407868, -0.0338878, -0.0323244, 0.0278182, 0.498847, -0.00051287, 0.0294649, -0.00187429, 0.447937, 5.86389, -0.100333, 0.445663)
