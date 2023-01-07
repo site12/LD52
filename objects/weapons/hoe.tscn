@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_js1k8"]
 [ext_resource type="Script" path="res://objects/weapons/scripts/hoe.gd" id="2_3qcdp"]
 [ext_resource type="PackedScene" uid="uid://0lxi44hf6f27" path="res://objects/weapons/sounds/hoe/swing.tscn" id="3_lml4m"]
-[ext_resource type="PackedScene" uid="uid://dnkgw1blwr67s" path="res://objects/weapons/models/hoe_tool.tscn" id="5_868bv"]
+[ext_resource type="PackedScene" path="res://objects/weapons/models/hoe_tool.tscn" id="5_868bv"]
 
 [sub_resource type="Animation" id="Animation_xllps"]
 length = 0.001
@@ -135,18 +135,6 @@ script = ExtResource("2_3qcdp")
 gun_name = "Hoe"
 gunfire = ExtResource("3_lml4m")
 infinite_ammo = true
-
-[node name="cursor" parent="CanvasLayer/HUD" index="0"]
-layout_mode = 1
-
-[node name="inventory" parent="CanvasLayer/HUD" index="1"]
-layout_mode = 1
-
-[node name="Label" parent="CanvasLayer/HUD/inventory" index="0"]
-layout_mode = 1
-
-[node name="Player_Arms" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85253)
 
 [node name="hoe_tool" parent="Player_Arms" index="1" instance=ExtResource("5_868bv")]
 transform = Transform3D(-0.743511, 1.2921, 4.7726, 0.0863023, 4.82891, -1.2939, -4.94366, -0.110029, -0.740371, 3.73938, -2.03311, 0.441652)

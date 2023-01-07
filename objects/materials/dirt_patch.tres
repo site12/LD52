@@ -3,6 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="1_l4nxd"]
 
 [resource]
-albedo_color = Color(0.412319, 0.310575, 0.210259, 1)
 albedo_texture = ExtResource("1_l4nxd")
 texture_filter = 4
