@@ -7,7 +7,7 @@ func _physics_process(delta):
 	handle_animations()
 	walk()
 	ammo_count()
-	print(current_state)
+	#print(current_state)
 
 #uses the player's current state to play animations accordingly
 func handle_animations():
