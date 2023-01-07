@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_js1k8"]
 [ext_resource type="Script" path="res://objects/weapons/scripts/hoe.gd" id="2_3qcdp"]
 [ext_resource type="PackedScene" uid="uid://0lxi44hf6f27" path="res://objects/weapons/sounds/hoe/swing.tscn" id="3_lml4m"]
-[ext_resource type="PackedScene" uid="uid://dnkgw1blwr67s" path="res://objects/weapons/models/hoe_tool.tscn" id="5_868bv"]
+[ext_resource type="PackedScene" path="res://objects/weapons/models/hoe_tool.tscn" id="5_868bv"]
 
 [sub_resource type="Animation" id="Animation_xllps"]
 length = 0.001

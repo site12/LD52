@@ -6,15 +6,20 @@ class_name Player
 #constants for speed and jump stuff
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+enum Weapon {HOE, GUN, WATERING_CAN, SCYTH}
 
 #gets the head pivot and the camera 
 @onready var pivot:Node3D = $pivot
 @onready var camera:Camera3D = $pivot/Camera3D
+@onready var ui_raycast:RayCast3D = $pivot/Camera3D/RayCast3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var attempting_to_interact:bool = true
 var interactable_object = null
+var last_looked_at = null
+var current_weapon = Weapon.HOE
+
 
 #captures the mouse upon spawn
 func _ready():
@@ -39,6 +44,7 @@ func handle_interactions()->void:
 	if Input.is_action_just_pressed("interact"):
 		attempting_to_interact = true
 		attempt_to_interact(interactable_object)
+		print(interactable_object)
 		
 	if Input.is_action_just_released("interact"):
 		attempting_to_interact = false
@@ -55,6 +61,21 @@ func _physics_process(delta) -> void:
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
+	# checking for hover over planting plots
+	if ui_raycast.is_colliding():
+		var target = ui_raycast.get_collider().get_parent()
+		if target.get_class() == "DirtPatch":
+			target.show_ui()
+			interactable_object = target
+			last_looked_at = target
+		elif last_looked_at:
+			last_looked_at.hide_ui()
+			last_looked_at = null	
+	elif last_looked_at:
+		last_looked_at.hide_ui()
+		last_looked_at = null
+
 	
 	
 		
@@ -78,28 +99,30 @@ func get_player_location() -> Vector3:
 #handles attempting to interact with an object
 func attempt_to_interact(object):
 	if object != null:
-		
+		if object.get_class() == "DirtPatch":
+			if current_weapon == Weapon.HOE:
+				object.state_change("hoed")
 		#if object is door
 		if object.is_in_group("doors") and attempting_to_interact:
 			pass
 		
 
-#allows us to attempt to interact when an object enters our interact radius
-func _on_interactable_area_area_entered(area):
-	print(area)
-	#if door
-	if area.get_parent().is_in_group("doors"):
-		interactable_object = area.get_parent()
-		print("interactable is door")
-		area.get_parent().show_ui()
+# #allows us to attempt to interact when an object enters our interact radius
+# func _on_interactable_area_area_entered(area):
+# 	print(area)
+# 	#if door
+# 	if area.get_parent().is_in_group("doors"):
+# 		interactable_object = area.get_parent()
+# 		print("interactable is door")
+# 		area.get_parent().show_ui()
 
-#prevents us from interacting further with the object 
-func _on_interactable_area_area_exited(area):
-	print(area)
-	# if window
+# #prevents us from interacting further with the object 
+# func _on_interactable_area_area_exited(area):
+# 	print(area)
+# 	# if window
 
-	#if door
-	if area.get_parent().is_in_group("doors"):
-		area.get_parent().hide_ui()
-		print("no longer interacting with door")
-	interactable_object = null
+# 	#if door
+# 	if area.get_parent().is_in_group("doors"):
+# 		area.get_parent().hide_ui()
+# 		print("no longer interacting with door")
+# 	interactable_object = null
