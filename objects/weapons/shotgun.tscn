@@ -192,7 +192,3 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_qbhf3")
 parameters/BlendSpace1D/blend_position = 0
-
-[node name="Camera3D" type="Camera3D" parent="." index="4"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
-current = true
