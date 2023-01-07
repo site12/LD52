@@ -1,21 +1,22 @@
 [gd_scene load_steps=19 format=3 uid="uid://c620gwkafg1pd"]
 
 [ext_resource type="Texture2D" uid="uid://bmol31j0lack2" path="res://textures/default_walls.png" id="1_f0vj6"]
-[ext_resource type="Texture2D" uid="uid://1xyj6l1kwohl" path="res://skies/panorama_image.png" id="1_lulns"]
+[ext_resource type="Texture2D" uid="uid://b3apvuy3mvql6" path="res://skies/kloppenheim_red_02_2k.hdr" id="1_h64eu"]
 [ext_resource type="Texture2D" uid="uid://cs8jwv6b4pcjw" path="res://textures/default_ground.png" id="1_mh6kq"]
 [ext_resource type="Texture2D" uid="uid://bsiyv2o7vurkp" path="res://textures/floor1_texture.png" id="4_pef54"]
 [ext_resource type="PackedScene" uid="uid://blhhvycgbhhmj" path="res://objects/interactables/dirt_patch.tscn" id="4_q4qfy"]
 [ext_resource type="PackedScene" uid="uid://dg58bvyt562ba" path="res://entities/players/player.tscn" id="5_iwr2o"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bssrq"]
-panorama = ExtResource("1_lulns")
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w2yb7"]
+panorama = ExtResource("1_h64eu")
 
 [sub_resource type="Sky" id="Sky_8oq2e"]
-sky_material = SubResource("PanoramaSkyMaterial_bssrq")
+sky_material = SubResource("PanoramaSkyMaterial_w2yb7")
 
 [sub_resource type="Environment" id="Environment_vk5er"]
 background_mode = 2
 sky = SubResource("Sky_8oq2e")
+ambient_light_source = 3
 tonemap_mode = 2
 glow_enabled = true
 
@@ -100,6 +101,8 @@ data = PackedVector3Array(-8.8796, 0.9444, -6.037, -8.8796, -4.0556, -6.037, -7.
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0, 0.517647, 0.623529, 1)
+light_energy = 0.677
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
