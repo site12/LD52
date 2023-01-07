@@ -1,6 +1,7 @@
 #the hoe class, extends from gun
 
 extends Gun
+class_name Shotgun
 
 #this handles the animations every frame and handles the player state and updates the ammo count
 func _physics_process(delta):
@@ -14,13 +15,13 @@ func handle_animations():
 	
 	
 	if current_state == player_state[0]:
-		anim_player.play("hoe/idle")
+		anim_player.play("shotgun/idle")
 		pass
 	elif current_state == player_state[1]:
-		anim_player.play("hoe/walk")
+		anim_player.play("shotgun/walk")
 		pass
 	elif current_state == player_state[2]:
-		anim_player.play("hoe/use_hoe")
+		anim_player.play("shotgun/shoot")
 		pass
 	elif current_state == player_state[3]:
 		pass

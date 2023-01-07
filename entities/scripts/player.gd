@@ -4,7 +4,7 @@ extends CharacterBody3D
 class_name Player
 
 #constants for speed and jump stuff
-const SPEED = 5.0
+const SPEED = 7.0
 const JUMP_VELOCITY = 4.5
 enum Weapon {HOE, GUN, WATERING_CAN, SCYTH}
 
@@ -12,6 +12,8 @@ enum Weapon {HOE, GUN, WATERING_CAN, SCYTH}
 @onready var pivot:Node3D = $pivot
 @onready var camera:Camera3D = $pivot/Camera3D
 @onready var ui_raycast:RayCast3D = $pivot/Camera3D/RayCast3D
+@onready var shotgun_node = $pivot/Camera3D/gun_spot/shotgun
+@onready var hoe_node = $pivot/Camera3D/gun_spot/hoe
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -24,6 +26,7 @@ var current_weapon = Weapon.HOE
 #captures the mouse upon spawn
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	update_weapon()
 
 #sets the mouse as visible if esc is pressed and handles rotating the camera
 func _unhandled_input(event:InputEvent) -> void:
@@ -36,17 +39,31 @@ func _unhandled_input(event:InputEvent) -> void:
 			pivot.rotate_y(-event.relative.x * 0.005)
 			camera.rotate_x(-event.relative.y * 0.005)
 			camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-80),deg_to_rad(80))
-	
+
+
+	# Changing weapon
+	if Input.is_action_just_released("next_weapon"):
+		current_weapon += 1
+		if current_weapon > Weapon.size():
+			current_weapon = 0
+		update_weapon()
+
+	if Input.is_action_just_released("last_weapon"):
+		current_weapon -= 1
+		if current_weapon == -1:
+			current_weapon = Weapon.size()
+		update_weapon()
+
 	handle_interactions()
-	
+
 #handles interacting with windows
 func handle_interactions()->void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("attack"):
 		attempting_to_interact = true
 		attempt_to_interact(interactable_object)
 		print(interactable_object)
 		
-	if Input.is_action_just_released("interact"):
+	if Input.is_action_just_released("attack"):
 		attempting_to_interact = false
 		if interactable_object != null:
 			if interactable_object.is_in_group("windows"):
@@ -105,6 +122,20 @@ func attempt_to_interact(object):
 		#if object is door
 		if object.is_in_group("doors") and attempting_to_interact:
 			pass
+		
+func update_weapon():
+	var gun_spot = $pivot/Camera3D/gun_spot
+	for weapon in $pivot/Camera3D/gun_spot.get_children():
+		gun_spot.remove_child(weapon)
+	match current_weapon:
+		Weapon.HOE:
+			gun_spot.add_child(hoe_node)
+			# $pivot/Camera3D/gun_spot/hoe.active = true
+			# $pivot/Camera3D/gun_spot/hoe.pause = false
+		Weapon.GUN:
+			gun_spot.add_child(shotgun_node)
+			# $pivot/Camera3D/gun_spot/shotgun.active = true
+			# $pivot/Camera3D/gun_spot/shotgun.pause = false
 		
 
 # #allows us to attempt to interact when an object enters our interact radius
