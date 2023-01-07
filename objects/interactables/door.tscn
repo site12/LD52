@@ -13,3 +13,9 @@ mesh = SubResource("BoxMesh_reljd")
 
 [node name="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="VBoxContainer" parent="Control" index="0"]
+layout_mode = 3
+
+[node name="Label" parent="Control/VBoxContainer" index="0"]
+layout_mode = 3
