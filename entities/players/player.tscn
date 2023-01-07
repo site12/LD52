@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://q5tn0wj7n516"]
+[gd_scene load_steps=7 format=3 uid="uid://q5tn0wj7n516"]
 
 [ext_resource type="Script" path="res://entities/scripts/main_player.gd" id="1_ji1ny"]
 [ext_resource type="PackedScene" uid="uid://cob3ptky5luxy" path="res://objects/weapons/hoe.tscn" id="2_46ttq"]
+[ext_resource type="PackedScene" uid="uid://co46tlyuaqvmw" path="res://objects/weapons/shotgun.tscn" id="3_n3omw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gkjur"]
 
@@ -35,6 +36,8 @@ current = true
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -2.59798e-08, -0.222863, 0.198117)
 
 [node name="hoe" parent="pivot/Camera3D/gun_spot" instance=ExtResource("2_46ttq")]
+
+[node name="shotgun" parent="pivot/Camera3D/gun_spot" instance=ExtResource("3_n3omw")]
 
 [node name="RayCast3D" type="RayCast3D" parent="pivot/Camera3D"]
 target_position = Vector3(0, 0, -10)

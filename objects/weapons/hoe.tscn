@@ -136,9 +136,6 @@ gun_name = "Hoe"
 gunfire = ExtResource("3_lml4m")
 infinite_ammo = true
 
-[node name="Player_Arms" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85253)
-
 [node name="hoe_tool" parent="Player_Arms" index="1" instance=ExtResource("5_868bv")]
 transform = Transform3D(-0.743511, 1.2921, 4.7726, 0.0863023, 4.82891, -1.2939, -4.94366, -0.110029, -0.740371, 3.73938, -2.03311, 0.441652)
 
