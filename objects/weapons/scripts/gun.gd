@@ -58,15 +58,6 @@ func walk():
 	var player_speed = player.velocity.normalized().length()
 	$animations/AnimationTree.set("parameters/BlendSpace1D/blend_position", player_speed)
 
-	# if player.velocity != Vector3.ZERO:
-	# 	walking = true
-	# 	if current_state == player_state[0]:
-	# 		current_state = player_state[1]
-	# else:
-	# 	if current_state == player_state[1]:
-	# 		current_state = player_state[0]
-	# 	walking = false
-
 #functionality needed
 func sprint():
 	pass
@@ -75,6 +66,7 @@ func sprint():
 func crouch():
 	pass
 
+#this function is called in the child class to transition to the shoot animation
 func fire_anim():
 	pass
 
@@ -97,16 +89,7 @@ func fire_weapon():
 		else:
 			var s = dryfire.instantiate()
 			add_child(s)
-			
-	if Input.is_action_just_released("attack") and not current_state == player_state[4]:
-		#player is finished shooting, return to idle
-		if not aiming:
-			if not walking:
-				current_state = player_state[0]
-			else:
-				current_state = player_state[1]
-		else:
-			current_state = player_state[3]
+
 
 #handles reloading the weapon
 func reload_weapon():
