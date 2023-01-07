@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://0lxi44hf6f27"]
 
 [ext_resource type="AudioStream" uid="uid://d22k4klo5gal0" path="res://objects/weapons/sounds/hoe/swing.wav" id="1_qj1ku"]
-[ext_resource type="Script" path="res://objects/weapons/sounds/hoe/swing.gd" id="2_p3rc4"]
+[ext_resource type="Script" path="res://objects/weapons/sounds/audio_timeout.gd" id="2_8gbya"]
 
 [node name="swing_sound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_qj1ku")
 volume_db = -35.0
 pitch_scale = 0.79
 autoplay = true
-script = ExtResource("2_p3rc4")
+script = ExtResource("2_8gbya")

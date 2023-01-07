@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cawrf8hui6k1k"]
+
+[ext_resource type="AudioStream" uid="uid://dhcxosyrl3nb3" path="res://objects/weapons/sounds/watering can/watering.wav" id="1_mla76"]
+[ext_resource type="Script" path="res://objects/weapons/sounds/audio_timeout.gd" id="2_hlt3c"]
+
+[node name="watering_sound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_mla76")
+pitch_scale = 0.9
+autoplay = true
+script = ExtResource("2_hlt3c")
