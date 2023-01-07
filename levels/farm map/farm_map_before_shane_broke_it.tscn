@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://5ds68b614qxv"]
+[gd_scene load_steps=34 format=3 uid="uid://c38o21jf873l4"]
 
 [ext_resource type="Texture2D" uid="uid://bmol31j0lack2" path="res://textures/default_walls.png" id="1_fgwk5"]
 [ext_resource type="Texture2D" uid="uid://b8e4qo6554l60" path="res://textures/Grass_12-256x256.png" id="2_d3cw5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bsiyv2o7vurkp" path="res://textures/floor1_texture.png" id="5_s0o1g"]
 [ext_resource type="PackedScene" uid="uid://dg58bvyt562ba" path="res://entities/players/player.tscn" id="6_d51ni"]
 [ext_resource type="Texture2D" uid="uid://b3apvuy3mvql6" path="res://skies/kloppenheim_red_02_2k.hdr" id="7_mg64u"]
+[ext_resource type="PackedScene" uid="uid://djrbnxot5vwm8" path="res://objects/crops/carrot_man_with_idle.tscn" id="8_mr7yt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7nv2l"]
 albedo_texture = ExtResource("1_fgwk5")
@@ -252,3 +253,6 @@ shadow_enabled = true
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 58.6344, 0)
 mesh = SubResource("PlaneMesh_115hn")
 surface_material_override/0 = SubResource("StandardMaterial3D_1fsqr")
+
+[node name="carrot" parent="." instance=ExtResource("8_mr7yt")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.2813, 2.80738e-05, 25.7655)

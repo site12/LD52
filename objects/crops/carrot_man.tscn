@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://l3b4bjt3f05u"]
+
+[ext_resource type="ArrayMesh" uid="uid://dpnxfhq01bv4d" path="res://objects/crops/CarrotMan.obj" id="1_iw1y1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mbu3"]
+albedo_color = Color(0.439216, 0.176471, 0.0117647, 1)
+
+[node name="carrot_man" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.013, 0, 0, 0, 0.013, 0, 0, 0, 0.013, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_1mbu3")
+mesh = ExtResource("1_iw1y1")
