@@ -1,9 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cob3ptky5luxy"]
+[gd_scene load_steps=20 format=3 uid="uid://x6nshcbbsnyj"]
 
-[ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_js1k8"]
-[ext_resource type="Script" path="res://objects/weapons/scripts/hoe.gd" id="2_3qcdp"]
-[ext_resource type="PackedScene" uid="uid://0lxi44hf6f27" path="res://objects/weapons/sounds/hoe/swing.tscn" id="3_lml4m"]
-[ext_resource type="PackedScene" uid="uid://d2jy3fqwmrgvf" path="res://objects/weapons/models/hoe_tool.tscn" id="5_868bv"]
+[ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_a8xlt"]
+[ext_resource type="Script" path="res://objects/weapons/scripts/hoe.gd" id="2_4ddi7"]
+[ext_resource type="PackedScene" uid="uid://0lxi44hf6f27" path="res://objects/weapons/sounds/hoe/swing.tscn" id="3_oiikt"]
+[ext_resource type="PackedScene" uid="uid://bufbtkug6vi8r" path="res://objects/weapons/models/wateringcan.tscn" id="4_d8qwp"]
 
 [sub_resource type="Animation" id="Animation_xllps"]
 length = 0.001
@@ -165,14 +165,14 @@ graph_offset = Vector2(-80, 49)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_qyfut"]
 
-[node name="hoe" instance=ExtResource("1_js1k8")]
-script = ExtResource("2_3qcdp")
-gun_name = "Hoe"
-gunfire = ExtResource("3_lml4m")
+[node name="watering_can" instance=ExtResource("1_a8xlt")]
+script = ExtResource("2_4ddi7")
+gun_name = "Watering Can"
+gunfire = ExtResource("3_oiikt")
 infinite_ammo = true
 
-[node name="hoe_tool" parent="Player_Arms" index="1" instance=ExtResource("5_868bv")]
-transform = Transform3D(-0.743511, 1.2921, 4.7726, 0.0863023, 4.82891, -1.2939, -4.94366, -0.110029, -0.740371, 3.73938, -2.03311, 0.441652)
+[node name="wateringcan" parent="Player_Arms" index="1" instance=ExtResource("4_d8qwp")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 5.40775, -0.600914, 0.329098)
 
 [node name="AnimationPlayer" parent="animations" index="0"]
 libraries = {

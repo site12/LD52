@@ -14,6 +14,7 @@ enum Weapon {HOE, GUN, WATERING_CAN, SCYTH}
 @onready var ui_raycast:RayCast3D = $pivot/Camera3D/RayCast3D
 @onready var shotgun_node = $pivot/Camera3D/gun_spot/shotgun
 @onready var hoe_node = $pivot/Camera3D/gun_spot/hoe
+@onready var watering_can_node = $pivot/Camera3D/gun_spot/watering_can
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -136,6 +137,9 @@ func update_weapon():
 			gun_spot.add_child(shotgun_node)
 			# $pivot/Camera3D/gun_spot/shotgun.active = true
 			# $pivot/Camera3D/gun_spot/shotgun.pause = false
+
+		Weapon.WATERING_CAN:
+			gun_spot.add_child(watering_can_node)
 		
 
 # #allows us to attempt to interact when an object enters our interact radius

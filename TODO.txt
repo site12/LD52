@@ -1,0 +1,3 @@
+Bugs to fix:
+*Shotgun sometimes fires twice on first shot
+*Plot labels stay if you hover from one to another plot
