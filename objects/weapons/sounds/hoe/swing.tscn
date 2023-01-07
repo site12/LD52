@@ -5,6 +5,7 @@
 
 [node name="swing_sound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_qj1ku")
-pitch_scale = 0.81
+volume_db = -35.0
+pitch_scale = 0.79
 autoplay = true
 script = ExtResource("2_jbu48")
