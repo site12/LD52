@@ -136,6 +136,15 @@ gun_name = "Hoe"
 gunfire = ExtResource("3_lml4m")
 infinite_ammo = true
 
+[node name="cursor" parent="CanvasLayer/HUD" index="0"]
+layout_mode = 1
+
+[node name="inventory" parent="CanvasLayer/HUD" index="1"]
+layout_mode = 1
+
+[node name="Label" parent="CanvasLayer/HUD/inventory" index="0"]
+layout_mode = 1
+
 [node name="Player_Arms" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85253)
 
