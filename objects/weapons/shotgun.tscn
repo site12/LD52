@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://co46tlyuaqvmw"]
+
+[ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_pf477"]
+[ext_resource type="PackedScene" uid="uid://dhc2d2llnetl8" path="res://objects/weapons/models/shotgun.tscn" id="2_ge6ul"]
+[ext_resource type="PackedScene" uid="uid://bgg1l3g7xuqj3" path="res://objects/weapons/models/player_arms.tscn" id="3_a272g"]
+
+[node name="shotgun" instance=ExtResource("1_pf477")]
+gun_name = "Shotgun"
+max_ammo_in_reserve = 48
+
+[node name="cursor" parent="CanvasLayer/HUD" index="0"]
+layout_mode = 1
+
+[node name="inventory" parent="CanvasLayer/HUD" index="1"]
+layout_mode = 1
+
+[node name="Label" parent="CanvasLayer/HUD/inventory" index="0"]
+layout_mode = 1
+
+[node name="shotgun" parent="Player_Arms" index="1" instance=ExtResource("2_ge6ul")]
+transform = Transform3D(0.481026, -0.136434, 0, 0.136434, 0.481026, 0, 0, 0, 0.5, 5.67633, 0.266435, 0.159054)
+
+[node name="Player_Arms" parent="Player_Arms" index="2" instance=ExtResource("3_a272g")]
+transform = Transform3D(0.829149, 0.0429033, 0.557382, 0.278892, 0.832368, -0.478942, 0.484494, -0.552563, -0.678189, 2.01653, -0.666883, -1.93736)
