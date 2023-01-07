@@ -1,24 +1,121 @@
-[gd_scene load_steps=4 format=3 uid="uid://co46tlyuaqvmw"]
+[gd_scene load_steps=9 format=3 uid="uid://co46tlyuaqvmw"]
 
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_pf477"]
+[ext_resource type="Script" path="res://objects/weapons/scripts/shotgun.gd" id="2_de8do"]
 [ext_resource type="PackedScene" uid="uid://dhc2d2llnetl8" path="res://objects/weapons/models/shotgun.tscn" id="2_ge6ul"]
-[ext_resource type="PackedScene" uid="uid://bgg1l3g7xuqj3" path="res://objects/weapons/models/player_arms.tscn" id="3_a272g"]
+
+[sub_resource type="Animation" id="Animation_4fuj1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Arms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.11862, 0.297646, 0.85253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Arms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.090984)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2vdlk"]
+_data = {
+"RESET": SubResource("Animation_4fuj1")
+}
+
+[sub_resource type="Animation" id="Animation_c1gyo"]
+resource_name = "idle"
+length = 2.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Arms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.16958, 0.297646, 0.746006), Vector3(-2.16958, 0.24439, 0.746006), Vector3(-2.16958, 0.297646, 0.746006)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Arms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.00566949, 0.0886042, -0.0272516), Vector3(-0.00566949, 0.0886042, -0.0272516)]
+}
+
+[sub_resource type="Animation" id="Animation_ak27o"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Arms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.16958, 0.297646, 0.746006), Vector3(-2.16958, 0.209484, 0.686447), Vector3(-2.16958, 0.297646, 0.746006), Vector3(-2.17, 0.209, 0.8), Vector3(-2.16958, 0.297646, 0.746006)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Arms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.00566949, 0.0886042, -0.0272516), Vector3(-0.00566949, 0.0886042, -0.0272516), Vector3(-0.00566949, 0.0886042, -0.0272516), Vector3(-0.00566949, 0.0886042, -0.0272516), Vector3(-0.00566949, 0.0886042, -0.0272516)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sx4ko"]
+_data = {
+"idle": SubResource("Animation_c1gyo"),
+"walk": SubResource("Animation_ak27o")
+}
 
 [node name="shotgun" instance=ExtResource("1_pf477")]
+script = ExtResource("2_de8do")
 gun_name = "Shotgun"
 max_ammo_in_reserve = 48
 
-[node name="cursor" parent="CanvasLayer/HUD" index="0"]
-layout_mode = 1
-
-[node name="inventory" parent="CanvasLayer/HUD" index="1"]
-layout_mode = 1
-
-[node name="Label" parent="CanvasLayer/HUD/inventory" index="0"]
-layout_mode = 1
+[node name="Player_Arms" parent="." index="1"]
+transform = Transform3D(0.995864, 0.0908585, 0, -0.0908585, 0.995864, 0, 0, 0, 1, -2.11862, 0.297646, 0.85253)
 
 [node name="shotgun" parent="Player_Arms" index="1" instance=ExtResource("2_ge6ul")]
-transform = Transform3D(0.481026, -0.136434, 0, 0.136434, 0.481026, 0, 0, 0, 0.5, 5.67633, 0.266435, 0.159054)
+transform = Transform3D(0.407868, -0.0338878, -0.0323244, 0.0278182, 0.498847, -0.00051287, 0.0294649, -0.00187429, 0.447937, 5.86389, -0.100333, 0.445663)
 
-[node name="Player_Arms" parent="Player_Arms" index="2" instance=ExtResource("3_a272g")]
-transform = Transform3D(0.829149, 0.0429033, 0.557382, 0.278892, 0.832368, -0.478942, 0.484494, -0.552563, -0.678189, 2.01653, -0.666883, -1.93736)
+[node name="AnimationPlayer" parent="animations" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_2vdlk"),
+"shotgun": SubResource("AnimationLibrary_sx4ko")
+}
+
+[node name="Camera3D" type="Camera3D" parent="." index="4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
