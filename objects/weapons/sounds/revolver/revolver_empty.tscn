@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjwr2u2vhwyyk"]
 
-[ext_resource type="AudioStream" uid="uid://djs6e8x4x5cth" path="res://addons/game-pack-codz/objects/weapons/sounds/revolver/trigger_pull.wav" id="1_ys5eo"]
-[ext_resource type="Script" path="res://addons/game-pack-codz/objects/weapons/sounds/revolver/revolver_dry.gd" id="2_7oae5"]
+[ext_resource type="Script" path="res://objects/weapons/sounds/revolver/revolver_dry.gd" id="1_ia6vv"]
+[ext_resource type="AudioStream" uid="uid://djs6e8x4x5cth" path="res://objects/weapons/sounds/revolver/trigger_pull.wav" id="1_qtg50"]
 
 [node name="revolver_sound" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_ys5eo")
+stream = ExtResource("1_qtg50")
 volume_db = -15.0
 pitch_scale = 0.68
 autoplay = true
-script = ExtResource("2_7oae5")
+script = ExtResource("1_ia6vv")
