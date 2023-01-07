@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4rs4xcxt8pv2"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgt8sms7rbhmt" path="res://objects/weapons/models/carrot_stage1.obj" id="1_el36v"]
+[ext_resource type="Texture2D" uid="uid://bsnff3hmhluri" path="res://objects/weapons/models/carrot_stage1.png" id="2_jnueq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2l8fy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_jnueq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32xi4"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_jnueq")
+
+[node name="carrot_growth_1" type="Node3D"]
+
+[node name="CarrotStage1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_el36v")
+surface_material_override/0 = SubResource("StandardMaterial3D_2l8fy")
+surface_material_override/1 = SubResource("StandardMaterial3D_32xi4")

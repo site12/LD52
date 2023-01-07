@@ -6,7 +6,7 @@ class_name Player
 #constants for speed and jump stuff
 const SPEED = 7.0
 const JUMP_VELOCITY = 4.5
-enum Weapon {HOE, GUN, WATERING_CAN, SCYTH}
+enum Weapon {HOE, GUN, WATERING_CAN, SEEDBAG}
 
 #gets the head pivot and the camera 
 @onready var pivot:Node3D = $pivot
@@ -15,6 +15,7 @@ enum Weapon {HOE, GUN, WATERING_CAN, SCYTH}
 @onready var shotgun_node = $pivot/Camera3D/gun_spot/shotgun
 @onready var hoe_node = $pivot/Camera3D/gun_spot/hoe
 @onready var watering_can_node = $pivot/Camera3D/gun_spot/watering_can
+@onready var seedbag_node = $pivot/Camera3D/gun_spot/seedbag
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -45,14 +46,14 @@ func _unhandled_input(event:InputEvent) -> void:
 	# Changing weapon
 	if Input.is_action_just_released("next_weapon"):
 		current_weapon += 1
-		if current_weapon > Weapon.size():
+		if current_weapon >= Weapon.size():
 			current_weapon = 0
 		update_weapon()
 
 	if Input.is_action_just_released("last_weapon"):
 		current_weapon -= 1
 		if current_weapon == -1:
-			current_weapon = Weapon.size()
+			current_weapon = Weapon.size()-1
 		update_weapon()
 
 	handle_interactions()
@@ -118,8 +119,14 @@ func get_player_location() -> Vector3:
 func attempt_to_interact(object):
 	if object != null:
 		if object.get_class() == "DirtPatch":
-			if current_weapon == Weapon.HOE:
-				object.state_change("hoed")
+			match current_weapon:
+				Weapon.HOE:
+					object.hoe()
+				Weapon.WATERING_CAN:
+					object.water()
+				Weapon.SEEDBAG:
+					object.plant(Global.selected_seed)
+					
 		#if object is door
 		if object.is_in_group("doors") and attempting_to_interact:
 			pass
@@ -131,15 +138,12 @@ func update_weapon():
 	match current_weapon:
 		Weapon.HOE:
 			gun_spot.add_child(hoe_node)
-			# $pivot/Camera3D/gun_spot/hoe.active = true
-			# $pivot/Camera3D/gun_spot/hoe.pause = false
 		Weapon.GUN:
 			gun_spot.add_child(shotgun_node)
-			# $pivot/Camera3D/gun_spot/shotgun.active = true
-			# $pivot/Camera3D/gun_spot/shotgun.pause = false
-
 		Weapon.WATERING_CAN:
 			gun_spot.add_child(watering_can_node)
+		Weapon.SEEDBAG:
+			gun_spot.add_child(seedbag_node)
 		
 
 # #allows us to attempt to interact when an object enters our interact radius

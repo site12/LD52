@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bgt8sms7rbhmt"
+path="res://.godot/imported/carrot_stage1.obj-5a50f5fdadd830f238fb03171111ad75.mesh"
+
+[deps]
+
+files=["res://.godot/imported/carrot_stage1.obj-5a50f5fdadd830f238fb03171111ad75.mesh"]
+
+source_file="res://objects/weapons/models/carrot_stage1.obj"
+dest_files=["res://.godot/imported/carrot_stage1.obj-5a50f5fdadd830f238fb03171111ad75.mesh", "res://.godot/imported/carrot_stage1.obj-5a50f5fdadd830f238fb03171111ad75.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
