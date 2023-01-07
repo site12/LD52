@@ -55,14 +55,19 @@ func _unhandled_input(event:InputEvent) -> void:
 #if the player is walking and they aren't shooting or aiming or reloading, set the state to walking.
 #if the player isn't doing any of those things then their state is idle
 func walk():
-	if player.velocity != Vector3.ZERO:
-		walking = true
-		if current_state == player_state[0]:
-			current_state = player_state[1]
-	else:
-		if current_state == player_state[1]:
-			current_state = player_state[0]
-		walking = false
+	if name == "shotgun":
+		var player_speed = player.velocity.normalized().length()
+		# print($animations/AnimationTree)
+		$animations/AnimationTree.set("parameters/BlendSpace1D/blend_position", player_speed)
+
+	# if player.velocity != Vector3.ZERO:
+	# 	walking = true
+	# 	if current_state == player_state[0]:
+	# 		current_state = player_state[1]
+	# else:
+	# 	if current_state == player_state[1]:
+	# 		current_state = player_state[0]
+	# 	walking = false
 
 #functionality needed
 func sprint():
@@ -79,7 +84,8 @@ func fire_weapon():
 			if infinite_ammo != true:
 				ammo_in_clip -= 1
 			#player is shooting
-			current_state = player_state[2]
+			# current_state = player_state[2]
+			$animations/AnimationTree["parameters/playback"].travel("shotgunshoot")
 			
 			var s = gunfire.instantiate()
 			add_child(s)
