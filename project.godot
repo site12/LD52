@@ -15,6 +15,11 @@ _global_script_classes=[{
 "path": "res://objects/scripts/window.gd"
 }, {
 "base": "Node3D",
+"class": &"Buyable",
+"language": &"GDScript",
+"path": "res://objects/scripts/buyable.gd"
+}, {
+"base": "Node3D",
 "class": &"Door",
 "language": &"GDScript",
 "path": "res://objects/scripts/door.gd"
@@ -56,6 +61,7 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "Barrier": "",
+"Buyable": "",
 "Door": "",
 "Enemy": "",
 "EnemySpawner": "",
