@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0sdprc17nmw"]
 
-[ext_resource type="Script" path="res://main_menu/intro.gd" id="1_tnjas"]
-[ext_resource type="VideoStream" path="res://main_menu/resources/site12intro.ogv" id="4_hvose"]
+[ext_resource type="Script" path="res://main_menu/intro.gd" id="1_2sbun"]
+[ext_resource type="VideoStream" path="res://main_menu/resources/site12intro.ogv" id="2_myrnt"]
 
 [node name="intro" type="Node"]
-script = ExtResource("1_tnjas")
+script = ExtResource("1_2sbun")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -36,7 +36,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
 mouse_force_pass_scroll_events = false
-stream = ExtResource("4_hvose")
+stream = ExtResource("2_myrnt")
 autoplay = true
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
