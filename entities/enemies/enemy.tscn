@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/scripts/enemy.gd" id="1_vheyf"]
 [ext_resource type="PackedScene" uid="uid://lidleuyxti7j" path="res://objects/crops/Carrot/carrot_growth_3.tscn" id="2_746hg"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38b37"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y3x02"]
 radius = 0.4
 
 [node name="enemy" type="CharacterBody3D"]
@@ -34,7 +34,7 @@ max_neighbors = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_38b37")
+shape = SubResource("CapsuleShape3D_y3x02")
 
 [node name="timers" type="Node" parent="."]
 

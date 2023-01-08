@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://s0h2rpij85vq"]
+
+[ext_resource type="PackedScene" uid="uid://dyrexdvqicmta" path="res://objects/interactables/buyable.tscn" id="1_8bgt5"]
+[ext_resource type="Script" path="res://objects/interactables/seed_bag_buyable.gd" id="2_tjukt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_uurvd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_42a34"]
+
+[node name="buyable" instance=ExtResource("1_8bgt5")]
+script = ExtResource("2_tjukt")
+price = null
+seed_type = null
+
+[node name="MeshInstance3D" parent="." index="0"]
+mesh = SubResource("SphereMesh_uurvd")
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("SphereShape3D_42a34")
+
+[node name="VBoxContainer" parent="Control" index="0"]
+layout_mode = 3
+
+[node name="Label" parent="Control/VBoxContainer" index="0"]
+layout_mode = 3

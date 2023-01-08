@@ -7,10 +7,13 @@ class_name Buyable
 func _ready():
 	$Control/VBoxContainer/Label.text = "Press F to Purchase [cost: " + str(price)+"]"
 
-func purchase():
+func purchase(player):
 	if Global.spend_money(price):
-		purchase_successful()
+		purchase_successful(player)
 
-func purchase_successful():
+func purchase_successful(player):
 	pass
+
+func get_class():
+	return("Buyable")
 

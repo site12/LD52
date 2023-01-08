@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c620gwkafg1pd"]
+[gd_scene load_steps=48 format=3 uid="uid://c620gwkafg1pd"]
 
 [ext_resource type="Texture2D" uid="uid://bmol31j0lack2" path="res://textures/default_walls.png" id="1_f0vj6"]
 [ext_resource type="Texture2D" uid="uid://b3apvuy3mvql6" path="res://skies/kloppenheim_red_02_2k.hdr" id="1_h64eu"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bj1qu4s45nr88" path="res://textures/Roofs_01-256x256.png" id="6_wp6h1"]
 [ext_resource type="Texture2D" uid="uid://c05ny5scq2ewr" path="res://textures/Corn_field.png" id="7_exgoj"]
 [ext_resource type="Script" path="res://disable_filter.gd" id="9_foqvn"]
+[ext_resource type="PackedScene" uid="uid://s0h2rpij85vq" path="res://objects/interactables/seed_bag.tscn" id="12_cdnw0"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w2yb7"]
 panorama = ExtResource("1_h64eu")
@@ -152,6 +153,7 @@ data = PackedVector3Array(-1.25, 0.5625, -0.375, -1.25, 0.4375, -0.375, 1.25, 0.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_meu0h"]
 transparency = 1
 albedo_texture = ExtResource("7_exgoj")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_unik4"]
 _surfaces = [{
@@ -400,3 +402,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.764, -0.3, 1.708)
 
 [node name="player" parent="." instance=ExtResource("5_iwr2o")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5.46831, 2.98023e-05, 5.39511)
+
+[node name="buyable" parent="." instance=ExtResource("12_cdnw0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5194, 1.375, 2.93607)
+
+[node name="buyable2" parent="." instance=ExtResource("12_cdnw0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.23346, 1.375, 2.9745)

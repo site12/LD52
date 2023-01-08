@@ -24,6 +24,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://entities/scripts/carrot_enemy.gd"
 }, {
+"base": "Enemy",
+"class": &"CornEnemy",
+"language": &"GDScript",
+"path": "res://entities/scripts/corn_enemy.gd"
+}, {
+"base": "Node3D",
+"class": &"DirtPatch",
+"language": &"GDScript",
+"path": "res://objects/scripts/dirt_patch.gd"
+}, {
 "base": "Node3D",
 "class": &"Door",
 "language": &"GDScript",
@@ -68,6 +78,7 @@ _global_script_class_icons={
 "Barrier": "",
 "Buyable": "",
 "CarrotEnemy": "",
+"CornEnemy": "",
 "Door": "",
 "Enemy": "",
 "EnemySpawner": "",
@@ -81,7 +92,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD52"
-run/main_scene="res://main_menu/intro.tscn"
+run/main_scene="res://main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/fullsize=false
@@ -156,13 +167,33 @@ last_weapon={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":5,"pressed":false,"double_click":false,"script":null)
 ]
 }
-next_seed={
+wep_1={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"unicode":0,"echo":false,"script":null)
 ]
 }
-last_seed={
+wep_2={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"unicode":0,"echo":false,"script":null)
+]
+}
+wep_3={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":51,"unicode":0,"echo":false,"script":null)
+]
+}
+wep_4={
+"deadzone": 0.5,
+"events": [null, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":52,"unicode":0,"echo":false,"script":null)
+]
+}
+wep_5={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":53,"unicode":0,"echo":false,"script":null)
+]
+}
+swap_seed={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"unicode":0,"echo":false,"script":null)
 ]
 }
