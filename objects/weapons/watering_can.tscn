@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://x6nshcbbsnyj"]
+[gd_scene load_steps=21 format=3 uid="uid://x6nshcbbsnyj"]
 
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_a8xlt"]
-[ext_resource type="Script" path="res://objects/weapons/scripts/hoe.gd" id="2_4ddi7"]
-[ext_resource type="PackedScene" uid="uid://0lxi44hf6f27" path="res://objects/weapons/sounds/hoe/swing.tscn" id="3_oiikt"]
+[ext_resource type="Script" path="res://objects/weapons/scripts/watering_can.gd" id="2_nqgx3"]
+[ext_resource type="PackedScene" uid="uid://cawrf8hui6k1k" path="res://objects/weapons/sounds/watering can/watering.tscn" id="3_1hjhb"]
 [ext_resource type="PackedScene" uid="uid://bufbtkug6vi8r" path="res://objects/weapons/models/wateringcan.tscn" id="4_d8qwp"]
+[ext_resource type="PackedScene" uid="uid://cuwya3pbo3awx" path="res://objects/weapons/sounds/watering can/watering_can_empty.tscn" id="4_iqp2d"]
 
 [sub_resource type="Animation" id="Animation_xllps"]
 length = 0.001
@@ -166,10 +167,20 @@ graph_offset = Vector2(-80, 49)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_qyfut"]
 
 [node name="watering_can" instance=ExtResource("1_a8xlt")]
-script = ExtResource("2_4ddi7")
-gun_name = "Watering Can"
-gunfire = ExtResource("3_oiikt")
-infinite_ammo = true
+script = ExtResource("2_nqgx3")
+gun_name = "Water"
+gunfire = ExtResource("3_1hjhb")
+dryfire = ExtResource("4_iqp2d")
+max_ammo_in_reserve = 94
+
+[node name="cursor" parent="CanvasLayer/HUD" index="0"]
+layout_mode = 1
+
+[node name="inventory" parent="CanvasLayer/HUD" index="1"]
+layout_mode = 1
+
+[node name="Label" parent="CanvasLayer/HUD/inventory" index="0"]
+layout_mode = 1
 
 [node name="wateringcan" parent="Player_Arms" index="1" instance=ExtResource("4_d8qwp")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 5.40775, -0.600914, 0.329098)

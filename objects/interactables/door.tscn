@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca547hl6h3t4v"]
+
+[ext_resource type="PackedScene" uid="uid://dyrexdvqicmta" path="res://objects/interactables/buyable.tscn" id="1_atpt7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_reljd"]
+size = Vector3(2, 2, 2)
+
+[node name="door" instance=ExtResource("1_atpt7")]
+
+[node name="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_reljd")
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="VBoxContainer" parent="Control" index="0"]
+layout_mode = 3
+
+[node name="Label" parent="Control/VBoxContainer" index="0"]
+layout_mode = 3

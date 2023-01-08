@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhcxosyrl3nb3"
+path="res://.godot/imported/watering.wav-692a4f51a1a0a9f46541416e112e25aa.sample"
+
+[deps]
+
+source_file="res://objects/weapons/sounds/watering can/watering.wav"
+dest_files=["res://.godot/imported/watering.wav-692a4f51a1a0a9f46541416e112e25aa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
