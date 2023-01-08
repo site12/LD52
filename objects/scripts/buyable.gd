@@ -17,3 +17,9 @@ func purchase_successful(player):
 func get_class():
 	return("Buyable")
 
+func show_ui():
+	pass
+
+func hide_ui():
+	pass
+

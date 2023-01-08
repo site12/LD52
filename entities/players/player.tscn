@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/scripts/main_player.gd" id="1_ga1bi"]
 [ext_resource type="PackedScene" uid="uid://co46tlyuaqvmw" path="res://objects/weapons/shotgun.tscn" id="2_dayko"]
 [ext_resource type="PackedScene" uid="uid://cob3ptky5luxy" path="res://objects/weapons/hoe.tscn" id="3_axfg1"]
-[ext_resource type="PackedScene" uid="uid://x6nshcbbsnyj" path="res://objects/weapons/watering_can.tscn" id="4_e6awh"]
+[ext_resource type="PackedScene" uid="uid://48rvnojl1g6x" path="res://objects/weapons/watering_can.tscn" id="4_e6awh"]
 [ext_resource type="PackedScene" uid="uid://85f5gd4mxvty" path="res://objects/weapons/seed_bag.tscn" id="5_hyo7h"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gkjur"]
@@ -54,6 +54,37 @@ collision_mask = 256
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interactable_area"]
 transform = Transform3D(-1, 0, 1.64389e-06, 0, 1, 0, -8.02679e-07, 0, -2.04801, 4.76758e-08, 0.5, -0.363566)
 shape = SubResource("BoxShape3D_61cgj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="inventory" type="ColorRect" parent="Control"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 473.0
+offset_top = 351.0
+offset_right = 601.0
+offset_bottom = 374.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.313726)
+
+[node name="Label" type="Label" parent="Control/inventory"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "$"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="interactable_area" to="." method="_on_interactable_area_area_entered"]
 [connection signal="area_exited" from="interactable_area" to="." method="_on_interactable_area_area_exited"]

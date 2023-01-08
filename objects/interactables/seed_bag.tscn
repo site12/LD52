@@ -9,7 +9,6 @@
 
 [node name="buyable" instance=ExtResource("1_8bgt5")]
 script = ExtResource("2_tjukt")
-price = null
 seed_type = null
 
 [node name="MeshInstance3D" parent="." index="0"]
@@ -17,9 +16,3 @@ mesh = SubResource("SphereMesh_uurvd")
 
 [node name="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("SphereShape3D_42a34")
-
-[node name="VBoxContainer" parent="Control" index="0"]
-layout_mode = 3
-
-[node name="Label" parent="Control/VBoxContainer" index="0"]
-layout_mode = 3

@@ -68,6 +68,8 @@ func plant(seedtype:Global.SeedType):
 		g3_timer.timeout.connect(growth_stage_3)
 		var done_timer = get_tree().create_timer(t[3])
 		done_timer.timeout.connect(plant_done)
+		return true
+	else: return false
 
 func growth_stage_1():
 	$seed_mound.visible = false

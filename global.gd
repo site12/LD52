@@ -3,8 +3,9 @@ extends Node
 enum SeedType {CARROT, POTATO, CORN}
 
 var selected_seed:SeedType = SeedType.CARROT
-var money:int = 0
+var money:int = 1000
 signal seed_swapped
+signal update_money
 
 func get_seed_type():
 	match selected_seed:
@@ -21,12 +22,17 @@ func swap_seed():
 	print(selected_seed)
 	seed_swapped.emit()
 
+func update_seed_ui():
+	seed_swapped.emit()
+
 
 func spend_money(price) -> bool:
-	if money > price:
+	if money >= price:
 		money -= price
+		update_money.emit()
 		return true
 	return false
 
 func give_money(amt):
 	money += amt
+	update_money.emit()

@@ -35,6 +35,8 @@ var current_weapon = Weapon.HOE
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$pivot/Camera3D/gun_spot/seedbag.seed_swapped()
+	Global.update_money.connect(update_money)
+	update_money()
 	update_weapon()
 	
 
@@ -65,8 +67,13 @@ func _unhandled_input(event:InputEvent) -> void:
 		update_weapon()
 
 	if Input.is_action_just_pressed("swap_seed"):
-		print("help!")
 		Global.swap_seed()
+
+	if Input.is_action_just_pressed("interact"):
+		if ui_raycast.is_colliding():
+			var target = ui_raycast.get_collider().get_parent()
+			if target.get_class() == "Buyable":
+				target.purchase(self)
 		
 
 	handle_interactions()
@@ -93,15 +100,21 @@ func _physics_process(delta) -> void:
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
 	# checking for hover over planting plots
 	if ui_raycast.is_colliding():
 		var target = ui_raycast.get_collider().get_parent()
+		if last_looked_at and target != last_looked_at:
+			last_looked_at.hide_ui()
+			last_looked_at = null	
 		if target.get_class() == "DirtPatch":
 			target.show_ui()
 			interactable_object = target
 			last_looked_at = target
-		
+		elif target.get_class() == "Buyable":
+			target.show_ui()
+			interactable_object = target
+			last_looked_at = target
 		elif last_looked_at:
 			last_looked_at.hide_ui()
 			last_looked_at = null	
@@ -139,7 +152,10 @@ func attempt_to_interact(object):
 				Weapon.WATERING_CAN:
 					object.water()
 				Weapon.SEEDBAG:
-					object.plant(Global.selected_seed)
+					if seeds[Global.selected_seed] > 0:
+						if object.plant(Global.selected_seed):
+							seeds[Global.selected_seed] -= 1
+							Global.update_seed_ui()
 					
 		#if object is door
 		if object.is_in_group("doors") and attempting_to_interact:
@@ -161,6 +177,9 @@ func update_weapon():
 		
 func add_seeds(seedtype:Global.SeedType):
 	seeds[seedtype] +=1
+
+func update_money():
+	$Control/inventory/Label.text = "$"+str(Global.money)
 
 # #allows us to attempt to interact when an object enters our interact radius
 # func _on_interactable_area_area_entered(area):

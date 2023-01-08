@@ -79,6 +79,7 @@ _global_script_class_icons={
 "Buyable": "",
 "CarrotEnemy": "",
 "CornEnemy": "",
+"DirtPatch": "",
 "Door": "",
 "Enemy": "",
 "EnemySpawner": "",

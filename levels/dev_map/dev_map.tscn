@@ -405,6 +405,8 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5.46831,
 
 [node name="buyable" parent="." instance=ExtResource("12_cdnw0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5194, 1.375, 2.93607)
+seed_type = 0
 
 [node name="buyable2" parent="." instance=ExtResource("12_cdnw0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.23346, 1.375, 2.9745)
+seed_type = 1
