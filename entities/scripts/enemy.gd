@@ -49,6 +49,9 @@ func _physics_process(delta) -> void:
 #this handles the avoidance of other zombies
 func _on_navigation_agent_3d_velocity_computed(safe_velocity):
 	velocity = velocity.move_toward(safe_velocity,.25)
+	rotation.y = acos(velocity.normalized().x)
+	if velocity.normalized().z > 0:
+		rotation.y *= -1
 	if not current_behavior == "stopped":
 		move_and_slide()
 
