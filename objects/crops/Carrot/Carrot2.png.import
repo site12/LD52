@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvppra0o3mcdr"
-path.s3tc="res://.godot/imported/Carrot2.png-637e2de5074ee61611152c859875fb48.s3tc.ctex"
-path.etc2="res://.godot/imported/Carrot2.png-637e2de5074ee61611152c859875fb48.etc2.ctex"
+path.s3tc="res://.godot/imported/Carrot2.png-d754c17782b0976de0090d8af5990990.s3tc.ctex"
+path.etc2="res://.godot/imported/Carrot2.png-d754c17782b0976de0090d8af5990990.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://objects/weapons/models/Carrot2.png"
-dest_files=["res://.godot/imported/Carrot2.png-637e2de5074ee61611152c859875fb48.s3tc.ctex", "res://.godot/imported/Carrot2.png-637e2de5074ee61611152c859875fb48.etc2.ctex"]
+source_file="res://objects/crops/Carrot/Carrot2.png"
+dest_files=["res://.godot/imported/Carrot2.png-d754c17782b0976de0090d8af5990990.s3tc.ctex", "res://.godot/imported/Carrot2.png-d754c17782b0976de0090d8af5990990.etc2.ctex"]
 
 [params]
 

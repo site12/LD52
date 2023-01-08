@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm6ygmum6s8jv"
-path.s3tc="res://.godot/imported/Carrot3.png-fccf9d8f7f05f2b29b5adac4d46c9aca.s3tc.ctex"
-path.etc2="res://.godot/imported/Carrot3.png-fccf9d8f7f05f2b29b5adac4d46c9aca.etc2.ctex"
+uid="uid://bsnff3hmhluri"
+path.s3tc="res://.godot/imported/carrot_stage1.png-0c12a4491352d80e33e5cd83b1328221.s3tc.ctex"
+path.etc2="res://.godot/imported/carrot_stage1.png-0c12a4491352d80e33e5cd83b1328221.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://objects/weapons/models/Carrot3.png"
-dest_files=["res://.godot/imported/Carrot3.png-fccf9d8f7f05f2b29b5adac4d46c9aca.s3tc.ctex", "res://.godot/imported/Carrot3.png-fccf9d8f7f05f2b29b5adac4d46c9aca.etc2.ctex"]
+source_file="res://objects/crops/Carrot/carrot_stage1.png"
+dest_files=["res://.godot/imported/carrot_stage1.png-0c12a4491352d80e33e5cd83b1328221.s3tc.ctex", "res://.godot/imported/carrot_stage1.png-0c12a4491352d80e33e5cd83b1328221.etc2.ctex"]
 
 [params]
 

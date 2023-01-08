@@ -132,6 +132,10 @@ func apply_plant_texture():
 			$growth_stages/Growth_1/carrot_growth_1.visible = true
 			$growth_stages/Growth_2/carrot_growth_2.visible = true
 			$growth_stages/Growth_3/carrot_growth_3.visible = true
+		Global.SeedType.CORN:
+			$growth_stages/Growth_1/corn_growth_1.visible = true
+			$growth_stages/Growth_2/corn_growth_2.visible = true
+			$growth_stages/Growth_3/corn_growth_3.visible = true
 
 func show_ui():
 	if not ui_showing:

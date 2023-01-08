@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://blhhvycgbhhmj"]
+[gd_scene load_steps=16 format=3 uid="uid://blhhvycgbhhmj"]
 
 [ext_resource type="Script" path="res://objects/scripts/dirt_patch.gd" id="1_0hkj8"]
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="1_bp3qh"]
 [ext_resource type="Script" path="res://disable_filter.gd" id="2_erat0"]
-[ext_resource type="PackedScene" uid="uid://b4rs4xcxt8pv2" path="res://objects/crops/Carrot/carrot_growth_1.tscn" id="4_3sfin"]
-[ext_resource type="PackedScene" uid="uid://cb2llirth8uvf" path="res://objects/crops/Carrot/carrot_growth_2.tscn" id="5_dq3of"]
-[ext_resource type="PackedScene" uid="uid://lidleuyxti7j" path="res://objects/crops/Carrot/carrot_growth_3.tscn" id="6_04q6j"]
+[ext_resource type="PackedScene" path="res://objects/crops/Carrot/carrot_growth_1.tscn" id="4_3sfin"]
+[ext_resource type="PackedScene" uid="uid://f84qsos0d30k" path="res://objects/crops/Corn/corn_growth_1.tscn" id="5_c107u"]
+[ext_resource type="PackedScene" path="res://objects/crops/Carrot/carrot_growth_2.tscn" id="5_dq3of"]
+[ext_resource type="PackedScene" path="res://objects/crops/Carrot/carrot_growth_3.tscn" id="6_04q6j"]
+[ext_resource type="PackedScene" uid="uid://bnsrxjgjq640s" path="res://objects/crops/Corn/corn_growth_2.tscn" id="7_wsvym"]
 [ext_resource type="PackedScene" uid="uid://btyo5ris4w25l" path="res://objects/interactables/enemy_spawner.tscn" id="7_y8ixd"]
+[ext_resource type="PackedScene" uid="uid://cq0yj3sdfdpjq" path="res://objects/crops/Corn/corn_growth_3.tscn" id="9_4358v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c70bo"]
 albedo_texture = ExtResource("1_bp3qh")
@@ -70,6 +73,10 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.623216, 0)
 visible = false
 
+[node name="corn_growth_1" parent="growth_stages/Growth_1" instance=ExtResource("5_c107u")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.6, 0)
+visible = false
+
 [node name="Growth_2" type="MeshInstance3D" parent="growth_stages"]
 visible = false
 skeleton = NodePath(".")
@@ -78,12 +85,20 @@ skeleton = NodePath(".")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.516433, 0)
 visible = false
 
+[node name="corn_growth_2" parent="growth_stages/Growth_2" instance=ExtResource("7_wsvym")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.46282, 0)
+visible = false
+
 [node name="Growth_3" type="MeshInstance3D" parent="growth_stages"]
 visible = false
 skeleton = NodePath("../..")
 
 [node name="carrot_growth_3" parent="growth_stages/Growth_3" instance=ExtResource("6_04q6j")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.272963, 0)
+visible = false
+
+[node name="corn_growth_3" parent="growth_stages/Growth_3" instance=ExtResource("9_4358v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.463, 0)
 visible = false
 
 [node name="enemy_spawner" parent="." instance=ExtResource("7_y8ixd")]
