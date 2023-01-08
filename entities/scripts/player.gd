@@ -6,6 +6,7 @@ class_name Player
 #constants for speed and jump stuff
 const SPEED = 7.0
 const JUMP_VELOCITY = 4.5
+const STARTING_HEALTH = 100
 enum Weapon {HOE, GUN, WATERING_CAN, SEEDBAG, SCYTHE}
 
 #gets the head pivot and the camera 
@@ -17,6 +18,8 @@ enum Weapon {HOE, GUN, WATERING_CAN, SEEDBAG, SCYTHE}
 @onready var watering_can_node = $pivot/Camera3D/gun_spot/watering_can
 @onready var seedbag_node = $pivot/Camera3D/gun_spot/seedbag
 @onready var scythe_node = $pivot/Camera3D/gun_spot/scythe
+@onready var health = STARTING_HEALTH
+@onready var dead = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -211,12 +214,32 @@ func update_weapon():
 		Weapon.SCYTHE:
 			scythe_node.update_level(weapon_levels[Weapon.SCYTHE])
 			gun_spot.add_child(scythe_node)
-		
+
+func take_damage(amount) -> bool:
+	health -= amount
+	update_health()
+	if health <= 0:
+		die() #:(
+		return true
+	else:
+		return false
+
+func die():
+	dead = true
+	pass
+	# idk put a little you died or whatever.1
+
 func add_seeds(seedtype:Global.SeedType):
 	seeds[seedtype] +=1
 
 func update_money():
 	$Control/inventory/Label.text = "$"+str(Global.money)
+
+func update_health():
+	$Control/health/Label.text = str(health)
+
+func ui_lose_health(damage):
+	pass
 
 func ui_spend_money(price):
 	pass
