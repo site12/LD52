@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b8etbnutwpvv5"]
+[gd_scene load_steps=43 format=3 uid="uid://b8etbnutwpvv5"]
 
 [ext_resource type="Texture2D" uid="uid://b3apvuy3mvql6" path="res://skies/kloppenheim_red_02_2k.hdr" id="1_8kgwp"]
 [ext_resource type="Texture2D" uid="uid://b8e4qo6554l60" path="res://textures/Grass_12-256x256.png" id="2_4ux3w"]
@@ -227,6 +227,43 @@ font_size = 25
 font = ExtResource("11_6bdbb")
 font_size = 15
 
+[sub_resource type="Animation" id="Animation_3npv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tut/screen_4/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.219608)]
+}
+
+[sub_resource type="Animation" id="Animation_0y0v2"]
+resource_name = "fade"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tut/screen_4/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.219608), Color(0, 0, 0, 0.219608), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_27g6x"]
+_data = {
+"RESET": SubResource("Animation_3npv1"),
+"fade": SubResource("Animation_0y0v2")
+}
+
 [node name="dev_map" type="Node3D"]
 script = ExtResource("11_1rab2")
 
@@ -327,7 +364,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 15)
 [node name="buyables" type="Node" parent="."]
 
 [node name="seed_buyable" parent="buyables" instance=ExtResource("10_u8gfg")]
-transform = Transform3D(-0.479228, 0, 0.87769, 0, 1, 0, -0.87769, 0, -0.479228, 27.2531, 1.31028, 23.198)
+transform = Transform3D(-0.270785, 0, -0.962639, 0, 1, 0, 0.962639, 0, -0.270785, 27.1053, 1.31028, 23.3785)
 seed_type = 0
 price = 250
 
@@ -386,7 +423,7 @@ vertical_alignment = 1
 [node name="text" type="Label" parent="tut/screen_1/screen/middle"]
 custom_minimum_size = Vector2(400, 150)
 layout_mode = 2
-text = "Lettuce begin by learning the basics. Use W to move forward, use S to move backward, use A to move left, and use D to move right. You can also use the mouse to look around. Try it now!"
+text = "Lettuce begin by learning the basics. You can use the mouse to look around. You can also use W to move forward, use S to move backward, use A to move left, and use D to move right.  Try it now!"
 label_settings = SubResource("LabelSettings_ehvtt")
 vertical_alignment = 1
 autowrap_mode = 2
@@ -502,7 +539,7 @@ custom_minimum_size = Vector2(400, 150)
 layout_mode = 2
 text = "Head over to the plots of farm land to begin planting. Use the scroll wheel to switch tools, and use a tool by pressing the left mouse button. 
 
-To plant crops, use the hoe on the plot to till the land, and then plant the seed using the seed bag. Use the scroll wheel now to continue!"
+To plant crops, use the hoe on the plot to till the land, and then plant the seed using the seed bag."
 label_settings = SubResource("LabelSettings_ehvtt")
 vertical_alignment = 1
 autowrap_mode = 2
@@ -578,10 +615,19 @@ transform = Transform3D(-0.329559, 0, -0.944135, 0, 1, 0, 0.944135, 0, -0.329559
 current = true
 
 [node name="tutcam_seeds" type="Camera3D" parent="."]
-transform = Transform3D(0.265018, 0, -0.964244, 0, 1, 0, 0.964244, 0, 0.265018, 23.7469, 1.94128, 23.5853)
+transform = Transform3D(-0.879682, 0, -0.475563, 0, 1, 0, 0.475563, 0, -0.879682, 23.2938, 1.94128, 18.2103)
 
 [node name="spawn_loc" type="Node3D" parent="."]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 9.73322, 0, 12.0335)
 
 [node name="tutcam_plot" type="Camera3D" parent="."]
 transform = Transform3D(0.749557, 0.172307, -0.63912, -0.0126331, 0.969074, 0.246447, 0.661819, -0.176652, 0.728553, 23.7469, 1.94128, 17.1517)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_27g6x")
+}
+
+[node name="enemies" type="Node3D" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
