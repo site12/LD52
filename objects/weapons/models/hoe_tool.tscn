@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnkgw1blwr67s"]
+[gd_scene load_steps=3 format=3 uid="uid://d2jy3fqwmrgvf"]
 
 [ext_resource type="ArrayMesh" uid="uid://cethlaxu6gwb1" path="res://objects/weapons/models/hoe_tool.obj" id="1_edms2"]
-[ext_resource type="Material" uid="uid://cfxxgxvvk13c" path="res://objects/weapons/mats/hoe_tool_rust.tres" id="2_h1c8m"]
+[ext_resource type="Material" path="res://objects/weapons/mats/hoe_tool_rust.tres" id="2_h1c8m"]
 
 [node name="hoe_tool" type="MeshInstance3D"]
 mesh = ExtResource("1_edms2")
