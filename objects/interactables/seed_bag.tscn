@@ -1,23 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://s0h2rpij85vq"]
+[gd_scene load_steps=5 format=3 uid="uid://84tk7aklg2o5"]
 
 [ext_resource type="PackedScene" uid="uid://dyrexdvqicmta" path="res://objects/interactables/buyable.tscn" id="1_8bgt5"]
-[ext_resource type="Script" path="res://objects/interactables/seed_bag_buyable.gd" id="2_tjukt"]
+[ext_resource type="Script" path="res://objects/scripts/seed_bag_buyable.gd" id="2_ri8uu"]
 [ext_resource type="ArrayMesh" uid="uid://c43fo1g50iwob" path="res://objects/weapons/models/seedbag.obj" id="3_n3vri"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42a34"]
+radius = 0.4
 
-[node name="buyable" instance=ExtResource("1_8bgt5")]
-script = ExtResource("2_tjukt")
+[node name="seed_buyable" instance=ExtResource("1_8bgt5")]
+script = ExtResource("2_ri8uu")
 seed_type = null
 
 [node name="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("3_n3vri")
 
 [node name="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("SphereShape3D_42a34")
-
-[node name="VBoxContainer" parent="Control" index="0"]
-layout_mode = 1
-
-[node name="Label" parent="Control/VBoxContainer" index="0"]
-layout_mode = 2

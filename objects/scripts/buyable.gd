@@ -4,13 +4,22 @@ class_name Buyable
 
 @export var price = 500
 
+enum buyable_type {PURCHASE,UPGRADE}
+
+@export var current_type = buyable_type.PURCHASE
+
+
 func _ready():
-	$Control/VBoxContainer/Label.text = "Press F to Purchase [cost: " + str(price)+"]"
+	if current_type == buyable_type.PURCHASE:
+		$Control/VBoxContainer/Label.text = "Press F to Purchase [cost: " + str(price)+"]"
+	if current_type == buyable_type.UPGRADE:
+		$Control/VBoxContainer/Label.text = "Press F to Upgrade [cost: " + str(price)+"]"
 	apply_mat()
 
 func purchase(player):
 	if Global.spend_money(price):
 		purchase_successful(player)
+		player.ui_spend_money(price)
 
 func apply_mat():
 	pass

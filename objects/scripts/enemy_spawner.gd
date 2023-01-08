@@ -11,6 +11,7 @@ class_name EnemySpawner
 @onready var carrot = preload("res://entities/enemies/carrot_enemy.tscn")
 @onready var corn = preload("res://entities/enemies/corn_enemy.tscn")
 @onready var nav_mesh:NavigationMesh = get_tree().get_root().get_node("dev_map/NavigationRegion3D").navigation_mesh
+@onready var enemies_parent_node = get_tree().get_root().get_node("dev_map/enemies")
 
 var enemy_type:Global.SeedType
 
@@ -30,7 +31,8 @@ func spawn_enemy(health) -> Enemy:
 		Global.SeedType.POTATO:
 			e = enemy.instantiate()
 	# var e:Enemy = enemy.instantiate()
-	add_child(e)
+	enemies_parent_node.add_child(e)
+	e.position = global_position
 	e.health = health
 	e.navmesh = nav_mesh
 	return e

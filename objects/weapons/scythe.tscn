@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://r33r8dpurqcl"]
+[gd_scene load_steps=21 format=3 uid="uid://r33r8dpurqcl"]
 
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_5fowe"]
 [ext_resource type="Script" path="res://objects/weapons/scripts/scythe.gd" id="2_yxauq"]
 [ext_resource type="PackedScene" uid="uid://bgg1l3g7xuqj3" path="res://objects/weapons/models/player_arms.tscn" id="3_a3ujb"]
-[ext_resource type="PackedScene" path="res://objects/weapons/models/scythe_tool.tscn" id="4_ymnic"]
+[ext_resource type="PackedScene" uid="uid://0lxi44hf6f27" path="res://objects/weapons/sounds/hoe/swing.tscn" id="3_t3k16"]
+[ext_resource type="PackedScene" uid="uid://cr5kvgar5op2d" path="res://objects/weapons/models/scythe_tool.tscn" id="4_ymnic"]
 
 [sub_resource type="Animation" id="Animation_g2c3b"]
 length = 0.001
@@ -66,7 +67,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.2, 2.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.0558081, -3.91037, 0.421915), Vector3(0.0558081, -4.10415, 0.421915), Vector3(0.0558081, -3.91037, 0.421915)]
+"values": [Vector3(1.25422, -3.91037, 0.421915), Vector3(1.254, -4.143, 0.422), Vector3(1.25422, -3.91037, 0.421915)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -81,7 +82,8 @@ tracks/1/keys = {
 "values": [Vector3(-1.00831, -0.130333, -0.0170463), Vector3(-1.00831, -0.130333, -0.0170463)]
 }
 
-[sub_resource type="Animation" id="Animation_th0bm"]
+[sub_resource type="Animation" id="Animation_g22nl"]
+resource_name = "walk"
 length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
@@ -94,14 +96,26 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.0558081, -3.91037, 0.421915), Vector3(0.0558081, -4.03449, 0.37535), Vector3(0.0558081, -3.91037, 0.421915), Vector3(0.056, -4.034, 0.5), Vector3(0.0558081, -3.91037, 0.421915)]
+"values": [Vector3(1.25422, -3.91037, 0.421915), Vector3(1.254, -4.228, 0.3), Vector3(1.25422, -3.91037, 0.421915), Vector3(1.254, -4.228, 0.5), Vector3(1.25422, -3.91037, 0.421915)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Arms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.00831, -0.130333, -0.0170463), Vector3(-1.00831, -0.130333, -0.0170463), Vector3(-1.00831, -0.130333, -0.0170463)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_spe08"]
 _data = {
 "attack": SubResource("Animation_i1y6b"),
 "idle": SubResource("Animation_lh43n"),
-"walk": SubResource("Animation_th0bm")
+"walk": SubResource("Animation_g22nl")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_48t85"]
@@ -140,9 +154,10 @@ transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTr
 
 [node name="scythe" instance=ExtResource("1_5fowe")]
 script = ExtResource("2_yxauq")
+gunfire = ExtResource("3_t3k16")
 
 [node name="Player_Arms" parent="." index="1"]
-transform = Transform3D(0.9895, 0.126826, -0.0693088, -0.00909019, 0.533214, 0.845932, 0.144242, -0.83642, 0.528768, 0.0558081, -3.92223, 0.41784)
+transform = Transform3D(0.9895, 0.126826, -0.0693088, -0.00909019, 0.533214, 0.845932, 0.144242, -0.83642, 0.528768, 0.0558081, -3.91037, 0.421915)
 
 [node name="scythe_tool" parent="Player_Arms" index="1" instance=ExtResource("4_ymnic")]
 transform = Transform3D(4.96552, 0.586214, 0, -0.586214, 4.96552, 0, 0, 0, 5, 3.19814, -5.42934, 0.445306)
@@ -165,3 +180,6 @@ parameters/BlendSpace1D/blend_position = 0.992098
 
 [node name="RayCast3D" parent="." index="3"]
 target_position = Vector3(0, -10, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." index="4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)

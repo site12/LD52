@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://b00nv5qf1feki"]
+
+[ext_resource type="PackedScene" uid="uid://dyrexdvqicmta" path="res://objects/interactables/buyable.tscn" id="1_ltyn6"]
+[ext_resource type="Script" path="res://objects/scripts/scythe_buyable.gd" id="2_02am0"]
+[ext_resource type="Material" uid="uid://d1dvxkbok7di" path="res://objects/weapons/mats/scythe_tool_iron.tres" id="2_tpho1"]
+[ext_resource type="ArrayMesh" uid="uid://c2yrrgw5hsyen" path="res://objects/weapons/models/Scythe.obj" id="3_8hm4l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e7oj7"]
+
+[node name="scythe_buyable" instance=ExtResource("1_ltyn6")]
+script = ExtResource("2_02am0")
+
+[node name="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+material_override = ExtResource("2_tpho1")
+mesh = ExtResource("3_8hm4l")
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09054, 0)
+shape = SubResource("SphereShape3D_e7oj7")

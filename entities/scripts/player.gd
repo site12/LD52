@@ -184,6 +184,11 @@ func add_seeds(seedtype:Global.SeedType):
 func update_money():
 	$Control/inventory/Label.text = "$"+str(Global.money)
 
+func ui_spend_money(price):
+	pass
+func ui_give_money(price):
+	pass
+
 # #allows us to attempt to interact when an object enters our interact radius
 # func _on_interactable_area_area_entered(area):
 # 	print(area)

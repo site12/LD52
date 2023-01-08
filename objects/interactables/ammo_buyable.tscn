@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7ovvm2rqgq43"]
+
+[ext_resource type="PackedScene" uid="uid://dyrexdvqicmta" path="res://objects/interactables/buyable.tscn" id="1_d3vhv"]
+[ext_resource type="Script" path="res://objects/scripts/shotgun_buyable.gd" id="2_qaoo4"]
+[ext_resource type="Texture2D" uid="uid://blgub6qbn3xfb" path="res://objects/interactables/models/UV_ammo.png" id="3_d2r4i"]
+[ext_resource type="ArrayMesh" uid="uid://bgxebb02s68wj" path="res://objects/interactables/models/ammo.obj" id="4_5s6e3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kuyai"]
+albedo_texture = ExtResource("3_d2r4i")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e7oj7"]
+radius = 0.3
+
+[node name="ammo_buyable" instance=ExtResource("1_d3vhv")]
+script = ExtResource("2_qaoo4")
+price = 450
+
+[node name="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0101921, 0)
+material_override = SubResource("StandardMaterial3D_kuyai")
+mesh = ExtResource("4_5s6e3")
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.155445, 0)
+shape = SubResource("SphereShape3D_e7oj7")
