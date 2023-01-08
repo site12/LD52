@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cfxxgxvvk13c"]
+
+[ext_resource type="Texture2D" uid="uid://b0mae0n7vukdv" path="res://textures/UV_hoe_rust.png" id="1_yw000"]
+
+[resource]
+albedo_texture = ExtResource("1_yw000")
