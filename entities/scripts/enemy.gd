@@ -18,7 +18,7 @@ var enemy_val:int = 0
 var current_behavior = "targeting_player"
 
 #where the enemy will target
-var targeted_player:Player = null
+var targeted_player:MainPlayer = null
 
 #onready variables
 var navmesh:NavigationMesh
@@ -108,7 +108,6 @@ func die():
 ##TO ADD
 #this handles attacking players that are within range
 func _on_navigation_agent_3d_target_reached():
-	print("hes here")
 	$timers/attack_timer.start()
 	run_attack_anim()
 		
