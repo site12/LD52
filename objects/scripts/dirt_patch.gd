@@ -13,7 +13,7 @@ enum GrowthState {
 const GROWTH_TIMES = {
 	Global.SeedType.CARROT : [5, 7, 10, 12],
 	Global.SeedType.POTATO : [5, 15, 40, 60],
-	Global.SeedType.CORN : [5, 15, 40, 60]
+	Global.SeedType.CORN : [5, 7, 10, 12]
 }
 
 @export var init_color  = Color.WHITE

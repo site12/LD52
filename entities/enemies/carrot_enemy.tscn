@@ -10,6 +10,12 @@ script = ExtResource("2_x0avc")
 [node name="mesh" parent="." index="0"]
 visible = false
 
+[node name="NavigationAgent3D" parent="." index="1"]
+target_desired_distance = 2.0
+
+[node name="attack_timer" parent="timers" index="1"]
+one_shot = true
+
 [node name="carrot_growth_3" parent="." index="4"]
 visible = false
 

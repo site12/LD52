@@ -23,6 +23,7 @@ var targeted_player:Player = null
 #onready variables
 var navmesh:NavigationMesh
 @onready var navagent:NavigationAgent3D = get_node("NavigationAgent3D")
+@onready var enemy_mesh
 
 #getters/setters
 func set_navmesh(nav_mesh:NavigationMesh) -> void:
@@ -38,20 +39,28 @@ func _physics_process(delta) -> void:
 		if current_behavior == "targeting_player":
 			update_target_location(get_closest_player_loc())
 		var current_loc = global_transform.origin
-		var next_loc = navagent.get_next_location()
-	
+		var next_loc
+		if not $timers/attack_timer.is_stopped():
+			next_loc = current_loc
+		else:
+			next_loc = navagent.get_next_location()
+		
 		var new_velocity = (next_loc - current_loc).normalized() * SPEED
 		
 		navagent.set_velocity(new_velocity)
 		
-		
+	anim_process()
+
+func anim_process():
+	pass
 
 #this handles the avoidance of other zombies
 func _on_navigation_agent_3d_velocity_computed(safe_velocity):
 	velocity = velocity.move_toward(safe_velocity,.25)
-	rotation.y = acos(velocity.normalized().x)
-	if velocity.normalized().z > 0:
-		rotation.y *= -1
+	if $timers/attack_timer.is_stopped():
+		rotation.y = acos(velocity.normalized().x)
+		if velocity.normalized().z > 0:
+			rotation.y *= -1
 	if not current_behavior == "stopped":
 		move_and_slide()
 
@@ -98,8 +107,9 @@ func die():
 ##TO ADD
 #this handles attacking players that are within range
 func _on_navigation_agent_3d_target_reached():
+	print("hes here")
 	$timers/attack_timer.start()
-	pass
+	run_attack_anim()
 		
 
 #TO ADD
@@ -111,5 +121,7 @@ func _on_attack_timer_timeout():
 func _on_death_timer_timeout():
 	self.queue_free()
 
+func run_attack_anim():
+	pass
 
 
