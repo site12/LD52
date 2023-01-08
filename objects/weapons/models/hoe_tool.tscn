@@ -1,13 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2jy3fqwmrgvf"]
+[gd_scene load_steps=3 format=3 uid="uid://dnkgw1blwr67s"]
 
 [ext_resource type="ArrayMesh" uid="uid://cethlaxu6gwb1" path="res://objects/weapons/models/hoe_tool.obj" id="1_edms2"]
-[ext_resource type="Texture2D" uid="uid://dkaj25lcvdsx4" path="res://objects/weapons/models/Hoe_UV.png" id="2_npit1"]
+[ext_resource type="Material" uid="uid://cfxxgxvvk13c" path="res://objects/weapons/mats/hoe_tool_rust.tres" id="2_h1c8m"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8a8k"]
-albedo_texture = ExtResource("2_npit1")
-
-[node name="hoe_tool" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="hoe_tool" type="MeshInstance3D"]
 mesh = ExtResource("1_edms2")
-surface_material_override/0 = SubResource("StandardMaterial3D_p8a8k")
+surface_material_override/0 = ExtResource("2_h1c8m")
