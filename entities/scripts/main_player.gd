@@ -27,3 +27,6 @@ func ui_spend_money(price):
 func ui_give_money(price):
 	$Control/inventory/Control/gain.text = "+$"+str(price)
 	$Control/AnimationPlayer.play("lose_money")
+
+func ui_hit_marker():
+	$Control/AnimationPlayer.play("hit")

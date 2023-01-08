@@ -87,6 +87,7 @@ func get_closest_player_loc()-> Vector3:
 #this function applies damage to the enemy and kills it if need be
 func take_damage(dmg) -> bool:
 	var new_health = health - dmg
+	targeted_player.ui_hit_marker()
 	if new_health <= 0:
 		health = 0
 		die()
