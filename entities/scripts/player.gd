@@ -101,6 +101,7 @@ func _physics_process(delta) -> void:
 			target.show_ui()
 			interactable_object = target
 			last_looked_at = target
+		
 		elif last_looked_at:
 			last_looked_at.hide_ui()
 			last_looked_at = null	
