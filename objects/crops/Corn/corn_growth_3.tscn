@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq0yj3sdfdpjq"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgt8sms7rbhmt" path="res://objects/crops/Carrot/carrot_stage1.obj" id="1_s3687"]
+[ext_resource type="Texture2D" uid="uid://syly6gmnsi00" path="res://objects/crops/Corn/Corn_Stage2.png" id="2_3oeqh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2l8fy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_3oeqh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32xi4"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_3oeqh")
+
+[node name="corn_growth_3" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.459, 0)
+
+[node name="CarrotStage1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.499975, 0)
+mesh = ExtResource("1_s3687")
+surface_material_override/0 = SubResource("StandardMaterial3D_2l8fy")
+surface_material_override/1 = SubResource("StandardMaterial3D_32xi4")
