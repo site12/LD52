@@ -6,6 +6,11 @@ class_name Gun
 @onready var player:MainPlayer = null : set = set_player, get = get_player
 @onready var anim_player = $animations/AnimationPlayer
 @onready var ray = $RayCast3D
+# @onready var mat_rust = null
+# @onready var mat_iron = null
+# @onready var mat_silver = null
+
+# @onready var upgrades = [mat_rust, mat_iron, mat_silver]
 
 @export var gun_name = "Gun"
 
@@ -32,7 +37,7 @@ var headshot_damage:int = 90
 
 #gets a reference to the player that owns the gun
 func _ready():
-	
+	get_upgrade_mats()
 	set_player(get_parent().get_parent().get_parent().get_parent())
 
 #this function really isn't needed because it will return a nullpointer if called away from a player
@@ -68,6 +73,9 @@ func crouch():
 
 #this function is called in the child class to transition to the shoot animation
 func fire_anim():
+	pass
+
+func get_upgrade_mats():
 	pass
 
 #handles shooting the weapon
@@ -123,6 +131,5 @@ func ammo_count():
 	else:
 		$CanvasLayer/HUD/inventory/Label.text = str(gun_name)+"\n"+ str(ammo_in_clip)+"/"+str(ammo_in_reserve)
 	
-	
-
-
+func update_level(level):
+	pass
