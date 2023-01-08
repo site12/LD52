@@ -10,6 +10,9 @@ script = ExtResource("2_xbxct")
 [node name="temp_face" parent="mesh" index="0"]
 visible = false
 
+[node name="NavigationAgent3D" parent="." index="1"]
+target_desired_distance = 2.0
+
 [node name="carrot_growth_3" parent="." index="4"]
 visible = false
 

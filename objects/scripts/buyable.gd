@@ -6,10 +6,14 @@ class_name Buyable
 
 func _ready():
 	$Control/VBoxContainer/Label.text = "Press F to Purchase [cost: " + str(price)+"]"
+	apply_mat()
 
 func purchase(player):
 	if Global.spend_money(price):
 		purchase_successful(player)
+
+func apply_mat():
+	pass
 
 func purchase_successful(player):
 	pass
