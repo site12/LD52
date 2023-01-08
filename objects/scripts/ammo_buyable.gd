@@ -3,7 +3,8 @@ extends Buyable
 
 
 func purchase_successful(player):
-	pass
+	if player.weapon_levels[player.Weapon.GUN] > 0:
+		player.shotgun_node.ammo_in_reserve += 12
 
 func show_ui():
 	$Control.visible = true

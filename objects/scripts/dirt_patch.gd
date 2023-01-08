@@ -20,6 +20,7 @@ const GROWTH_TIMES = {
 @export var tilled_color = Color(0.69019609689713, 0.54509806632996, 0.40392157435417)
 @export var watered_color = Color(0.41231873631477, 0.31057471036911, 0.2102587223053)
 
+
 var watered:bool = false
 var fertilized:bool = false
 var growth_state:GrowthState = GrowthState.RAW
@@ -34,6 +35,7 @@ var dirt_colors = {
 }
 
 var dirt_state = "raw"
+var highlight:StandardMaterial3D = preload("res://objects/interactables/materials/highlight.tres")
 
 func get_class(): return "DirtPatch"
 
@@ -139,15 +141,14 @@ func apply_plant_texture():
 
 func show_ui():
 	if not ui_showing:
-		if growth_state == GrowthState.RAW:
-			$planting_label.text = "Hoe"
-		# $planting_label.text = "Plant " + Global.get_seed_type()
-		$planting_label.visible = true
+		$entity_1_geometry.material_overlay = highlight
+		#$planting_label.visible = true
 		ui_showing = true
 
 func hide_ui():
 	if ui_showing:
-		$planting_label.visible = false
+		$entity_1_geometry.material_overlay = null
+		#$planting_label.visible = false
 		ui_showing = false
 
 
