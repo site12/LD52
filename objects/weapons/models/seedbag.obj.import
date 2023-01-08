@@ -3,11 +3,7 @@
 importer="wavefront_obj"
 importer_version=1
 type="Mesh"
-<<<<<<< Updated upstream
-uid="uid://c6squ337kh1k8"
-=======
-uid="uid://tctsim8ghn5a"
->>>>>>> Stashed changes
+uid="uid://c43fo1g50iwob"
 path="res://.godot/imported/seedbag.obj-5e226097bc295b53065493da408a5082.mesh"
 
 [deps]

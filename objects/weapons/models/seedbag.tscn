@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://chwv4l4lhvea0"]
+[gd_scene load_steps=3 format=3 uid="uid://b2tkx1sc6voxi"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_rkgrp"]
+[ext_resource type="ArrayMesh" uid="uid://c43fo1g50iwob" path="res://objects/weapons/models/seedbag.obj" id="1_bsjnt"]
+[ext_resource type="Material" uid="uid://b2apikv1o3bai" path="res://objects/weapons/mats/seedbag_corn.tres" id="1_jl5je"]
 
-[node name="seedbag" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_rkgrp")
+[node name="seedbag" type="MeshInstance3D"]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 0, 0, 0)
+material_override = ExtResource("1_jl5je")
+mesh = ExtResource("1_bsjnt")

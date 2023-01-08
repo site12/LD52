@@ -2,6 +2,12 @@
 
 extends Gun
 
+@onready var seedbag = $Player_Arms/seedbag
+
+var corn_mat = preload("res://objects/weapons/mats/seedbag_corn.tres")
+var carrot_mat = preload("res://objects/weapons/mats/seedbag_carrot.tres")
+var potato_mat = preload("res://objects/weapons/mats/seedbag_potato.tres")
+
 func _ready() -> void:
 	set_player(get_parent().get_parent().get_parent().get_parent())
 	Global.seed_swapped.connect(self.seed_swapped)
@@ -19,3 +25,9 @@ func fire_anim():
 
 func seed_swapped():
 	$CanvasLayer/HUD/inventory/Label.text = str(Global.get_seed_type())+" Seeds\n"+ str(player.seeds[Global.selected_seed])
+	if Global.selected_seed == Global.SeedType.CORN:
+		seedbag.material_override = corn_mat
+	if Global.selected_seed == Global.SeedType.CARROT:
+		seedbag.material_override = carrot_mat
+	if Global.selected_seed == Global.SeedType.POTATO:
+		seedbag.material_override = potato_mat
