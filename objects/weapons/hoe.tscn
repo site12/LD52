@@ -169,6 +169,9 @@ graph_offset = Vector2(-80, 49)
 script = ExtResource("2_3qcdp")
 gun_name = "Hoe"
 gunfire = ExtResource("3_lml4m")
+dryfire = null
+max_ammo_in_clip = null
+max_ammo_in_reserve = null
 infinite_ammo = true
 
 [node name="hoe_tool" parent="Player_Arms" index="1" instance=ExtResource("5_868bv")]

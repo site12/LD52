@@ -31,6 +31,13 @@ var current_weapon = Weapon.HOE
 	Global.SeedType.CORN : 0
 }
 
+@onready var weapon_levels = {
+	Weapon.HOE : 1,
+	Weapon.GUN : 0,
+	Weapon.WATERING_CAN : 0,
+	Weapon.SEEDBAG : 1,
+	Weapon.SCYTHE : 0
+}
 
 #captures the mouse upon spawn
 func _ready():
@@ -59,12 +66,35 @@ func _unhandled_input(event:InputEvent) -> void:
 		current_weapon += 1
 		if current_weapon >= Weapon.size():
 			current_weapon = 0
+		while weapon_levels[current_weapon] == 0:
+			current_weapon += 1
+			if current_weapon >= Weapon.size():
+				current_weapon = 0
+		# current_weapon += 1
+		# while current_weapon not in weapon_inv:
+		# 	current_weapon += 1
+		# 	if current_weapon >= Weapon.size():
+		# 		current_weapon = 0
+
+		#-----------------------------------------
+		# if weapon_levels[current_weapon] == 0:
+		# 	current_weapon += 1
+		# if current_weapon >= Weapon.size():
+		# 	current_weapon = 0
 		update_weapon()
 
 	if Input.is_action_just_released("last_weapon"):
 		current_weapon -= 1
 		if current_weapon == -1:
 			current_weapon = Weapon.size()-1
+		while weapon_levels[current_weapon] == 0:
+			current_weapon -= 1
+			if current_weapon == -1:
+				current_weapon = Weapon.size()-1
+		# if weapon_levels[current_weapon] == 0:
+		# 	current_weapon -= 1
+		# if current_weapon == -1:
+		# 	current_weapon = Weapon.size()-1
 		update_weapon()
 
 	if Input.is_action_just_pressed("swap_seed"):
@@ -168,14 +198,18 @@ func update_weapon():
 		gun_spot.remove_child(weapon)
 	match current_weapon:
 		Weapon.HOE:
+			hoe_node.update_level(weapon_levels[Weapon.HOE])
 			gun_spot.add_child(hoe_node)
 		Weapon.GUN:
+			shotgun_node.update_level(weapon_levels[Weapon.GUN])
 			gun_spot.add_child(shotgun_node)
 		Weapon.WATERING_CAN:
+			watering_can_node.update_level(weapon_levels[Weapon.WATERING_CAN])
 			gun_spot.add_child(watering_can_node)
 		Weapon.SEEDBAG:
 			gun_spot.add_child(seedbag_node)
 		Weapon.SCYTHE:
+			scythe_node.update_level(weapon_levels[Weapon.SCYTHE])
 			gun_spot.add_child(scythe_node)
 		
 func add_seeds(seedtype:Global.SeedType):
