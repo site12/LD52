@@ -18,3 +18,12 @@ func give_weapon(weapon:PackedScene):
 #these are deprecated as this logic is handled by the gamemode
 func give_points(_points):
 	points += _points
+	ui_give_money(_points)
+
+func ui_spend_money(price):
+	$Control/inventory/Control/lose.text = "-$"+str(price)
+	$Control/AnimationPlayer.play("lose_money")
+
+func ui_give_money(price):
+	$Control/inventory/Control/gain.text = "+$"+str(price)
+	$Control/AnimationPlayer.play("lose_money")

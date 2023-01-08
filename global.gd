@@ -4,6 +4,9 @@ enum SeedType {CARROT, POTATO, CORN}
 
 var selected_seed:SeedType = SeedType.CARROT
 var money:int = 1000
+
+var money_before_update:int
+
 signal seed_swapped
 signal update_money
 
@@ -28,11 +31,13 @@ func update_seed_ui():
 
 func spend_money(price) -> bool:
 	if money >= price:
+		money_before_update = money
 		money -= price
 		update_money.emit()
 		return true
 	return false
 
 func give_money(amt):
+	money_before_update = money
 	money += amt
 	update_money.emit()

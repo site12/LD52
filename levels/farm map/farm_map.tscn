@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://dhu3n23upt33b"]
+[gd_scene load_steps=84 format=3 uid="uid://dhu3n23upt33b"]
 
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="3_0t2qc"]
 [ext_resource type="Texture2D" uid="uid://b8e4qo6554l60" path="res://textures/Grass_12-256x256.png" id="3_2tu1g"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://0gnllxiti0n2" path="res://objects/interactables/watercan_buyable.tscn" id="21_p5vq8"]
 [ext_resource type="PackedScene" uid="uid://l48mioanawpc" path="res://levels/farm map/assets/shelf.tscn" id="22_c1jto"]
 [ext_resource type="PackedScene" uid="uid://cdlaybrmyo2qm" path="res://objects/interactables/hoe_buyable.tscn" id="25_8ot6m"]
+[ext_resource type="PackedScene" uid="uid://c7ovvm2rqgq43" path="res://objects/interactables/ammo_buyable.tscn" id="25_v23kb"]
 [ext_resource type="PackedScene" uid="uid://bm22g8rgf352i" path="res://objects/interactables/shotgun_buyable.tscn" id="26_2bqs0"]
 [ext_resource type="PackedScene" uid="uid://cbmv5sqfwuvf1" path="res://levels/farm map/assets/arch.tscn" id="27_t338y"]
 
@@ -615,7 +616,7 @@ script = ExtResource("3_au1cc")
 shape = SubResource("ConcavePolygonShape3D_nx0hh")
 
 [node name="corn" type="Node3D" parent="TBLoader"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9818, 0.759615, 25.9968)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9818, 0.719303, 25.9968)
 
 [node name="entity_9_geometry" type="MeshInstance3D" parent="TBLoader/corn"]
 material_override = ExtResource("13_6h0n0")
@@ -689,9 +690,13 @@ price = 1000
 
 [node name="hoe_buyable" parent="buyables" instance=ExtResource("25_8ot6m")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50, 0.830726, 18.6385)
+current_type = 1
 
 [node name="shotgun_buyable" parent="buyables" instance=ExtResource("26_2bqs0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50, 1.65959, 15.5619)
+
+[node name="ammo_buyable2" parent="buyables" instance=ExtResource("25_v23kb")]
+transform = Transform3D(-0.166683, 0, -0.986011, 0, 1, 0, 0.986011, 0, -0.166683, 49.5177, 0.863242, 16.2321)
 
 [node name="props" type="Node" parent="."]
 
