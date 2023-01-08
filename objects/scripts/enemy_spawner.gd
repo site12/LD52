@@ -25,9 +25,9 @@ func spawn_enemy(health) -> Enemy:
 	match enemy_type:
 		Global.SeedType.CARROT:
 			e = carrot.instantiate()
-		Global.SeedType.POTATO:
-			e = corn.instantiate()
 		Global.SeedType.CORN:
+			e = corn.instantiate()
+		Global.SeedType.POTATO:
 			e = enemy.instantiate()
 	# var e:Enemy = enemy.instantiate()
 	add_child(e)

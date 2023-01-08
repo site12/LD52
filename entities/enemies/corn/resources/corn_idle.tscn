@@ -1,39 +1,36 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsbfm1s412ppq"]
+[gd_scene load_steps=13 format=3 uid="uid://bsbfm1s412ppq"]
 
 [ext_resource type="PackedScene" uid="uid://b3xq7l1dsbont" path="res://entities/enemies/corn/resources/corn_idle.glb" id="1_hrid8"]
 [ext_resource type="AnimationLibrary" uid="uid://dqgw3a567fvt" path="res://entities/enemies/corn/resources/corn.res" id="2_8f4xa"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3kqma"]
-animation = &"corn/idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uxg7j"]
-animation = &"corn/run1"
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_owwel"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_3kqma")
-blend_point_0/pos = 0.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_uxg7j")
-blend_point_1/pos = 1.0
-min_space = 0.0
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rv26m"]
 animation = &"corn/attack"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8q5wa"]
-auto_advance = true
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tnnt0"]
+animation = &"corn/idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_87uc4"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n7iee"]
+animation = &"corn/run2"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xbj6e"]
-switch_mode = 2
-auto_advance = true
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yifye"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0nlx3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a8tcf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hs0bb"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ad32"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rphmk"]
-states/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_owwel")
-states/BlendSpace1D/position = Vector2(374, 114)
 states/cornattack/node = SubResource("AnimationNodeAnimation_rv26m")
 states/cornattack/position = Vector2(628, 114)
-transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_8q5wa"), "BlendSpace1D", "cornattack", SubResource("AnimationNodeStateMachineTransition_87uc4"), "cornattack", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_xbj6e")]
+states/cornidle/node = SubResource("AnimationNodeAnimation_tnnt0")
+states/cornidle/position = Vector2(360, 100)
+states/cornrun2/node = SubResource("AnimationNodeAnimation_n7iee")
+states/cornrun2/position = Vector2(406, 182)
+transitions = ["Start", "cornidle", SubResource("AnimationNodeStateMachineTransition_yifye"), "cornidle", "cornattack", SubResource("AnimationNodeStateMachineTransition_0nlx3"), "cornattack", "cornidle", SubResource("AnimationNodeStateMachineTransition_a8tcf"), "cornidle", "cornrun2", SubResource("AnimationNodeStateMachineTransition_hs0bb"), "cornrun2", "cornidle", SubResource("AnimationNodeStateMachineTransition_4ad32")]
+graph_offset = Vector2(27, -15)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_rchpu"]
 
@@ -49,20 +46,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="group1/Carrot_Rig" index="2"]
-bones/0/position = Vector3(1.12951e-07, -2.03534, -49.0328)
-bones/0/rotation = Quaternion(-0.577134, 0.0155902, -0.0959415, 0.810844)
-bones/1/rotation = Quaternion(-0.340995, -0.0801729, -0.0415356, 0.935719)
-bones/2/rotation = Quaternion(0.45434, 0.00327374, -0.00180675, 0.890821)
-bones/3/rotation = Quaternion(-0.235883, -0.304088, 0.202892, 0.900402)
-bones/4/rotation = Quaternion(-0.398559, -0.105551, 0.109083, 0.904495)
-bones/5/rotation = Quaternion(0.499644, 0.0036248, -0.00225266, 0.866221)
-bones/6/rotation = Quaternion(-0.206564, 0.225533, -0.0738728, 0.949215)
-bones/8/rotation = Quaternion(-0.444501, -0.3277, -0.100454, 0.827612)
-bones/9/rotation = Quaternion(0.063598, -0.232313, -0.42378, 0.873154)
-bones/10/rotation = Quaternion(-0.0781878, -0.201994, -0.169711, 0.961397)
+bones/0/rotation = Quaternion(-0.561847, 0.0172527, -0.154687, 0.812467)
+bones/1/rotation = Quaternion(-0.337604, -0.130511, -0.0101068, 0.932142)
+bones/2/rotation = Quaternion(0.447969, 0.00322226, -0.00174837, 0.894041)
+bones/3/rotation = Quaternion(-0.233752, -0.204167, 0.128299, 0.941921)
+bones/4/rotation = Quaternion(-0.429909, -0.159402, 0.138046, 0.877902)
+bones/6/rotation = Quaternion(-0.258783, 0.195567, -0.130061, 0.936947)
+bones/8/rotation = Quaternion(-0.350572, -0.24382, -0.0909782, 0.899652)
+bones/9/rotation = Quaternion(-0.0210939, -0.253561, -0.3773, 0.890453)
+bones/10/rotation = Quaternion(-0.125955, -0.167216, -0.128241, 0.969396)
 bones/11/rotation = Quaternion(0.183015, 0.00375696, -0.0888156, 0.979083)
-bones/12/rotation = Quaternion(-0.183349, 0.237458, 0.512776, 0.804399)
-bones/13/rotation = Quaternion(0.317753, 0.167344, 0.337926, 0.869963)
+bones/13/rotation = Quaternion(0.270155, 0.128963, 0.30511, 0.904042)
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
@@ -74,4 +68,3 @@ tree_root = SubResource("AnimationNodeStateMachine_rphmk")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_rchpu")
-parameters/BlendSpace1D/blend_position = 0

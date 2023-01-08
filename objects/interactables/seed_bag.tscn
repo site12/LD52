@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dyrexdvqicmta" path="res://objects/interactables/buyable.tscn" id="1_8bgt5"]
 [ext_resource type="Script" path="res://objects/interactables/seed_bag_buyable.gd" id="2_tjukt"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_uurvd"]
+[ext_resource type="ArrayMesh" uid="uid://c43fo1g50iwob" path="res://objects/weapons/models/seedbag.obj" id="3_n3vri"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42a34"]
 
@@ -12,7 +11,7 @@ script = ExtResource("2_tjukt")
 seed_type = null
 
 [node name="MeshInstance3D" parent="." index="0"]
-mesh = SubResource("SphereMesh_uurvd")
+mesh = ExtResource("3_n3vri")
 
 [node name="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("SphereShape3D_42a34")

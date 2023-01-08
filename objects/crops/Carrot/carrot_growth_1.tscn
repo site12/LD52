@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4rs4xcxt8pv2"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="ArrayMesh" uid="uid://bgt8sms7rbhmt" path="res://objects/weapons/models/carrot_stage1.obj" id="1_el36v"]
-[ext_resource type="Texture2D" uid="uid://bsnff3hmhluri" path="res://objects/weapons/models/carrot_stage1.png" id="2_jnueq"]
+[ext_resource type="ArrayMesh" uid="uid://bgt8sms7rbhmt" path="res://objects/crops/Carrot/carrot_stage1.obj" id="1_el36v"]
+[ext_resource type="Texture2D" uid="uid://bsnff3hmhluri" path="res://objects/crops/Carrot/carrot_stage1.png" id="2_jnueq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2l8fy"]
 transparency = 2

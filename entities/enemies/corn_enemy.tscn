@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddw1gdfvo7rnd"]
+[gd_scene load_steps=4 format=3 uid="uid://ddw1gdfvo7rnd"]
 
 [ext_resource type="PackedScene" uid="uid://b472rl8vw03d5" path="res://entities/enemies/enemy.tscn" id="1_nii78"]
 [ext_resource type="PackedScene" uid="uid://bsbfm1s412ppq" path="res://entities/enemies/corn/resources/corn_idle.tscn" id="2_qja3u"]
+[ext_resource type="Script" path="res://entities/scripts/corn_enemy.gd" id="2_xbxct"]
 
 [node name="corn_enemy" instance=ExtResource("1_nii78")]
+script = ExtResource("2_xbxct")
 
 [node name="temp_face" parent="mesh" index="0"]
 visible = false
+
+[node name="NavigationAgent3D" parent="." index="1"]
+target_desired_distance = 2.0
 
 [node name="carrot_growth_3" parent="." index="4"]
 visible = false

@@ -13,7 +13,7 @@ enum GrowthState {
 const GROWTH_TIMES = {
 	Global.SeedType.CARROT : [5, 7, 10, 12],
 	Global.SeedType.POTATO : [5, 15, 40, 60],
-	Global.SeedType.CORN : [5, 15, 40, 60]
+	Global.SeedType.CORN : [5, 7, 10, 12]
 }
 
 @export var init_color  = Color.WHITE
@@ -132,6 +132,10 @@ func apply_plant_texture():
 			$growth_stages/Growth_1/carrot_growth_1.visible = true
 			$growth_stages/Growth_2/carrot_growth_2.visible = true
 			$growth_stages/Growth_3/carrot_growth_3.visible = true
+		Global.SeedType.CORN:
+			$growth_stages/Growth_1/corn_growth_1.visible = true
+			$growth_stages/Growth_2/corn_growth_2.visible = true
+			$growth_stages/Growth_3/corn_growth_3.visible = true
 
 func show_ui():
 	if not ui_showing:

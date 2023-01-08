@@ -409,4 +409,4 @@ seed_type = 0
 
 [node name="buyable2" parent="." instance=ExtResource("12_cdnw0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.23346, 1.375, 2.9745)
-seed_type = 1
+seed_type = 2
