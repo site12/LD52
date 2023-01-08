@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://8xtq0oiaf2rf" path="res://textures/stone_darker_2.png" id="7_10k8c"]
 [ext_resource type="Texture2D" uid="uid://dx0gwdi6t3frv" path="res://textures/wood_darken.png" id="7_dsccc"]
 [ext_resource type="Texture2D" uid="uid://ccfequ2jny2yl" path="res://textures/floor1_barn_texture.png" id="8_loet2"]
-[ext_resource type="Texture2D" uid="uid://bn77svyh46g4q" path="res://textures/window_texture.png" id="9_1ep63"]
+[ext_resource type="Texture2D" uid="uid://bpat2u6wr0yau" path="res://textures/window_texture.png" id="9_1ep63"]
 [ext_resource type="Texture2D" uid="uid://bq33dvl6v7hlg" path="res://textures/wood_dark_kinda.png" id="9_k8awe"]
-[ext_resource type="Texture2D" uid="uid://cehqgf6pwtomr" path="res://textures/door_texture.png" id="10_kjj6g"]
+[ext_resource type="Texture2D" uid="uid://byuf0l8nmpt4a" path="res://textures/door_texture.png" id="10_kjj6g"]
 [ext_resource type="Material" uid="uid://8o3josob84v" path="res://levels/farm map/materials/farm_map_trees.tres" id="11_qgutt"]
 [ext_resource type="Material" uid="uid://d3qo236srqkoq" path="res://levels/farm map/materials/farm_map_corn.tres" id="13_6h0n0"]
 

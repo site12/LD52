@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://85f5gd4mxvty"]
+[gd_scene load_steps=21 format=3 uid="uid://pqsb3kqx812r"]
 
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_o85yc"]
 [ext_resource type="Script" path="res://objects/weapons/seed_bag.gd" id="2_j3xn1"]
-[ext_resource type="PackedScene" uid="uid://c5mrud7dh4p77" path="res://objects/weapons/sounds/planting.tscn" id="3_7gu72"]
-[ext_resource type="PackedScene" uid="uid://chwv4l4lhvea0" path="res://objects/weapons/models/seedbag.tscn" id="4_ai305"]
+[ext_resource type="PackedScene" path="res://objects/weapons/sounds/planting.tscn" id="3_7gu72"]
+[ext_resource type="PackedScene" uid="uid://b2tkx1sc6voxi" path="res://objects/weapons/models/seedbag.tscn" id="4_ai305"]
 [ext_resource type="PackedScene" uid="uid://cuwya3pbo3awx" path="res://objects/weapons/sounds/watering can/watering_can_empty.tscn" id="4_bgtp8"]
 
 [sub_resource type="Animation" id="Animation_xllps"]
@@ -171,12 +171,10 @@ script = ExtResource("2_j3xn1")
 gun_name = "Seed"
 gunfire = ExtResource("3_7gu72")
 dryfire = ExtResource("4_bgtp8")
-max_ammo_in_clip = null
 max_ammo_in_reserve = 30
-infinite_ammo = null
 
 [node name="seedbag" parent="Player_Arms" index="1" instance=ExtResource("4_ai305")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29678, 0.0124862, -0.00288439)
+transform = Transform3D(-1.13651, -0.022395, -0.978691, -0.20676, 1.47127, 0.206435, 0.956863, 0.291314, -1.11783, 4.43124, -0.685773, 0.0904148)
 
 [node name="AnimationPlayer" parent="animations" index="0"]
 libraries = {
