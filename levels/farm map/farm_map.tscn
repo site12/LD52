@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://c2qbcx05icjxb"]
+[gd_scene load_steps=83 format=3 uid="uid://dhu3n23upt33b"]
 
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="3_0t2qc"]
 [ext_resource type="Texture2D" uid="uid://b8e4qo6554l60" path="res://textures/Grass_12-256x256.png" id="3_2tu1g"]
@@ -18,6 +18,16 @@
 [ext_resource type="Texture2D" uid="uid://c3lyukm2vtyuq" path="res://textures/Trees.png" id="12_todjp"]
 [ext_resource type="Texture2D" uid="uid://c05ny5scq2ewr" path="res://textures/Corn_field.png" id="13_3fdy1"]
 [ext_resource type="Material" uid="uid://d3qo236srqkoq" path="res://levels/farm map/materials/farm_map_corn.tres" id="13_6h0n0"]
+[ext_resource type="PackedScene" uid="uid://ca547hl6h3t4v" path="res://objects/interactables/door.tscn" id="19_6y75k"]
+[ext_resource type="PackedScene" uid="uid://84tk7aklg2o5" path="res://objects/interactables/seed_bag.tscn" id="20_f67iq"]
+[ext_resource type="PackedScene" uid="uid://cnd5nyukhr4vq" path="res://levels/farm map/assets/haybale.tscn" id="20_qs0ex"]
+[ext_resource type="PackedScene" uid="uid://b00nv5qf1feki" path="res://objects/interactables/scythe_buyable.tscn" id="20_r3wom"]
+[ext_resource type="PackedScene" uid="uid://n7u78errux6t" path="res://levels/farm map/assets/workbench.tscn" id="21_2m2kv"]
+[ext_resource type="PackedScene" uid="uid://0gnllxiti0n2" path="res://objects/interactables/watercan_buyable.tscn" id="21_p5vq8"]
+[ext_resource type="PackedScene" uid="uid://l48mioanawpc" path="res://levels/farm map/assets/shelf.tscn" id="22_c1jto"]
+[ext_resource type="PackedScene" uid="uid://cdlaybrmyo2qm" path="res://objects/interactables/hoe_buyable.tscn" id="25_8ot6m"]
+[ext_resource type="PackedScene" uid="uid://bm22g8rgf352i" path="res://objects/interactables/shotgun_buyable.tscn" id="26_2bqs0"]
+[ext_resource type="PackedScene" uid="uid://cbmv5sqfwuvf1" path="res://levels/farm map/assets/arch.tscn" id="27_t338y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgogi"]
 albedo_texture = ExtResource("3_2tu1g")
@@ -635,3 +645,119 @@ shadow_enabled = true
 transform = Transform3D(-1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, 40.1825, -0.283396, 55.4373)
 mesh = SubResource("PlaneMesh_115hn")
 surface_material_override/0 = SubResource("StandardMaterial3D_1fsqr")
+
+[node name="buyables" type="Node" parent="."]
+
+[node name="door" parent="buyables" instance=ExtResource("19_6y75k")]
+transform = Transform3D(0.916111, 0, -0.400925, 0, 1, 0, 0.400925, 0, 0.916111, 6.62718, 0.71255, -3.87221)
+
+[node name="door5" parent="buyables" instance=ExtResource("19_6y75k")]
+transform = Transform3D(0.916111, 0, -0.400925, 0, 1, 0, 0.400925, 0, 0.916111, 8.65971, 0.71255, 40.5152)
+
+[node name="door6" parent="buyables" instance=ExtResource("19_6y75k")]
+transform = Transform3D(0.916111, 0, -0.400925, 0, 1, 0, 0.400925, 0, 0.916111, 28.873, 0.71255, 63.9768)
+
+[node name="door2" parent="buyables" instance=ExtResource("19_6y75k")]
+transform = Transform3D(0.916111, 0, -0.400925, 0, 1, 0, 0.400925, 0, 0.916111, 35.2459, 0.71255, -15.7644)
+
+[node name="door3" parent="buyables" instance=ExtResource("19_6y75k")]
+transform = Transform3D(0.916111, 0, -0.400925, 0, 1, 0, 0.400925, 0, 0.916111, 70.2715, 0.679949, 17.1925)
+
+[node name="door4" parent="buyables" instance=ExtResource("19_6y75k")]
+transform = Transform3D(0.916111, 0, -0.400925, 0, 1, 0, 0.400925, 0, 0.916111, 57.7743, 0.679949, 53.3096)
+
+[node name="seed_buyable" parent="buyables" instance=ExtResource("20_f67iq")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 49.4368, 0.864903, 11.6648)
+seed_type = 0
+price = 250
+
+[node name="seed_buyable2" parent="buyables" instance=ExtResource("20_f67iq")]
+transform = Transform3D(-0.200428, 0, -0.979708, 0, 1, 0, 0.979708, 0, -0.200428, 49.4368, 1.61617, 12.5924)
+seed_type = 0
+price = 250
+
+[node name="seed_buyable3" parent="buyables" instance=ExtResource("20_f67iq")]
+transform = Transform3D(0.141005, 0, -0.990009, 0, 1, 0, 0.990009, 0, 0.141005, 49.4368, 0.86282, 13.2935)
+seed_type = 2
+
+[node name="watercan_buyable" parent="buyables" instance=ExtResource("21_p5vq8")]
+transform = Transform3D(0.5393, 0, -0.842114, 0, 1, 0, 0.842114, 0, 0.5393, 16.0991, 0.641045, -32.5137)
+
+[node name="scythe_buyable" parent="buyables" instance=ExtResource("20_r3wom")]
+transform = Transform3D(-4.37114e-08, 0, 1, -0.371903, 0.928272, -1.62564e-08, -0.928272, -0.371903, -4.0576e-08, 50, 0.667204, 21.6941)
+price = 1000
+
+[node name="hoe_buyable" parent="buyables" instance=ExtResource("25_8ot6m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50, 0.830726, 18.6385)
+
+[node name="shotgun_buyable" parent="buyables" instance=ExtResource("26_2bqs0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50, 1.65959, 15.5619)
+
+[node name="props" type="Node" parent="."]
+
+[node name="haybale" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 49.1482, 4.27288, 20.0787)
+skeleton = NodePath("../../..")
+
+[node name="haybale2" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 47.4171, 4.27288, 20.131)
+skeleton = NodePath("../../..")
+
+[node name="haybale3" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 45.6612, 4.27288, 19.9904)
+skeleton = NodePath("../../..")
+
+[node name="haybale4" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43.6254, 4.27288, 20.1347)
+skeleton = NodePath("../../..")
+
+[node name="haybale5" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42.002, 4.27288, 20.0787)
+skeleton = NodePath("../../..")
+
+[node name="haybale6" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40.8052, 5.5792, 20.199)
+skeleton = NodePath("../../..")
+
+[node name="haybale7" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42.7427, 5.5792, 20.1462)
+skeleton = NodePath("../../..")
+
+[node name="haybale8" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 44.6703, 5.5792, 20.1462)
+skeleton = NodePath("../../..")
+
+[node name="haybale9" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 46.5404, 5.5792, 20.1462)
+skeleton = NodePath("../../..")
+
+[node name="haybale10" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 48.3564, 5.5792, 20.42)
+skeleton = NodePath("../../..")
+
+[node name="haybale11" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.4388, 0.695472, 12.5627)
+skeleton = NodePath("../../..")
+
+[node name="haybale12" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5531, 0.695472, 14.3428)
+skeleton = NodePath("../../..")
+
+[node name="haybale13" parent="props" instance=ExtResource("20_qs0ex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.3097, 2.13451, 13.3951)
+skeleton = NodePath("../../..")
+
+[node name="workbench" parent="props" instance=ExtResource("21_2m2kv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 49.5519, 0.464076, 15.5401)
+
+[node name="shelf4" parent="props" instance=ExtResource("22_c1jto")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 49.4789, 0.803977, 12.419)
+
+[node name="shelf6" parent="props" instance=ExtResource("22_c1jto")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 49.4789, 2.24381, 12.419)
+
+[node name="arch" parent="props" instance=ExtResource("27_t338y")]
+transform = Transform3D(0.743387, 0, 0.0993739, 0, 0.75, 0, -0.0993739, 0, 0.743387, 18.5396, 2.1386, 4.01704)
+
+[node name="arch2" parent="props" instance=ExtResource("27_t338y")]
+transform = Transform3D(0.291819, 0, -0.690899, 0, 0.75, 0, 0.690899, 0, 0.291819, 23.8933, 2.1386, 36.978)
