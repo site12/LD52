@@ -6,7 +6,7 @@ class_name Player
 #constants for speed and jump stuff
 const SPEED = 7.0
 const JUMP_VELOCITY = 4.5
-enum Weapon {HOE, GUN, WATERING_CAN, SEEDBAG}
+enum Weapon {HOE, GUN, WATERING_CAN, SEEDBAG, SCYTHE}
 
 #gets the head pivot and the camera 
 @onready var pivot:Node3D = $pivot
@@ -16,6 +16,7 @@ enum Weapon {HOE, GUN, WATERING_CAN, SEEDBAG}
 @onready var hoe_node = $pivot/Camera3D/gun_spot/hoe
 @onready var watering_can_node = $pivot/Camera3D/gun_spot/watering_can
 @onready var seedbag_node = $pivot/Camera3D/gun_spot/seedbag
+@onready var scythe_node = $pivot/Camera3D/gun_spot/scythe
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -174,6 +175,8 @@ func update_weapon():
 			gun_spot.add_child(watering_can_node)
 		Weapon.SEEDBAG:
 			gun_spot.add_child(seedbag_node)
+		Weapon.SCYTHE:
+			gun_spot.add_child(scythe_node)
 		
 func add_seeds(seedtype:Global.SeedType):
 	seeds[seedtype] +=1

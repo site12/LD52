@@ -15,3 +15,9 @@ mesh = ExtResource("3_n3vri")
 
 [node name="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("SphereShape3D_42a34")
+
+[node name="VBoxContainer" parent="Control" index="0"]
+layout_mode = 1
+
+[node name="Label" parent="Control/VBoxContainer" index="0"]
+layout_mode = 2
