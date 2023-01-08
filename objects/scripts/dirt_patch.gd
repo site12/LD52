@@ -35,7 +35,7 @@ var dirt_colors = {
 }
 
 var dirt_state = "raw"
-var highlight:StandardMaterial3D = preload("res://objects/interactables/materials/new_standard_material_3d.tres")
+var highlight:StandardMaterial3D = preload("res://objects/interactables/materials/highlight.tres")
 
 func get_class(): return "DirtPatch"
 
