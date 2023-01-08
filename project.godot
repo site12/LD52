@@ -20,11 +20,6 @@ _global_script_classes=[{
 "path": "res://objects/scripts/buyable.gd"
 }, {
 "base": "Node3D",
-"class": &"DirtPatch",
-"language": &"GDScript",
-"path": "res://objects/scripts/dirt_patch.gd"
-}, {
-"base": "Node3D",
 "class": &"Door",
 "language": &"GDScript",
 "path": "res://objects/scripts/door.gd"
@@ -67,7 +62,6 @@ _global_script_classes=[{
 _global_script_class_icons={
 "Barrier": "",
 "Buyable": "",
-"DirtPatch": "",
 "Door": "",
 "Enemy": "",
 "EnemySpawner": "",
