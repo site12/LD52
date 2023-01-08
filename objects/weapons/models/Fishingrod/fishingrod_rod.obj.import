@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://yf480c0am7lx"
+path="res://.godot/imported/fishingrod_rod.obj-7a1a9ee65c649143283048b33b66baf7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fishingrod_rod.obj-7a1a9ee65c649143283048b33b66baf7.mesh"]
+
+source_file="res://objects/weapons/models/Fishingrod/fishingrod_rod.obj"
+dest_files=["res://.godot/imported/fishingrod_rod.obj-7a1a9ee65c649143283048b33b66baf7.mesh", "res://.godot/imported/fishingrod_rod.obj-7a1a9ee65c649143283048b33b66baf7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

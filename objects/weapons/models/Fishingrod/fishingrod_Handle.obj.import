@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dpenyeoooep4j"
+path="res://.godot/imported/fishingrod_Handle.obj-e9f5986a73d4425d0ceca57e02adb05b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fishingrod_Handle.obj-e9f5986a73d4425d0ceca57e02adb05b.mesh"]
+
+source_file="res://objects/weapons/models/Fishingrod/fishingrod_Handle.obj"
+dest_files=["res://.godot/imported/fishingrod_Handle.obj-e9f5986a73d4425d0ceca57e02adb05b.mesh", "res://.godot/imported/fishingrod_Handle.obj-e9f5986a73d4425d0ceca57e02adb05b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

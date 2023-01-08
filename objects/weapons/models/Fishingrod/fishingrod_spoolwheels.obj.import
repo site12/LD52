@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bap4tpb07imdp"
+path="res://.godot/imported/fishingrod_spoolwheels.obj-af2d0802167d13f4bcbb6152ea826d5a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fishingrod_spoolwheels.obj-af2d0802167d13f4bcbb6152ea826d5a.mesh"]
+
+source_file="res://objects/weapons/models/Fishingrod/fishingrod_spoolwheels.obj"
+dest_files=["res://.godot/imported/fishingrod_spoolwheels.obj-af2d0802167d13f4bcbb6152ea826d5a.mesh", "res://.godot/imported/fishingrod_spoolwheels.obj-af2d0802167d13f4bcbb6152ea826d5a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
