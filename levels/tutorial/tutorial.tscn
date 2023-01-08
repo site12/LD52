@@ -378,7 +378,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="screen_1" type="Control" parent="tut"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -386,7 +386,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="tut/screen_1"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -395,7 +394,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.219608)
 
 [node name="screen" type="HBoxContainer" parent="tut/screen_1"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -404,17 +402,21 @@ grow_vertical = 2
 alignment = 1
 
 [node name="left" type="VBoxContainer" parent="tut/screen_1/screen"]
-layout_mode = 2
+offset_right = 116.0
+offset_bottom = 480.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="middle" type="VBoxContainer" parent="tut/screen_1/screen"]
-layout_mode = 2
+offset_left = 120.0
+offset_right = 520.0
+offset_bottom = 480.0
 size_flags_horizontal = 3
 
 [node name="h1" type="Label" parent="tut/screen_1/screen/middle"]
 custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
+offset_right = 400.0
+offset_bottom = 150.0
 text = "Welcome to Pleasant Valley!"
 label_settings = SubResource("LabelSettings_i4mru")
 horizontal_alignment = 1
@@ -422,20 +424,24 @@ vertical_alignment = 1
 
 [node name="text" type="Label" parent="tut/screen_1/screen/middle"]
 custom_minimum_size = Vector2(400, 150)
-layout_mode = 2
+offset_top = 154.0
+offset_right = 400.0
+offset_bottom = 304.0
 text = "Lettuce begin by learning the basics. You can use the mouse to look around. You can also use W to move forward, use S to move backward, use A to move left, and use D to move right.  Try it now!"
 label_settings = SubResource("LabelSettings_ehvtt")
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="right" type="VBoxContainer" parent="tut/screen_1/screen"]
-layout_mode = 2
+offset_left = 524.0
+offset_right = 640.0
+offset_bottom = 480.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="screen_2" type="Control" parent="tut"]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -443,7 +449,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="tut/screen_2"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -452,7 +457,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.219608)
 
 [node name="screen" type="HBoxContainer" parent="tut/screen_2"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -461,17 +465,14 @@ grow_vertical = 2
 alignment = 1
 
 [node name="left" type="VBoxContainer" parent="tut/screen_2/screen"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="middle" type="VBoxContainer" parent="tut/screen_2/screen"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="h1" type="Label" parent="tut/screen_2/screen/middle"]
 custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
 text = "Great Job!"
 label_settings = SubResource("LabelSettings_i4mru")
 horizontal_alignment = 1
@@ -479,20 +480,18 @@ vertical_alignment = 1
 
 [node name="text" type="Label" parent="tut/screen_2/screen/middle"]
 custom_minimum_size = Vector2(400, 150)
-layout_mode = 2
 text = "Now its thyme to farm. We'll start by purchasing some seeds from the shed. You can use the F button to purchase seeds when you are looking at the seed bag. "
 label_settings = SubResource("LabelSettings_ehvtt")
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="right" type="VBoxContainer" parent="tut/screen_2/screen"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="screen_3" type="Control" parent="tut"]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -500,7 +499,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="tut/screen_3"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -509,7 +507,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.219608)
 
 [node name="screen" type="HBoxContainer" parent="tut/screen_3"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -518,17 +515,14 @@ grow_vertical = 2
 alignment = 1
 
 [node name="left" type="VBoxContainer" parent="tut/screen_3/screen"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="middle" type="VBoxContainer" parent="tut/screen_3/screen"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="h1" type="Label" parent="tut/screen_3/screen/middle"]
 custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
 text = "Awesome!"
 label_settings = SubResource("LabelSettings_i4mru")
 horizontal_alignment = 1
@@ -536,7 +530,6 @@ vertical_alignment = 1
 
 [node name="text" type="Label" parent="tut/screen_3/screen/middle"]
 custom_minimum_size = Vector2(400, 150)
-layout_mode = 2
 text = "Head over to the plots of farm land to begin planting. Use the scroll wheel to switch tools, and use a tool by pressing the left mouse button. 
 
 To plant crops, use the hoe on the plot to till the land, and then plant the seed using the seed bag."
@@ -545,13 +538,12 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="right" type="VBoxContainer" parent="tut/screen_3/screen"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="screen_4" type="Control" parent="tut"]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -559,7 +551,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="tut/screen_4"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -568,7 +559,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.219608)
 
 [node name="screen" type="HBoxContainer" parent="tut/screen_4"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -577,17 +567,14 @@ grow_vertical = 2
 alignment = 1
 
 [node name="left" type="VBoxContainer" parent="tut/screen_4/screen"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="middle" type="VBoxContainer" parent="tut/screen_4/screen"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="h1" type="Label" parent="tut/screen_4/screen/middle"]
 custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
 text = "Fantastic!"
 label_settings = SubResource("LabelSettings_i4mru")
 horizontal_alignment = 1
@@ -595,7 +582,6 @@ vertical_alignment = 1
 
 [node name="text" type="Label" parent="tut/screen_4/screen/middle"]
 custom_minimum_size = Vector2(400, 150)
-layout_mode = 2
 text = "You've planted your first crop, and you're ready to play the game! If you don't already love farming, I'm sure it will grow on you.
 
 Once the plant grows fully you'll be able to \"Harvest\" them to gain more money.  Upgrade your tools, unlock more areas of the map, and try not to get hurt!
@@ -606,7 +592,6 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="right" type="VBoxContainer" parent="tut/screen_4/screen"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
