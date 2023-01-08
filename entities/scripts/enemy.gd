@@ -11,7 +11,7 @@ enum EnemyType {
 }
 var health:float = 1.0
 var enemy_type:EnemyType
-var enemy_val:int
+var enemy_val:int = 0
 
 
 #enemy's current state
@@ -87,6 +87,7 @@ func take_damage(dmg) -> bool:
 #this function kills the enemy
 func die():
 	#$NavigationAgent3D.queue_free()
+	Global.give_money(enemy_val)
 	$CollisionShape3D.queue_free()
 	$timers/death_timer.start()
 

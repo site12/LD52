@@ -94,6 +94,7 @@ func plant_done():
 			health = 15
 	if watered: health *= 1.5
 	if fertilized: health *= 1.5
+	$enemy_spawner.enemy_type = crop_planted
 	$enemy_spawner.spawn_enemy(health)
 	reset_dirt()
 

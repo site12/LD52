@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://rpylkefnbu2f"]
+[gd_scene load_steps=3 format=3 uid="uid://ddw1gdfvo7rnd"]
 
 [ext_resource type="PackedScene" uid="uid://b472rl8vw03d5" path="res://entities/enemies/enemy.tscn" id="1_nii78"]
 [ext_resource type="PackedScene" uid="uid://bsbfm1s412ppq" path="res://entities/enemies/corn/resources/corn_idle.tscn" id="2_qja3u"]
