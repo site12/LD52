@@ -1,7 +1,41 @@
-[gd_scene load_steps=18 format=3 uid="uid://crgfnd6nkaqlr"]
+[gd_scene load_steps=22 format=3 uid="uid://crgfnd6nkaqlr"]
 
 [ext_resource type="PackedScene" uid="uid://b53q4jhodgaoq" path="res://entities/enemies/carrot/carrot_attack.glb" id="1_ymie0"]
 [ext_resource type="AnimationLibrary" uid="uid://b1286u31xs63d" path="res://entities/enemies/carrot/anims/carrot.res" id="2_urb0t"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7t438"]
+animation = &"carrot/attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rnea4"]
+animation = &"carrot/idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_psvyg"]
+animation = &"carrot/run1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g5exu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hukw7"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4hcb5"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t223b"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2quwm"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_27pkx"]
+states/carrotattack/node = SubResource("AnimationNodeAnimation_7t438")
+states/carrotattack/position = Vector2(614, 100)
+states/carrotidle/node = SubResource("AnimationNodeAnimation_rnea4")
+states/carrotidle/position = Vector2(320, 117)
+states/carrotrun1/node = SubResource("AnimationNodeAnimation_psvyg")
+states/carrotrun1/position = Vector2(477, 209)
+transitions = ["Start", "carrotidle", SubResource("AnimationNodeStateMachineTransition_g5exu"), "carrotidle", "carrotrun1", SubResource("AnimationNodeStateMachineTransition_hukw7"), "carrotrun1", "carrotidle", SubResource("AnimationNodeStateMachineTransition_4hcb5"), "carrotidle", "carrotattack", SubResource("AnimationNodeStateMachineTransition_t223b"), "carrotattack", "carrotidle", SubResource("AnimationNodeStateMachineTransition_2quwm")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_mkqwp"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pqe8d"]
 animation = &"carrot/idle"
@@ -20,28 +54,6 @@ blend_point_1/pos = 1.0
 blend_point_2/node = SubResource("AnimationNodeAnimation_dos4o")
 blend_point_2/pos = 1.0
 min_space = 0.0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7t438"]
-animation = &"carrot/attack"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f33vr"]
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kr6nr"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pa5cv"]
-switch_mode = 2
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_27pkx"]
-states/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_2qrd3")
-states/BlendSpace1D/position = Vector2(354, 100)
-states/carrotattack/node = SubResource("AnimationNodeAnimation_7t438")
-states/carrotattack/position = Vector2(614, 100)
-transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_f33vr"), "BlendSpace1D", "carrotattack", SubResource("AnimationNodeStateMachineTransition_kr6nr"), "carrotattack", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_pa5cv")]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_mkqwp"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aevf1"]
 auto_advance = true
@@ -71,22 +83,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Carrot/Carrot_Rig" index="2"]
-bones/0/position = Vector3(1.36271e-07, -2.03534, -49.5633)
-bones/0/rotation = Quaternion(-0.592092, 0.0139958, -0.0703549, 0.802672)
-bones/1/rotation = Quaternion(-0.322135, -0.0571789, -0.0529538, 0.94348)
-bones/2/rotation = Quaternion(0.43789, 0.00313979, -0.00165824, 0.899021)
-bones/3/rotation = Quaternion(-0.236896, -0.293437, 0.195916, 0.905203)
-bones/4/rotation = Quaternion(-0.36496, -0.0816943, 0.0965022, 0.922398)
-bones/5/rotation = Quaternion(0.471138, 0.00340719, -0.00196553, 0.882051)
-bones/6/rotation = Quaternion(-0.211993, 0.221993, -0.0795942, 0.94839)
-bones/8/rotation = Quaternion(-0.456099, -0.272854, -0.0975453, 0.841433)
-bones/9/rotation = Quaternion(0.0623881, -0.214794, -0.424482, 0.877375)
-bones/10/rotation = Quaternion(-0.0803101, -0.215902, -0.169832, 0.958172)
+bones/0/rotation = Quaternion(-0.561847, 0.0172527, -0.154687, 0.812467)
+bones/1/rotation = Quaternion(-0.337604, -0.130511, -0.0101068, 0.932142)
+bones/3/rotation = Quaternion(-0.233752, -0.204167, 0.128299, 0.941921)
+bones/4/rotation = Quaternion(-0.429909, -0.159402, 0.138046, 0.877902)
+bones/5/rotation = Quaternion(0.525073, 0.00381005, -0.002526, 0.851045)
+bones/6/rotation = Quaternion(-0.258783, 0.195567, -0.13006, 0.936947)
+bones/8/rotation = Quaternion(-0.350572, -0.24382, -0.0909782, 0.899652)
+bones/9/rotation = Quaternion(-0.0210939, -0.253561, -0.3773, 0.890453)
+bones/10/rotation = Quaternion(-0.125955, -0.167216, -0.128241, 0.969396)
 bones/11/rotation = Quaternion(0.183015, 0.00375696, -0.0888156, 0.979083)
-bones/12/rotation = Quaternion(-0.196494, 0.227639, 0.519021, 0.800117)
-bones/13/rotation = Quaternion(0.314356, 0.158978, 0.337593, 0.87289)
+bones/13/rotation = Quaternion(0.270155, 0.128963, 0.30511, 0.904042)
 
 [node name="AnimationPlayer" parent="." index="2"]
+playback_speed = 0.5
 libraries = {
 "carrot": ExtResource("2_urb0t")
 }
@@ -96,7 +106,6 @@ tree_root = SubResource("AnimationNodeStateMachine_27pkx")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_mkqwp")
-parameters/BlendSpace1D/blend_position = 0
 
 [node name="AnimationTree2" type="AnimationTree" parent="." index="4"]
 tree_root = SubResource("AnimationNodeStateMachine_tnwby")
