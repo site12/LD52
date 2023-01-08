@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://8ys45cohs3a6"
+=======
+uid="uid://hyycwm38y4lm"
+>>>>>>> Stashed changes
 path="res://.godot/imported/UV_carrot_seed.png-92b0f804e50a14d22bb835ce959bc3c1.ctex"
 metadata={
 "vram_texture": false

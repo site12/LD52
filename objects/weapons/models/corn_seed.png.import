@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://dlsv80eptprjn"
+=======
+uid="uid://c10aqeam1ekb8"
+>>>>>>> Stashed changes
 path.s3tc="res://.godot/imported/corn_seed.png-8a5a015109dbabd16e7f37eb5edfcfe5.s3tc.ctex"
 path.etc2="res://.godot/imported/corn_seed.png-8a5a015109dbabd16e7f37eb5edfcfe5.etc2.ctex"
 metadata={

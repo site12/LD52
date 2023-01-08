@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://bwymf1sgbqf3i"
+=======
+uid="uid://dqrtpx8ymb058"
+>>>>>>> Stashed changes
 path="res://.godot/imported/UV_corn_seed.png-5cd2f022ba8bae9252880d6163f12308.ctex"
 metadata={
 "vram_texture": false
