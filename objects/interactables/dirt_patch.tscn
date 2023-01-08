@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="1_bp3qh"]
 [ext_resource type="Script" path="res://disable_filter.gd" id="2_erat0"]
 [ext_resource type="PackedScene" uid="uid://b4rs4xcxt8pv2" path="res://objects/crops/Carrot/carrot_growth_1.tscn" id="4_3sfin"]
-[ext_resource type="PackedScene" path="res://objects/crops/Carrot/carrot_growth_2.tscn" id="5_dq3of"]
-[ext_resource type="PackedScene" path="res://objects/crops/Carrot/carrot_growth_3.tscn" id="6_04q6j"]
+[ext_resource type="PackedScene" uid="uid://cb2llirth8uvf" path="res://objects/crops/Carrot/carrot_growth_2.tscn" id="5_dq3of"]
+[ext_resource type="PackedScene" uid="uid://lidleuyxti7j" path="res://objects/crops/Carrot/carrot_growth_3.tscn" id="6_04q6j"]
 [ext_resource type="PackedScene" uid="uid://btyo5ris4w25l" path="res://objects/interactables/enemy_spawner.tscn" id="7_y8ixd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c70bo"]

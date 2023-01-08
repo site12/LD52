@@ -4,7 +4,15 @@ class_name Enemy
 
 #constants for speed and health
 const SPEED:float = 1.5
+enum EnemyType {
+	CARROT,
+	POTATO,
+	CORN
+}
 var health:float = 1.0
+var enemy_type:EnemyType
+var enemy_val:int
+
 
 #enemy's current state
 var current_behavior = "targeting_player"

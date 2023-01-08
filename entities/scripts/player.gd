@@ -24,11 +24,19 @@ var interactable_object = null
 var last_looked_at = null
 var current_weapon = Weapon.HOE
 
+@onready var seeds = {
+	Global.SeedType.CARROT : 0,
+	Global.SeedType.POTATO : 0,
+	Global.SeedType.CORN : 0
+}
+
 
 #captures the mouse upon spawn
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$pivot/Camera3D/gun_spot/seedbag.seed_swapped()
 	update_weapon()
+	
 
 #sets the mouse as visible if esc is pressed and handles rotating the camera
 func _unhandled_input(event:InputEvent) -> void:
@@ -55,6 +63,11 @@ func _unhandled_input(event:InputEvent) -> void:
 		if current_weapon == -1:
 			current_weapon = Weapon.size()-1
 		update_weapon()
+
+	if Input.is_action_just_pressed("swap_seed"):
+		print("help!")
+		Global.swap_seed()
+		
 
 	handle_interactions()
 
@@ -145,6 +158,8 @@ func update_weapon():
 		Weapon.SEEDBAG:
 			gun_spot.add_child(seedbag_node)
 		
+func add_seeds(seedtype:Global.SeedType):
+	seeds[seedtype] +=1
 
 # #allows us to attempt to interact when an object enters our interact radius
 # func _on_interactable_area_area_entered(area):

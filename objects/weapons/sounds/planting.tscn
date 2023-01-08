@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5mrud7dh4p77"]
+
+[ext_resource type="AudioStream" uid="uid://bctkevyad8u8n" path="res://objects/weapons/sounds/planting.wav" id="1_6uylk"]
+[ext_resource type="Script" path="res://objects/weapons/sounds/audio_timeout.gd" id="2_8pg52"]
+
+[node name="planting_sound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_6uylk")
+pitch_scale = 0.9
+autoplay = true
+script = ExtResource("2_8pg52")
