@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d3qo236srqkoq"]
+
+[ext_resource type="Texture2D" uid="uid://c05ny5scq2ewr" path="res://textures/Corn_field.png" id="1_5eq1x"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_5eq1x")

@@ -19,10 +19,10 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://objects/scripts/buyable.gd"
 }, {
-"base": "Node3D",
-"class": &"DirtPatch",
+"base": "Enemy",
+"class": &"CarrotEnemy",
 "language": &"GDScript",
-"path": "res://objects/scripts/dirt_patch.gd"
+"path": "res://entities/scripts/carrot_enemy.gd"
 }, {
 "base": "Node3D",
 "class": &"Door",
@@ -67,7 +67,7 @@ _global_script_classes=[{
 _global_script_class_icons={
 "Barrier": "",
 "Buyable": "",
-"DirtPatch": "",
+"CarrotEnemy": "",
 "Door": "",
 "Enemy": "",
 "EnemySpawner": "",
@@ -81,7 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD52"
-run/main_scene="res://main_menu/main_menu.tscn"
+run/main_scene="res://main_menu/intro.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/fullsize=false
