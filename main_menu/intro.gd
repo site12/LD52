@@ -2,11 +2,6 @@
 
 extends Node
 
-
-#references to the intro screen video and the animation player
-@onready var video_intro:VideoStreamPlayer = $intro_screen/site12_intro
-@onready var anim_player:AnimationPlayer = $animations/anim_player
-
-#when the intro is finished it will play the godot splash screen
-func _on_site_12_intro_finished():
-	anim_player.play("godot_splash")
+func _on_video_stream_player_finished():
+	await get_tree().create_timer(0.1).timeout
+	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")

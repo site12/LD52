@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+<<<<<<< Updated upstream
+uid="uid://c6squ337kh1k8"
+=======
+uid="uid://tctsim8ghn5a"
+>>>>>>> Stashed changes
+path="res://.godot/imported/seedbag.obj-5e226097bc295b53065493da408a5082.mesh"
+
+[deps]
+
+files=["res://.godot/imported/seedbag.obj-5e226097bc295b53065493da408a5082.mesh"]
+
+source_file="res://objects/weapons/models/seedbag.obj"
+dest_files=["res://.godot/imported/seedbag.obj-5e226097bc295b53065493da408a5082.mesh", "res://.godot/imported/seedbag.obj-5e226097bc295b53065493da408a5082.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
