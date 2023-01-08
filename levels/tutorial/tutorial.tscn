@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b8etbnutwpvv5"]
+[gd_scene load_steps=41 format=3 uid="uid://b8etbnutwpvv5"]
 
 [ext_resource type="Texture2D" uid="uid://b3apvuy3mvql6" path="res://skies/kloppenheim_red_02_2k.hdr" id="1_8kgwp"]
 [ext_resource type="Texture2D" uid="uid://b8e4qo6554l60" path="res://textures/Grass_12-256x256.png" id="2_4ux3w"]
@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bq33dvl6v7hlg" path="res://textures/wood_dark_kinda.png" id="7_trevd"]
 [ext_resource type="PackedScene" uid="uid://blhhvycgbhhmj" path="res://objects/interactables/dirt_patch.tscn" id="10_787rm"]
 [ext_resource type="PackedScene" uid="uid://84tk7aklg2o5" path="res://objects/interactables/seed_bag.tscn" id="10_u8gfg"]
+[ext_resource type="Script" path="res://levels/tutorial/scripts/tutorial.gd" id="11_1rab2"]
 [ext_resource type="PackedScene" uid="uid://cdlaybrmyo2qm" path="res://objects/interactables/hoe_buyable.tscn" id="11_4reyk"]
-[ext_resource type="PackedScene" uid="uid://dg58bvyt562ba" path="res://entities/players/player.tscn" id="11_uont8"]
+[ext_resource type="FontFile" uid="uid://duy2h5y7vworx" path="res://main_menu/resources/AlegreyaSansSC-Medium.ttf" id="11_6bdbb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w2yb7"]
 panorama = ExtResource("1_8kgwp")
@@ -18,14 +19,14 @@ panorama = ExtResource("1_8kgwp")
 [sub_resource type="Sky" id="Sky_cxvau"]
 sky_material = SubResource("PanoramaSkyMaterial_w2yb7")
 
-[sub_resource type="Environment" id="Environment_vk5er"]
+[sub_resource type="Environment" id="Environment_5lkvk"]
 background_mode = 2
 sky = SubResource("Sky_cxvau")
 ambient_light_source = 3
 tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0917
+volumetric_fog_density = 0.0269
 volumetric_fog_detail_spread = 6.0
 volumetric_fog_sky_affect = 0.917
 
@@ -219,7 +220,16 @@ _surfaces = [{
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2g2qs"]
 data = PackedVector3Array(-0.375, 0.5625, -1.25, -0.375, 0.4375, -1.25, 0.375, 0.4375, -1.25, -0.375, 0.5625, -1.25, 0.375, 0.4375, -1.25, 0.375, 0.5625, -1.25, -0.375, 0.5625, -1.25, -0.375, 0.5625, 1.25, -0.375, 0.4375, 1.25, -0.375, 0.5625, -1.25, -0.375, 0.4375, 1.25, -0.375, 0.4375, -1.25, 0.375, 0.4375, -1.25, -0.375, 0.4375, -1.25, -0.375, 0.4375, 1.25, 0.375, 0.4375, -1.25, -0.375, 0.4375, 1.25, 0.375, 0.4375, 1.25, 0.375, 0.5625, -1.25, 0.375, 0.5625, 1.25, -0.375, 0.5625, 1.25, 0.375, 0.5625, -1.25, -0.375, 0.5625, 1.25, -0.375, 0.5625, -1.25, 0.375, 0.5625, -1.25, 0.375, 0.4375, -1.25, 0.375, 0.4375, 1.25, 0.375, 0.5625, -1.25, 0.375, 0.4375, 1.25, 0.375, 0.5625, 1.25, -0.375, 0.5625, 1.25, 0.375, 0.5625, 1.25, 0.375, 0.4375, 1.25, -0.375, 0.5625, 1.25, 0.375, 0.4375, 1.25, -0.375, 0.4375, 1.25, -0.375, -0.1875, -1.25, -0.375, -0.3125, -1.25, 0.375, -0.3125, -1.25, -0.375, -0.1875, -1.25, 0.375, -0.3125, -1.25, 0.375, -0.1875, -1.25, -0.375, -0.1875, -1.25, -0.375, -0.1875, 1.25, -0.375, -0.3125, 1.25, -0.375, -0.1875, -1.25, -0.375, -0.3125, 1.25, -0.375, -0.3125, -1.25, 0.375, -0.3125, -1.25, -0.375, -0.3125, -1.25, -0.375, -0.3125, 1.25, 0.375, -0.3125, -1.25, -0.375, -0.3125, 1.25, 0.375, -0.3125, 1.25, 0.375, -0.1875, -1.25, 0.375, -0.1875, 1.25, -0.375, -0.1875, 1.25, 0.375, -0.1875, -1.25, -0.375, -0.1875, 1.25, -0.375, -0.1875, -1.25, 0.375, -0.1875, -1.25, 0.375, -0.3125, -1.25, 0.375, -0.3125, 1.25, 0.375, -0.1875, -1.25, 0.375, -0.3125, 1.25, 0.375, -0.1875, 1.25, -0.375, -0.1875, 1.25, 0.375, -0.1875, 1.25, 0.375, -0.3125, 1.25, -0.375, -0.1875, 1.25, 0.375, -0.3125, 1.25, -0.375, -0.3125, 1.25, 0.25, 0.6875, 1.25, 0.25, -0.8125, 1.25, 0.375, -0.8125, 1.25, 0.25, 0.6875, 1.25, 0.375, -0.8125, 1.25, 0.375, 0.6875, 1.25, 0.25, 0.6875, 1.25, 0.25, 0.6875, 1.375, 0.25, -0.8125, 1.375, 0.25, 0.6875, 1.25, 0.25, -0.8125, 1.375, 0.25, -0.8125, 1.25, 0.375, -0.8125, 1.25, 0.25, -0.8125, 1.25, 0.25, -0.8125, 1.375, 0.375, -0.8125, 1.25, 0.25, -0.8125, 1.375, 0.375, -0.8125, 1.375, 0.375, 0.6875, 1.25, 0.375, 0.6875, 1.375, 0.25, 0.6875, 1.375, 0.375, 0.6875, 1.25, 0.25, 0.6875, 1.375, 0.25, 0.6875, 1.25, 0.375, 0.6875, 1.25, 0.375, -0.8125, 1.25, 0.375, -0.8125, 1.375, 0.375, 0.6875, 1.25, 0.375, -0.8125, 1.375, 0.375, 0.6875, 1.375, 0.25, 0.6875, 1.375, 0.375, 0.6875, 1.375, 0.375, -0.8125, 1.375, 0.25, 0.6875, 1.375, 0.375, -0.8125, 1.375, 0.25, -0.8125, 1.375, -0.375, 0.6875, 1.25, -0.375, -0.8125, 1.25, -0.25, -0.8125, 1.25, -0.375, 0.6875, 1.25, -0.25, -0.8125, 1.25, -0.25, 0.6875, 1.25, -0.375, 0.6875, 1.25, -0.375, 0.6875, 1.375, -0.375, -0.8125, 1.375, -0.375, 0.6875, 1.25, -0.375, -0.8125, 1.375, -0.375, -0.8125, 1.25, -0.25, -0.8125, 1.25, -0.375, -0.8125, 1.25, -0.375, -0.8125, 1.375, -0.25, -0.8125, 1.25, -0.375, -0.8125, 1.375, -0.25, -0.8125, 1.375, -0.25, 0.6875, 1.25, -0.25, 0.6875, 1.375, -0.375, 0.6875, 1.375, -0.25, 0.6875, 1.25, -0.375, 0.6875, 1.375, -0.375, 0.6875, 1.25, -0.25, 0.6875, 1.25, -0.25, -0.8125, 1.25, -0.25, -0.8125, 1.375, -0.25, 0.6875, 1.25, -0.25, -0.8125, 1.375, -0.25, 0.6875, 1.375, -0.375, 0.6875, 1.375, -0.25, 0.6875, 1.375, -0.25, -0.8125, 1.375, -0.375, 0.6875, 1.375, -0.25, -0.8125, 1.375, -0.375, -0.8125, 1.375, -0.375, 0.6875, -1.375, -0.375, -0.8125, -1.375, -0.25, -0.8125, -1.375, -0.375, 0.6875, -1.375, -0.25, -0.8125, -1.375, -0.25, 0.6875, -1.375, -0.375, 0.6875, -1.375, -0.375, 0.6875, -1.25, -0.375, -0.8125, -1.25, -0.375, 0.6875, -1.375, -0.375, -0.8125, -1.25, -0.375, -0.8125, -1.375, -0.25, -0.8125, -1.375, -0.375, -0.8125, -1.375, -0.375, -0.8125, -1.25, -0.25, -0.8125, -1.375, -0.375, -0.8125, -1.25, -0.25, -0.8125, -1.25, -0.25, 0.6875, -1.375, -0.25, 0.6875, -1.25, -0.375, 0.6875, -1.25, -0.25, 0.6875, -1.375, -0.375, 0.6875, -1.25, -0.375, 0.6875, -1.375, -0.25, 0.6875, -1.375, -0.25, -0.8125, -1.375, -0.25, -0.8125, -1.25, -0.25, 0.6875, -1.375, -0.25, -0.8125, -1.25, -0.25, 0.6875, -1.25, -0.375, 0.6875, -1.25, -0.25, 0.6875, -1.25, -0.25, -0.8125, -1.25, -0.375, 0.6875, -1.25, -0.25, -0.8125, -1.25, -0.375, -0.8125, -1.25, 0.25, 0.6875, -1.375, 0.25, -0.8125, -1.375, 0.375, -0.8125, -1.375, 0.25, 0.6875, -1.375, 0.375, -0.8125, -1.375, 0.375, 0.6875, -1.375, 0.25, 0.6875, -1.375, 0.25, 0.6875, -1.25, 0.25, -0.8125, -1.25, 0.25, 0.6875, -1.375, 0.25, -0.8125, -1.25, 0.25, -0.8125, -1.375, 0.375, -0.8125, -1.375, 0.25, -0.8125, -1.375, 0.25, -0.8125, -1.25, 0.375, -0.8125, -1.375, 0.25, -0.8125, -1.25, 0.375, -0.8125, -1.25, 0.375, 0.6875, -1.375, 0.375, 0.6875, -1.25, 0.25, 0.6875, -1.25, 0.375, 0.6875, -1.375, 0.25, 0.6875, -1.25, 0.25, 0.6875, -1.375, 0.375, 0.6875, -1.375, 0.375, -0.8125, -1.375, 0.375, -0.8125, -1.25, 0.375, 0.6875, -1.375, 0.375, -0.8125, -1.25, 0.375, 0.6875, -1.25, 0.25, 0.6875, -1.25, 0.375, 0.6875, -1.25, 0.375, -0.8125, -1.25, 0.25, 0.6875, -1.25, 0.375, -0.8125, -1.25, 0.25, -0.8125, -1.25)
 
+[sub_resource type="LabelSettings" id="LabelSettings_i4mru"]
+font = ExtResource("11_6bdbb")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_ehvtt"]
+font = ExtResource("11_6bdbb")
+font_size = 15
+
 [node name="dev_map" type="Node3D"]
+script = ExtResource("11_1rab2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -228,7 +238,7 @@ light_energy = 0.677
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vk5er")
+environment = SubResource("Environment_5lkvk")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_cmcmd")
@@ -291,9 +301,6 @@ mesh = SubResource("ArrayMesh_37jc2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TBLoader/shelf2/entity_4_geometry_col"]
 shape = SubResource("ConcavePolygonShape3D_2g2qs")
 
-[node name="player" parent="." instance=ExtResource("11_uont8")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 9.40975, 2.98023e-05, 17.0627)
-
 [node name="plots" type="Node" parent="."]
 
 [node name="plot1" type="Node" parent="plots"]
@@ -322,6 +329,200 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 15)
 
 [node name="seed_buyable" parent="buyables" instance=ExtResource("10_u8gfg")]
 transform = Transform3D(-0.479228, 0, 0.87769, 0, 1, 0, -0.87769, 0, -0.479228, 27.2531, 1.31028, 23.198)
+seed_type = 0
+price = 250
 
 [node name="hoe_buyable" parent="." instance=ExtResource("11_4reyk")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0.99814, 0.0609614, -4.36301e-08, 0.0609614, -0.99814, -2.66471e-09, 27.1718, 1.08801, 27.5628)
+
+[node name="tut" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="screen_1" type="Control" parent="tut"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="tut/screen_1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.219608)
+
+[node name="screen" type="HBoxContainer" parent="tut/screen_1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="left" type="VBoxContainer" parent="tut/screen_1/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="middle" type="VBoxContainer" parent="tut/screen_1/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="h1" type="Label" parent="tut/screen_1/screen/middle"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+text = "Welcome to Pleasant Valley!"
+label_settings = SubResource("LabelSettings_i4mru")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text" type="Label" parent="tut/screen_1/screen/middle"]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+text = "Lettuce begin by learning the basics. Use W to move forward, use S to move backward, use A to move left, and use D to move right. You can also use the mouse to look around. Try it now!"
+label_settings = SubResource("LabelSettings_ehvtt")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="right" type="VBoxContainer" parent="tut/screen_1/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="screen_2" type="Control" parent="tut"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="tut/screen_2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.219608)
+
+[node name="screen" type="HBoxContainer" parent="tut/screen_2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="left" type="VBoxContainer" parent="tut/screen_2/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="middle" type="VBoxContainer" parent="tut/screen_2/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="h1" type="Label" parent="tut/screen_2/screen/middle"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+text = "Great Job!"
+label_settings = SubResource("LabelSettings_i4mru")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text" type="Label" parent="tut/screen_2/screen/middle"]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+text = "Now its thyme to farm. We'll start by purchasing some seeds from the shed. You can use the F button to purchase seeds when you are looking at the seed bag. "
+label_settings = SubResource("LabelSettings_ehvtt")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="right" type="VBoxContainer" parent="tut/screen_2/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="screen_3" type="Control" parent="tut"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="tut/screen_3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.219608)
+
+[node name="screen" type="HBoxContainer" parent="tut/screen_3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="left" type="VBoxContainer" parent="tut/screen_3/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="middle" type="VBoxContainer" parent="tut/screen_3/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="h1" type="Label" parent="tut/screen_3/screen/middle"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+text = "Great Job!"
+label_settings = SubResource("LabelSettings_i4mru")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text" type="Label" parent="tut/screen_3/screen/middle"]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+text = "Now its thyme to farm. We'll start by purchasing some seeds from the shed. You can use the F button to purchase seeds when you are looking at the seed bag. "
+label_settings = SubResource("LabelSettings_ehvtt")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="right" type="VBoxContainer" parent="tut/screen_3/screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="tutcam_intro" type="Camera3D" parent="."]
+transform = Transform3D(-0.329559, 0, -0.944135, 0, 1, 0, 0.944135, 0, -0.329559, 12.0897, 3.79791, 12.5929)
+current = true
+
+[node name="tutcam_seeds" type="Camera3D" parent="."]
+transform = Transform3D(0.265018, 0, -0.964244, 0, 1, 0, 0.964244, 0, 0.265018, 23.7469, 1.94128, 23.5853)
+
+[node name="tutcam_plot" type="Camera3D" parent="."]
+transform = Transform3D(0.749557, 0.172307, -0.63912, -0.0126331, 0.969074, 0.246447, 0.661819, -0.176652, 0.728553, 23.7469, 1.94128, 17.1517)
+
+[node name="spawn_loc" type="Node3D" parent="."]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 9.73322, 0, 12.0335)
