@@ -5,12 +5,13 @@ extends Node3D
 @onready var p = player.instantiate()
 
 
+@onready var cam1 = $tutcam_intro
+@onready var cam2 = $tutcam_seeds
+@onready var cam3 = $tutcam_plot
+
 var spawned = false
 var purchased = false
-var ready_for_plot = false
-
-func _ready():
-	p.points = 500
+var planted = false
 
 func _unhandled_key_input(event):
 	if event.is_pressed() and not spawned:
@@ -26,17 +27,26 @@ func _unhandled_key_input(event):
 		$tut/screen_2.visible = true
 		$tutcam_seeds.current = true
 		await get_tree().create_timer(7).timeout
-		$tutcam_seeds.queue_free()
-		$tutcam_intro.queue_free()
+		cam2.queue_free()
+		cam1.queue_free()
 		$tut/screen_2.visible = false
-	if Input.is_action_just_released("next_weapon") and purchased and ready_for_plot:
-		$tut/screen_3.visible = false
-		$tutcam_plot.queue_free()
-		
+
 func _physics_process(delta):
-	if p.points != 500 and not purchased:
+	if Global.money != 1000 and not purchased:
+		purchased = true
 		await get_tree().create_timer(1).timeout
 		$tut/screen_3.visible = true
-		$tutcam_plot.current = true
-		purchased = true
+		cam3.current = true
+		await get_tree().create_timer(7).timeout
+		$tut/screen_3.visible = false
+		cam3.current = false
+		print("running")
+		
+		
+	if Global.money != 1000 and p.seeds[Global.SeedType.CARROT]==0:
+		planted = true
+		await get_tree().create_timer(1).timeout
+		$tut/screen_4.visible = true
+		
+		
 		
