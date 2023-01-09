@@ -30,7 +30,9 @@ var current_weapon = Weapon.HOE
 var in_water:bool = false
 var in_gravel:bool = false
 var in_wood:bool = false
-
+var disabled = false
+var direction
+var input_dir
 @onready var seeds = {
 	Global.SeedType.CARROT : 0,
 	Global.SeedType.POTATO : 0,
@@ -163,16 +165,19 @@ func _physics_process(delta) -> void:
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("move_backward","move_forward","move_left","move_right")
-	var direction = (pivot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	if not disabled:
+		
+		input_dir = Input.get_vector("move_backward","move_forward","move_left","move_right")
+		direction = (pivot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
 
-	move_and_slide()
+		move_and_slide()
 
 #returns player's location in the world
 func get_player_location() -> Vector3:

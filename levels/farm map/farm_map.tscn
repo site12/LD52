@@ -1,7 +1,7 @@
-[gd_scene load_steps=108 format=3 uid="uid://dhu3n23upt33b"]
+[gd_scene load_steps=112 format=3 uid="uid://dhu3n23upt33b"]
 
 [ext_resource type="Script" path="res://levels/farm map/scripts/farm_map.gd" id="1_7daaw"]
-[ext_resource type="NavigationMesh" uid="uid://xntfyknhkbnf" path="res://levels/farm map/farm_map_nav_mesh.tres" id="2_sivh8"]
+[ext_resource type="NavigationMesh" path="res://levels/farm map/farm_map_nav_mesh.tres" id="2_sivh8"]
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="3_0t2qc"]
 [ext_resource type="Texture2D" uid="uid://b8e4qo6554l60" path="res://textures/Grass_12-256x256.png" id="3_2tu1g"]
 [ext_resource type="Script" path="res://disable_filter.gd" id="3_jy4ns"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c05ny5scq2ewr" path="res://textures/Corn_field.png" id="13_3fdy1"]
 [ext_resource type="Material" uid="uid://d3qo236srqkoq" path="res://levels/farm map/materials/farm_map_corn.tres" id="13_6h0n0"]
 [ext_resource type="PackedScene" uid="uid://ca547hl6h3t4v" path="res://objects/interactables/door.tscn" id="19_6y75k"]
-[ext_resource type="NavigationMesh" uid="uid://c6yamstbmiimk" path="res://levels/farm map/farm_map_weed_nav.tres" id="19_ntj7r"]
+[ext_resource type="NavigationMesh" path="res://levels/farm map/farm_map_weed_nav.tres" id="19_ntj7r"]
 [ext_resource type="PackedScene" uid="uid://84tk7aklg2o5" path="res://objects/interactables/seed_bag.tscn" id="20_f67iq"]
 [ext_resource type="PackedScene" uid="uid://cnd5nyukhr4vq" path="res://levels/farm map/assets/haybale.tscn" id="20_qs0ex"]
 [ext_resource type="PackedScene" uid="uid://b00nv5qf1feki" path="res://objects/interactables/scythe_buyable.tscn" id="20_r3wom"]
@@ -40,7 +40,7 @@
 [ext_resource type="Script" path="res://levels/farm map/wood_area.gd" id="34_5u07r"]
 [ext_resource type="Script" path="res://levels/farm map/gravel_area.gd" id="35_bas4t"]
 [ext_resource type="FontFile" uid="uid://duy2h5y7vworx" path="res://main_menu/resources/AlegreyaSansSC-Medium.ttf" id="37_uafvh"]
-[ext_resource type="PackedScene" uid="uid://dtpv8snpj8j8d" path="res://objects/interactables/weed_spawner.tscn" id="39_nwryr"]
+[ext_resource type="PackedScene" path="res://objects/interactables/weed_spawner.tscn" id="39_nwryr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omaak"]
 albedo_texture = ExtResource("3_2tu1g")
@@ -535,6 +535,34 @@ albedo_texture_force_srgb = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_irp0j"]
 size = Vector3(10.292, 3.06781, 14.3324)
+
+[sub_resource type="LabelSettings" id="LabelSettings_26pgc"]
+font = ExtResource("37_uafvh")
+
+[sub_resource type="Animation" id="Animation_7nkgb"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_qfx0e"]
+resource_name = "text"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("middle/HBoxContainer/description:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(3.36358, 3.36358),
+"update": 1,
+"values": [0, 500]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6jjc1"]
+_data = {
+"RESET": SubResource("Animation_7nkgb"),
+"text": SubResource("Animation_qfx0e")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_6kb04"]
 font = ExtResource("37_uafvh")
@@ -1111,11 +1139,255 @@ script = ExtResource("35_bas4t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50065, 0, 1.24863)
 shape = SubResource("BoxShape3D_irp0j")
 
-[node name="player" parent="." instance=ExtResource("33_dms4t")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.44809, 2.65241e-05, 3.11203)
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.832834, 0, 0.553522, 0, 1, 0, -0.553522, 0, 0.832834, 16.4019, 1.6872, 17.9143)
+
+[node name="weed_spawners" type="Node" parent="."]
+
+[node name="weed_spawner" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0746, 2.46167e-05, 10.9504)
+
+[node name="weed_spawner2" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4088, 2.84314e-05, 8.11737)
+
+[node name="weed_spawner3" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4294, 2.84314e-05, 17.2757)
+
+[node name="weed_spawner4" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9258, 2.46167e-05, 17.6971)
+
+[node name="weed_spawner5" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3912, 2.65241e-05, 34.6462)
+
+[node name="weed_spawner6" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.5642, 2.65241e-05, 22.1517)
+
+[node name="weed_spawner7" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8285, 2.46167e-05, 22.1418)
+
+[node name="weed_spawner8" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.9778, 2.84314e-05, 29.8354)
+
+[node name="weed_spawner9" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8061, 2.65241e-05, 29.4462)
+
+[node name="weed_spawner10" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.1988, 2.65241e-05, 37.6373)
+
+[node name="weed_spawner11" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.051, 2.65241e-05, 38.7925)
+
+[node name="weed_spawner12" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.9479, 2.46167e-05, 49.3867)
+
+[node name="weed_spawner13" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3521, 2.84314e-05, 38.402)
+
+[node name="weed_spawner14" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5662, 2.65241e-05, -15.316)
+
+[node name="weed_spawner15" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9709, 2.84314e-05, -15.352)
+
+[node name="weed_spawner16" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6124, 2.65241e-05, -0.969814)
+
+[node name="weed_spawner17" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1811, 2.46167e-05, -3.98209)
+
+[node name="weed_spawner18" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7358, 2.65241e-05, -9.19315)
+
+[node name="weed_spawner19" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5252, 2.65241e-05, 44.7835)
+
+[node name="weed_spawner20" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2063, 2.27094e-05, 39.8693)
+
+[node name="weed_spawner21" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9592, 2.27094e-05, 53.465)
+
+[node name="weed_spawner22" parent="weed_spawners" instance=ExtResource("39_nwryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0918, 2.65241e-05, 70.4612)
+
+[node name="weed_spawn_timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="spawn_loc" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.2577, 0, 4.371)
+
+[node name="player" parent="." instance=ExtResource("33_dms4t")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.38635, 0, 3.37292)
+
+[node name="intro" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="intro"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="your_name" type="HBoxContainer" parent="intro"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="left" type="VBoxContainer" parent="intro/your_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="middle" type="VBoxContainer" parent="intro/your_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="intro/your_name/middle"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="intro/your_name/middle/HBoxContainer"]
+layout_mode = 2
+text = "what should we call you? "
+label_settings = SubResource("LabelSettings_26pgc")
+vertical_alignment = 1
+
+[node name="LineEdit_yname" type="LineEdit" parent="intro/your_name/middle/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("37_uafvh")
+theme_override_font_sizes/font_size = 12
+placeholder_text = "Your Name Here"
+max_length = 30
+caret_blink = true
+
+[node name="right" type="VBoxContainer" parent="intro/your_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="your_farms_name" type="HBoxContainer" parent="intro"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="VBoxContainer" parent="intro/your_farms_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="middle" type="VBoxContainer" parent="intro/your_farms_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="intro/your_farms_name/middle"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="intro/your_farms_name/middle/HBoxContainer"]
+layout_mode = 2
+text = "what would you like to call this place? "
+label_settings = SubResource("LabelSettings_26pgc")
+vertical_alignment = 1
+
+[node name="LineEdit_fname" type="LineEdit" parent="intro/your_farms_name/middle/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("37_uafvh")
+theme_override_font_sizes/font_size = 12
+placeholder_text = "Farm Name Here"
+max_length = 15
+caret_blink = true
+
+[node name="right" type="VBoxContainer" parent="intro/your_farms_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="your_pets_name" type="HBoxContainer" parent="intro"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="VBoxContainer" parent="intro/your_pets_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="middle" type="VBoxContainer" parent="intro/your_pets_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="intro/your_pets_name/middle"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="intro/your_pets_name/middle/HBoxContainer"]
+layout_mode = 2
+text = "What was the name of your childhood pet? "
+label_settings = SubResource("LabelSettings_26pgc")
+vertical_alignment = 1
+
+[node name="LineEdit_pname" type="LineEdit" parent="intro/your_pets_name/middle/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("37_uafvh")
+theme_override_font_sizes/font_size = 12
+placeholder_text = "Pet Name Here"
+max_length = 30
+caret_blink = true
+
+[node name="right" type="VBoxContainer" parent="intro/your_pets_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="intro_anim" type="HBoxContainer" parent="intro"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="VBoxContainer" parent="intro/intro_anim"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="middle" type="VBoxContainer" parent="intro/intro_anim"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="intro/intro_anim/middle"]
+layout_mode = 2
+
+[node name="description" type="RichTextLabel" parent="intro/intro_anim/middle/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Dear [name], 
+We are writing to you to inform you of the fact that you have been selected to acquire a small property from your [descriptor] [family member] in their will. This property contains a small farm on it named [farm name]. Their only wish was for you to maintain the farm, and keep it from becoming overgrown. Good Luck!
+
+Best Regards,
+
+Pleasant Valley Planning Department
+"
+fit_content_height = true
+
+[node name="right" type="VBoxContainer" parent="intro/intro_anim"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="intro/intro_anim"]
+libraries = {
+"": SubResource("AnimationLibrary_6jjc1")
+}
 
 [node name="dying" type="Node" parent="."]
 
@@ -1311,78 +1583,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="weed_spawners" type="Node" parent="."]
-
-[node name="weed_spawner" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0746, 2.46167e-05, 10.9504)
-
-[node name="weed_spawner2" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4088, 2.84314e-05, 8.11737)
-
-[node name="weed_spawner3" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4294, 2.84314e-05, 17.2757)
-
-[node name="weed_spawner4" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9258, 2.46167e-05, 17.6971)
-
-[node name="weed_spawner5" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3912, 2.65241e-05, 34.6462)
-
-[node name="weed_spawner6" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.5642, 2.65241e-05, 22.1517)
-
-[node name="weed_spawner7" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8285, 2.46167e-05, 22.1418)
-
-[node name="weed_spawner8" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.9778, 2.84314e-05, 29.8354)
-
-[node name="weed_spawner9" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8061, 2.65241e-05, 29.4462)
-
-[node name="weed_spawner10" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.1988, 2.65241e-05, 37.6373)
-
-[node name="weed_spawner11" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.051, 2.65241e-05, 38.7925)
-
-[node name="weed_spawner12" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.9479, 2.46167e-05, 49.3867)
-
-[node name="weed_spawner13" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3521, 2.84314e-05, 38.402)
-
-[node name="weed_spawner14" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5662, 2.65241e-05, -15.316)
-
-[node name="weed_spawner15" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9709, 2.84314e-05, -15.352)
-
-[node name="weed_spawner16" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6124, 2.65241e-05, -0.969814)
-
-[node name="weed_spawner17" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1811, 2.46167e-05, -3.98209)
-
-[node name="weed_spawner18" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7358, 2.65241e-05, -9.19315)
-
-[node name="weed_spawner19" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5252, 2.65241e-05, 44.7835)
-
-[node name="weed_spawner20" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2063, 2.27094e-05, 39.8693)
-
-[node name="weed_spawner21" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9592, 2.27094e-05, 53.465)
-
-[node name="weed_spawner22" parent="weed_spawners" instance=ExtResource("39_nwryr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0918, 2.65241e-05, 70.4612)
-
-[node name="weed_spawn_timer" type="Timer" parent="."]
-wait_time = 10.0
-autostart = true
-
 [connection signal="body_entered" from="water_area" to="water_area" method="_on_body_entered"]
 [connection signal="body_exited" from="water_area" to="water_area" method="_on_body_exited"]
 [connection signal="body_entered" from="wood_area" to="wood_area" method="_on_body_entered"]
@@ -1390,3 +1590,8 @@ autostart = true
 [connection signal="body_entered" from="gravel_area" to="gravel_area" method="_on_body_entered"]
 [connection signal="body_exited" from="gravel_area" to="gravel_area" method="_on_body_exited"]
 [connection signal="timeout" from="weed_spawn_timer" to="." method="_on_weed_spawn_timer_timeout"]
+[connection signal="text_submitted" from="intro/your_name/middle/HBoxContainer/LineEdit_yname" to="." method="_on_line_edit_yname_text_submitted"]
+[connection signal="text_submitted" from="intro/your_farms_name/middle/HBoxContainer/LineEdit_fname" to="." method="_on_line_edit_fname_text_submitted"]
+[connection signal="text_submitted" from="intro/your_pets_name/middle/HBoxContainer/LineEdit_pname" to="." method="_on_line_edit_pname_text_submitted"]
+[connection signal="button_up" from="dying/scorecard/screen/bottom/HBoxContainer/VBoxContainer/try_again" to="." method="_on_try_again_button_up"]
+[connection signal="button_up" from="dying/scorecard/screen/bottom/HBoxContainer/VBoxContainer/qtm" to="." method="_on_qtm_button_up"]

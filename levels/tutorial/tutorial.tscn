@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://84tk7aklg2o5" path="res://objects/interactables/seed_bag.tscn" id="10_u8gfg"]
 [ext_resource type="Script" path="res://levels/tutorial/scripts/tutorial.gd" id="11_1rab2"]
 [ext_resource type="FontFile" uid="uid://duy2h5y7vworx" path="res://main_menu/resources/AlegreyaSansSC-Medium.ttf" id="11_6bdbb"]
-[ext_resource type="PackedScene" path="res://main_menu/mmmusic.tscn" id="12_dtc0h"]
+[ext_resource type="PackedScene" uid="uid://dg58bvyt562ba" path="res://entities/players/player.tscn" id="13_bjblu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w2yb7"]
 panorama = ExtResource("2_fd54q")
@@ -615,6 +615,7 @@ libraries = {
 
 [node name="enemies" type="Node3D" parent="."]
 
-[node name="music" parent="." instance=ExtResource("12_dtc0h")]
+[node name="player" parent="." instance=ExtResource("13_bjblu")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 9.56491, 0, 11.1086)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -23,6 +23,20 @@ func give_points(_points):
 	points += _points
 	ui_give_money(_points)
 
+func hide_ui():
+	$Control.visible = false
+	disabled = true
+	for x in gun_spot.get_children():
+		x.hide_ui()
+		x.playing_footstep = true
+	
+func show_ui():
+	$Control.visible = true
+	disabled = false
+	for x in gun_spot.get_children():
+		x.show_ui()
+		x.playing_footstep = false
+
 func ui_spend_money(price):
 	$Control/buy.play()
 	$Control/inventory/Control/lose.text = "-$"+str(price)

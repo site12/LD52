@@ -8,6 +8,11 @@ func _physics_process(delta):
 	ammo_count()
 	#print(current_state)
 
+func hide_ui():
+	$CanvasLayer.visible = false
+func show_ui():
+	$CanvasLayer.visible = true
+
 func fire_anim():
 	$animations/AnimationTree["parameters/playback"].travel("hoeuse_hoe")
 	if interactable_object != null:
