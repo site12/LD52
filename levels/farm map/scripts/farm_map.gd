@@ -32,7 +32,7 @@ var sim_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	Global.start_time = Time.get_ticks_msec()
 
 func get_family_member()->String:
 	randomize()
@@ -79,6 +79,7 @@ func _on_line_edit_pname_text_submitted(new_text):
 
 
 func player_death():
+	Global.time_elapsed = (Time.get_ticks_msec() - Global.start_time) / 1000
 	$dying/scorecard/screen/middle/left/name.text = Global.your_name
 	$dying/scorecard/screen/middle/left/farm_name.text = Global.farm_name
 	$dying/scorecard/screen/middle/middle/mharvest.text = "Melee Harvests:                   "+str(Global.melee_harvests)

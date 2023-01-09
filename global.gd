@@ -15,6 +15,8 @@ var melee_harvests = 0
 var ranged_harvests = 0
 var upgrades_purchased = 0
 
+var start_time
+
 var time_elapsed = 0.0
 var steps = 0
 var pathways_opened = 0
