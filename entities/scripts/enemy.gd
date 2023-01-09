@@ -15,7 +15,7 @@ var health:float = 1.0
 var enemy_type:EnemyType
 var enemy_val:int = 0
 
-
+@onready var death_particle = preload("res://levels/farm map/assets/die_particle.tscn")
 
 #enemy's current state
 var current_behavior = "targeting_player"
@@ -108,8 +108,12 @@ func die():
 	local_death()
 	#$NavigationAgent3D.queue_free()
 	Global.give_money(enemy_val)
-	
-	
+	var new_part = death_particle.instantiate()
+	new_part.global_position = global_position
+	get_parent().add_child(new_part)
+	new_part.emitting = true
+	self.queue_free()
+
 	$CollisionShape3D.queue_free()
 	
 
