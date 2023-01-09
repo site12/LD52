@@ -48,6 +48,7 @@ func _ready():
 	$pivot/Camera3D/gun_spot/seedbag.seed_swapped()
 	Global.update_money.connect(update_money)
 	update_money()
+	update_health()
 	update_weapon()
 	
 
