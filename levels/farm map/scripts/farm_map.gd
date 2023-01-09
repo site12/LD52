@@ -1,6 +1,5 @@
 extends Node3D
 
-const CURVE = 1.1
 
 var family:Array[String] = [
 	"Mother",
@@ -25,14 +24,10 @@ var descriptor:Array[String] = [
 
 var chosen_family_member = "Ex-Husband"
 var chosen_descriptor
-var difficulty:float = 1.0
-var sim_time = 0
-@onready var player_char = $player
-@onready var weed_spawners = $weed_spawners.get_children()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.start_time = Time.get_ticks_msec()
+	pass
 
 func get_family_member()->String:
 	randomize()
@@ -79,7 +74,6 @@ func _on_line_edit_pname_text_submitted(new_text):
 
 
 func player_death():
-	Global.time_elapsed = (Time.get_ticks_msec() - Global.start_time) / 1000
 	$dying/scorecard/screen/middle/left/name.text = Global.your_name
 	$dying/scorecard/screen/middle/left/farm_name.text = Global.farm_name
 	$dying/scorecard/screen/middle/middle/mharvest.text = "Melee Harvests:                   "+str(Global.melee_harvests)
@@ -90,13 +84,3 @@ func player_death():
 	$dying/scorecard/screen/middle/right/paths_opened.text = "Paths Opened:                  "+str(Global.pathways_opened)+"/6"
 	$dying/scorecard/screen/bottom/HBoxContainer/epilogue2.text = "Unfortunately, you were unable to fulfill your "+chosen_family_member+"'s wishes. Your cat was adopted by your "+get_family_member()+", and the farm had to shut down."
 	$dying/scorecard.visible = true
-
-
-func _on_weed_spawn_timer_timeout() -> void:
-	sim_time += 10
-	print("time = " + str(sim_time))
-	print("Current Difficulty: " + str(difficulty))
-	print("Spawning " + str(floor(difficulty)) + " weeds")
-	for enemy in range(floor(difficulty)):
-		weed_spawners[randi() % weed_spawners.size()].spawn_enemy(15)
-	difficulty *= CURVE

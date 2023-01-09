@@ -19,3 +19,14 @@ func _on_back_button_down():
 	$credits.visible = false
 
 
+
+func _on_play_button_up():
+	get_tree().change_scene_to_file("res://levels/farm map/farm_map.tscn")
+
+
+func _on_tut_button_up():
+	get_tree().change_scene_to_file("res://levels/tutorial/tutorial.tscn")
+
+
+func _on_quit_button_up():
+	get_tree().quit()
