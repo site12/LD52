@@ -791,14 +791,16 @@ transform = Transform3D(0.5393, 0, -0.842114, 0, 1, 0, 0.842114, 0, 0.5393, 16.0
 
 [node name="scythe_buyable" parent="buyables" instance=ExtResource("20_r3wom")]
 transform = Transform3D(-4.37114e-08, 0, 1, -0.371903, 0.928272, -1.62564e-08, -0.928272, -0.371903, -4.0576e-08, 50, 0.667204, 21.6941)
-price = 1000
+price = 1200
 
 [node name="hoe_buyable" parent="buyables" instance=ExtResource("25_8ot6m")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50, 0.830726, 18.6385)
+price = 1000
 current_type = 1
 
 [node name="shotgun_buyable" parent="buyables" instance=ExtResource("26_2bqs0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50, 1.65959, 15.5619)
+price = 1200
 
 [node name="ammo_buyable2" parent="buyables" instance=ExtResource("25_v23kb")]
 transform = Transform3D(-0.166683, 0, -0.986011, 0, 1, 0, 0.986011, 0, -0.166683, 49.5177, 0.863242, 16.2321)
