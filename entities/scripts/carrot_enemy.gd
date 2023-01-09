@@ -24,3 +24,6 @@ func _on_attack_timer_timeout():
 	if dist< 5:
 		targeted_player.take_damage(DAMAGE)
 	current_behavior = "targeting_player"
+
+func local_death():
+	pass

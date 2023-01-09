@@ -104,12 +104,17 @@ func take_damage(dmg) -> bool:
 
 #this function kills the enemy
 func die():
+	$CollisionShape3D.disabled = true
+	local_death()
 	#$NavigationAgent3D.queue_free()
 	Global.give_money(enemy_val)
+	
+	
 	$CollisionShape3D.queue_free()
-	$timers/death_timer.start()
+	
 
-
+func local_death():
+	pass
 ##TO ADD
 #this handles attacking players that are within range
 func _on_navigation_agent_3d_target_reached():
