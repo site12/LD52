@@ -21,6 +21,7 @@ var player_state = ["idle","walking","shooting","aiming","reloading"]
 var current_state = player_state[0]
 var aiming = false
 var walking = false
+var playing_footstep = false
 
 #gun specific info
 @export var max_ammo_in_clip:int = 6
@@ -62,6 +63,17 @@ func _unhandled_input(event:InputEvent) -> void:
 func walk():
 	var player_speed = player.velocity.normalized().length()
 	$animations/AnimationTree.set("parameters/BlendSpace1D/blend_position", player_speed)
+	if player_speed >0:
+		play_footstep("grass")
+
+
+func play_footstep(ground_type):
+	
+	if ground_type == "grass" and not playing_footstep:
+		playing_footstep = true
+		$footstep_grass.activate()
+		await get_tree().create_timer(0.4).timeout
+		playing_footstep = false
 
 #functionality needed
 func sprint():

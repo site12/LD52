@@ -5,5 +5,6 @@
 
 [node name="footstep_grass" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_jv5mw")
+volume_db = -40.0
 pitch_scale = 2.07
 script = ExtResource("2_jgisx")
