@@ -14,11 +14,18 @@ class_name Gun
 
 @export var gun_name = "Gun"
 
+enum WeaponState {
+	READY,
+	USING,
+	REALOADING
+}
+
 #references for sounds, what state the player is currently in, and whether the player is walking or aiming
 @export var gunfire = preload("res://objects/weapons/sounds/revolver/revolver_fire.tscn")
 @export var dryfire = preload("res://objects/weapons/sounds/revolver/revolver_empty.tscn")
-var player_state = ["idle","walking","shooting","aiming","reloading"]
-var current_state = player_state[0]
+# var player_state = ["idle","walking","shooting","aiming","reloading"]
+# var current_state = player_state[0]
+var weapon_state:WeaponState = WeaponState.READY
 var aiming = false
 var walking = false
 var playing_footstep = false
@@ -54,7 +61,13 @@ func get_player():
 
 #this handles firing the weapon, aiming the weapon, and reloading the weapon
 func _unhandled_input(event:InputEvent) -> void:
-	fire_weapon()
+	if Input.is_action_just_pressed("attack") and weapon_state == WeaponState.READY:# and not current_state == player_state[4]:
+		if ammo_in_clip != 0:
+			fire_weapon()
+		else:
+			var s = dryfire.instantiate()
+			add_child(s)
+
 	reload_weapon()
 	
 
@@ -92,22 +105,18 @@ func get_upgrade_mats():
 
 #handles shooting the weapon
 func fire_weapon():
-	if Input.is_action_just_pressed("attack") and not current_state == player_state[4]:
-		if ammo_in_clip != 0:
-			if infinite_ammo != true:
-				ammo_in_clip -= 1
+	weapon_state = WeaponState.USING
+	if infinite_ammo != true:
+		ammo_in_clip -= 1
 
-			fire_anim()
-			
-			var s = gunfire.instantiate()
-			add_child(s)
-			print("attacking")
-			if ray.is_colliding() and ray.get_collider().get_name().contains("enemy"):
-				ray.get_collider().take_damage(body_damage)
+	fire_anim()
+	
+	var s = gunfire.instantiate()
+	add_child(s)
+	print("attacking")
+	if ray.is_colliding() and ray.get_collider().get_name().contains("enemy"):
+		ray.get_collider().take_damage(body_damage)
 
-		else:
-			var s = dryfire.instantiate()
-			add_child(s)
 
 
 #handles reloading the weapon
@@ -117,7 +126,7 @@ func reload_weapon():
 		if ammo_in_reserve!=0: 
 			
 			#player is reloadng
-			current_state = player_state[4]
+			# current_state = player_state[4]
 			$CanvasLayer/HUD/cursor.visible = false
 			
 			
@@ -126,10 +135,10 @@ func reload_weapon():
 			#player is finished reloading
 			ammo_in_reserve -= max_ammo_in_clip - ammo_in_clip
 			ammo_in_clip = max_ammo_in_clip
-			if not walking:
-				current_state = player_state[0]
-			else:
-				current_state = player_state[1]
+			# if not walking:
+			# 	current_state = player_state[0]
+			# else:
+			# 	current_state = player_state[1]
 			$CanvasLayer/HUD/cursor.visible = true
 
 

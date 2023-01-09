@@ -8,7 +8,7 @@ extends Gun
 
 @onready var upgrades = [mat_rust, mat_iron, mat_silver]
 
-@onready var dam_numbers = [10, 20, 30]
+@onready var dam_numbers = [20, 40, 60]
 #this handles the animations every frame and handles the player state and updates the ammo count
 func _physics_process(delta):
 	walk()
@@ -17,6 +17,8 @@ func _physics_process(delta):
 
 func fire_anim():
 	$animations/AnimationTree["parameters/playback"].travel("scytheattack")
+	await get_tree().create_timer($animations/AnimationPlayer.get_animation("scythe/attack").length).timeout
+	weapon_state = WeaponState.READY
 
 func update_level(level):
 	body_damage = dam_numbers[level-1]
