@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://byc1njde843lo"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgt8sms7rbhmt" path="res://objects/crops/Carrot/carrot_stage1.obj" id="1_yfauc"]
+[ext_resource type="Texture2D" uid="uid://dm6ygmum6s8jv" path="res://objects/crops/Carrot/Carrot3.png" id="2_w7btn"]
+[ext_resource type="ArrayMesh" uid="uid://s468axvcem1e" path="res://objects/crops/Carrot/carrotbase.obj" id="3_c11fv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2l8fy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.937255, 0.470588, 0, 1)
+albedo_texture = ExtResource("2_w7btn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ss2fh"]
+albedo_color = Color(0.219608, 0.14902, 0, 1)
+
+[node name="potato_growth_3" type="Node3D"]
+
+[node name="CarrotStage3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 0.768, 0, 0, 0, 1.5, 0, 0.249813, 0)
+mesh = ExtResource("1_yfauc")
+surface_material_override/0 = SubResource("StandardMaterial3D_2l8fy")
+surface_material_override/1 = SubResource("StandardMaterial3D_2l8fy")
+
+[node name="Carrotbase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.127276, 0, 0)
+mesh = ExtResource("3_c11fv")
+surface_material_override/0 = SubResource("StandardMaterial3D_ss2fh")
+
+[node name="Carrotbase2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.920594, 0.390522, 0, -0.390522, 0.920594, 0.1408, -0.0825827, 0)
+mesh = ExtResource("3_c11fv")
+surface_material_override/0 = SubResource("StandardMaterial3D_ss2fh")
