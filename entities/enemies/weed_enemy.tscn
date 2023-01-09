@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://j32wduax1gb4"]
+[gd_scene load_steps=3 format=3 uid="uid://di82eaqva88r5"]
 
 [ext_resource type="PackedScene" uid="uid://b472rl8vw03d5" path="res://entities/enemies/enemy.tscn" id="1_nr1ry"]
 [ext_resource type="PackedScene" uid="uid://cw53ytdirejx2" path="res://entities/enemies/weed/weed_guy.tscn" id="2_ff7cg"]
