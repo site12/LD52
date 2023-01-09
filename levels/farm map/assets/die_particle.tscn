@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://djl4kg0cyas8k"]
+
+[ext_resource type="Texture2D" uid="uid://t8fi68cfrkyl" path="res://textures/Smoke30Frames_0.png" id="1_6bun4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w058u"]
+transparency = 2
+alpha_scissor_threshold = 0.0
+alpha_antialiasing_mode = 0
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 0, 1)
+albedo_texture = ExtResource("1_6bun4")
+billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_ns47g"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_w058u")
+
+[sub_resource type="Curve" id="Curve_2a7i2"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_gf36k"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_6bw28"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.110588, 1), 1.81108, 1.81108, 0, 0, Vector2(0.950588, 0.272727), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_hh4vh"]
+
+[node name="death" type="CPUParticles3D"]
+emitting = false
+amount = 500
+lifetime = 0.5
+one_shot = true
+speed_scale = 2.5
+randomness = 1.0
+fixed_fps = 30
+draw_order = 2
+mesh = SubResource("QuadMesh_ns47g")
+emission_shape = 1
+emission_sphere_radius = 0.4
+direction = Vector3(0, 1, 0)
+spread = 29.46
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 7.0
+angular_velocity_curve = SubResource("Curve_2a7i2")
+angle_min = 360.0
+angle_max = 360.0
+angle_curve = SubResource("Curve_gf36k")
+scale_amount_min = 0.0
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_6bw28")
+color = Color(0.658824, 0, 0, 1)
+color_ramp = SubResource("Gradient_hh4vh")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_max = 1.0

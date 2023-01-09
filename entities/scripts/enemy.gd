@@ -4,6 +4,8 @@ class_name Enemy
 
 #constants for speed and health
 const SPEED:float = 1.5
+const DAMAGE:int = 10
+
 enum EnemyType {
 	CARROT,
 	POTATO,
@@ -13,6 +15,7 @@ var health:float = 1.0
 var enemy_type:EnemyType
 var enemy_val:int = 0
 
+@onready var death_particle = preload("res://levels/farm map/assets/die_particle.tscn")
 
 #enemy's current state
 var current_behavior = "targeting_player"
@@ -41,8 +44,10 @@ func _physics_process(delta) -> void:
 		var current_loc = global_transform.origin
 		var next_loc
 		if not $timers/attack_timer.is_stopped():
+			current_behavior = "stopped"
 			next_loc = current_loc
 		else:
+
 			next_loc = navagent.get_next_location()
 		
 		var new_velocity = (next_loc - current_loc).normalized() * SPEED
@@ -99,12 +104,21 @@ func take_damage(dmg) -> bool:
 
 #this function kills the enemy
 func die():
+	$CollisionShape3D.disabled = true
+	local_death()
 	#$NavigationAgent3D.queue_free()
 	Global.give_money(enemy_val)
+	var new_part = death_particle.instantiate()
+	new_part.global_position = global_position
+	get_parent().add_child(new_part)
+	new_part.emitting = true
+	self.queue_free()
+
 	$CollisionShape3D.queue_free()
-	$timers/death_timer.start()
+	
 
-
+func local_death():
+	pass
 ##TO ADD
 #this handles attacking players that are within range
 func _on_navigation_agent_3d_target_reached():

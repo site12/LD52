@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://dd66k41qg80ii"]
 
 [ext_resource type="ArrayMesh" uid="uid://bgt8sms7rbhmt" path="res://objects/crops/Carrot/carrot_stage1.obj" id="1_qlhee"]
 [ext_resource type="Texture2D" uid="uid://dm6ygmum6s8jv" path="res://objects/crops/Carrot/Carrot3.png" id="2_i1v4o"]

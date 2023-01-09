@@ -6,17 +6,20 @@ class_name Player
 #constants for speed and jump stuff
 const SPEED = 7.0
 const JUMP_VELOCITY = 4.5
+const STARTING_HEALTH = 100
 enum Weapon {HOE, GUN, WATERING_CAN, SEEDBAG, SCYTHE}
 
 #gets the head pivot and the camera 
 @onready var pivot:Node3D = $pivot
 @onready var camera:Camera3D = $pivot/Camera3D
 @onready var ui_raycast:RayCast3D = $pivot/Camera3D/RayCast3D
-@onready var shotgun_node = $pivot/Camera3D/gun_spot/shotgun
 @onready var hoe_node = $pivot/Camera3D/gun_spot/hoe
+@onready var shotgun_node = $pivot/Camera3D/gun_spot/shotgun
 @onready var watering_can_node = $pivot/Camera3D/gun_spot/watering_can
 @onready var seedbag_node = $pivot/Camera3D/gun_spot/seedbag
 @onready var scythe_node = $pivot/Camera3D/gun_spot/scythe
+@onready var health = STARTING_HEALTH
+@onready var dead = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -24,11 +27,22 @@ var attempting_to_interact:bool = true
 var interactable_object = null
 var last_looked_at = null
 var current_weapon = Weapon.HOE
+var in_water:bool = false
+var in_gravel:bool = false
+var in_wood:bool = false
 
 @onready var seeds = {
 	Global.SeedType.CARROT : 0,
 	Global.SeedType.POTATO : 0,
 	Global.SeedType.CORN : 0
+}
+
+@onready var weapon_nodes = {
+	Weapon.HOE : hoe_node,
+	Weapon.GUN : shotgun_node,
+	Weapon.WATERING_CAN : watering_can_node,
+	Weapon.SEEDBAG : seedbag_node,
+	Weapon.SCYTHE : scythe_node
 }
 
 @onready var weapon_levels = {
@@ -39,12 +53,16 @@ var current_weapon = Weapon.HOE
 	Weapon.SCYTHE : 0
 }
 
+func get_class():
+	return("Player")
+
 #captures the mouse upon spawn
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$pivot/Camera3D/gun_spot/seedbag.seed_swapped()
 	Global.update_money.connect(update_money)
 	update_money()
+	update_health()
 	update_weapon()
 	
 
@@ -70,17 +88,7 @@ func _unhandled_input(event:InputEvent) -> void:
 			current_weapon += 1
 			if current_weapon >= Weapon.size():
 				current_weapon = 0
-		# current_weapon += 1
-		# while current_weapon not in weapon_inv:
-		# 	current_weapon += 1
-		# 	if current_weapon >= Weapon.size():
-		# 		current_weapon = 0
 
-		#-----------------------------------------
-		# if weapon_levels[current_weapon] == 0:
-		# 	current_weapon += 1
-		# if current_weapon >= Weapon.size():
-		# 	current_weapon = 0
 		update_weapon()
 
 	if Input.is_action_just_released("last_weapon"):
@@ -91,10 +99,6 @@ func _unhandled_input(event:InputEvent) -> void:
 			current_weapon -= 1
 			if current_weapon == -1:
 				current_weapon = Weapon.size()-1
-		# if weapon_levels[current_weapon] == 0:
-		# 	current_weapon -= 1
-		# if current_weapon == -1:
-		# 	current_weapon = Weapon.size()-1
 		update_weapon()
 
 	if Input.is_action_just_pressed("swap_seed"):
@@ -141,6 +145,7 @@ func _physics_process(delta) -> void:
 		if target.get_class() == "DirtPatch":
 			target.show_ui()
 			interactable_object = target
+			weapon_nodes[current_weapon].interactable_object = target
 			last_looked_at = target
 		elif target.get_class() == "Buyable":
 			target.show_ui()
@@ -177,16 +182,17 @@ func get_player_location() -> Vector3:
 func attempt_to_interact(object):
 	if object != null:
 		if object.get_class() == "DirtPatch":
-			match current_weapon:
-				Weapon.HOE:
-					object.hoe()
-				Weapon.WATERING_CAN:
-					object.water()
-				Weapon.SEEDBAG:
-					if seeds[Global.selected_seed] > 0:
-						if object.plant(Global.selected_seed):
-							seeds[Global.selected_seed] -= 1
-							Global.update_seed_ui()
+			pass
+			# match current_weapon:
+			# 	# Weapon.HOE:
+			# 	# 	object.hoe()
+			# 	# Weapon.WATERING_CAN:
+			# 	# 	object.water()
+			# 	Weapon.SEEDBAG:
+			# 		if seeds[Global.selected_seed] > 0:
+			# 			if object.plant(Global.selected_seed):
+			# 				seeds[Global.selected_seed] -= 1
+			# 				Global.update_seed_ui()
 					
 		#if object is door
 		if object.is_in_group("doors") and attempting_to_interact:
@@ -211,12 +217,57 @@ func update_weapon():
 		Weapon.SCYTHE:
 			scythe_node.update_level(weapon_levels[Weapon.SCYTHE])
 			gun_spot.add_child(scythe_node)
-		
+
+func take_damage(amount) -> bool:
+	health -= amount
+	update_health()
+	ui_get_hit(amount)
+	if health <= 0:
+		die() #:(
+		return true
+	else:
+		return false
+
+func ui_get_hit(dmg):
+	pass
+
+func die():
+	dead = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_parent().player_death()
+	queue_free()
+	pass
+	# idk put a little you died or whatever.1
+
 func add_seeds(seedtype:Global.SeedType):
 	seeds[seedtype] +=1
 
 func update_money():
 	$Control/inventory/Label.text = "$"+str(Global.money)
+
+func update_health():
+	$Control/health/Label.text = str(health)
+
+func water_area_entered():
+	in_water = true
+
+func water_area_exited():
+	in_water = false
+
+func wood_area_entered():
+	in_wood = true
+
+func wood_area_exited():
+	in_wood = false
+
+func gravel_area_entered():
+	in_gravel = true
+
+func gravel_area_exited():
+	in_gravel = false
+
+func ui_lose_health(damage):
+	pass
 
 func ui_spend_money(price):
 	pass

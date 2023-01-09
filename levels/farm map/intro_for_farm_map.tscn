@@ -1,0 +1,185 @@
+[gd_scene load_steps=6 format=3 uid="uid://devsmos3kf5wj"]
+
+[ext_resource type="FontFile" uid="uid://duy2h5y7vworx" path="res://main_menu/resources/AlegreyaSansSC-Medium.ttf" id="1_hmgc0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4twul"]
+font = ExtResource("1_hmgc0")
+
+[sub_resource type="Animation" id="Animation_qfx0e"]
+resource_name = "text"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("middle/HBoxContainer/description:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(3.36358, 3.36358),
+"update": 1,
+"values": [0, 500]
+}
+
+[sub_resource type="Animation" id="Animation_7nkgb"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6jjc1"]
+_data = {
+"RESET": SubResource("Animation_7nkgb"),
+"text": SubResource("Animation_qfx0e")
+}
+
+[node name="intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="your_name" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="VBoxContainer" parent="your_name"]
+size_flags_horizontal = 3
+
+[node name="middle" type="VBoxContainer" parent="your_name"]
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="your_name/middle"]
+
+[node name="Label" type="Label" parent="your_name/middle/HBoxContainer"]
+text = "what should we call you? "
+label_settings = SubResource("LabelSettings_4twul")
+vertical_alignment = 1
+
+[node name="LineEdit_yname" type="LineEdit" parent="your_name/middle/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+theme_override_fonts/font = ExtResource("1_hmgc0")
+theme_override_font_sizes/font_size = 12
+placeholder_text = "Your Name Here"
+max_length = 30
+caret_blink = true
+
+[node name="right" type="VBoxContainer" parent="your_name"]
+size_flags_horizontal = 3
+
+[node name="your_farms_name" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="VBoxContainer" parent="your_farms_name"]
+size_flags_horizontal = 3
+
+[node name="middle" type="VBoxContainer" parent="your_farms_name"]
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="your_farms_name/middle"]
+
+[node name="Label" type="Label" parent="your_farms_name/middle/HBoxContainer"]
+text = "what would you like to call this place? "
+label_settings = SubResource("LabelSettings_4twul")
+vertical_alignment = 1
+
+[node name="LineEdit_fname" type="LineEdit" parent="your_farms_name/middle/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+theme_override_fonts/font = ExtResource("1_hmgc0")
+theme_override_font_sizes/font_size = 12
+placeholder_text = "Farm Name Here"
+max_length = 15
+caret_blink = true
+
+[node name="right" type="VBoxContainer" parent="your_farms_name"]
+size_flags_horizontal = 3
+
+[node name="your_pets_name" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="VBoxContainer" parent="your_pets_name"]
+size_flags_horizontal = 3
+
+[node name="middle" type="VBoxContainer" parent="your_pets_name"]
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="your_pets_name/middle"]
+
+[node name="Label" type="Label" parent="your_pets_name/middle/HBoxContainer"]
+text = "What was the name of your childhood pet? "
+label_settings = SubResource("LabelSettings_4twul")
+vertical_alignment = 1
+
+[node name="LineEdit_pname" type="LineEdit" parent="your_pets_name/middle/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+theme_override_fonts/font = ExtResource("1_hmgc0")
+theme_override_font_sizes/font_size = 12
+placeholder_text = "Pet Name Here"
+max_length = 30
+caret_blink = true
+
+[node name="right" type="VBoxContainer" parent="your_pets_name"]
+size_flags_horizontal = 3
+
+[node name="intro_anim" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="VBoxContainer" parent="intro_anim"]
+size_flags_horizontal = 3
+
+[node name="middle" type="VBoxContainer" parent="intro_anim"]
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="intro_anim/middle"]
+
+[node name="description" type="RichTextLabel" parent="intro_anim/middle/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+bbcode_enabled = true
+text = "Dear [name], 
+We are writing to you to inform you of the fact that you have been selected to acquire a small property from your [descriptor] [family member] in their will. This property contains a small farm on it named [farm name]. Their only wish was for you to maintain the farm, and keep it from becoming overgrown. Good Luck!
+
+Best Regards,
+
+Pleasant Valley Planning Department
+"
+fit_content_height = true
+
+[node name="right" type="VBoxContainer" parent="intro_anim"]
+size_flags_horizontal = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="intro_anim"]
+libraries = {
+"": SubResource("AnimationLibrary_6jjc1")
+}
+
+[node name="spawn_loc" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.2577, 0, 4.371)

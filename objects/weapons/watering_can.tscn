@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_a8xlt"]
 [ext_resource type="Script" path="res://objects/weapons/scripts/watering_can.gd" id="2_nqgx3"]
 [ext_resource type="PackedScene" uid="uid://cawrf8hui6k1k" path="res://objects/weapons/sounds/watering can/watering.tscn" id="3_1hjhb"]
-[ext_resource type="PackedScene" uid="uid://bufbtkug6vi8r" path="res://objects/weapons/models/wateringcan.tscn" id="4_d8qwp"]
+[ext_resource type="PackedScene" path="res://objects/weapons/models/wateringcan.tscn" id="4_d8qwp"]
 [ext_resource type="PackedScene" uid="uid://cuwya3pbo3awx" path="res://objects/weapons/sounds/watering can/watering_can_empty.tscn" id="4_iqp2d"]
 
 [sub_resource type="Animation" id="Animation_xllps"]
@@ -171,6 +171,7 @@ script = ExtResource("2_nqgx3")
 gun_name = "Water"
 gunfire = ExtResource("3_1hjhb")
 dryfire = ExtResource("4_iqp2d")
+max_ammo_in_clip = 30
 max_ammo_in_reserve = 94
 
 [node name="wateringcan" parent="Player_Arms" index="1" instance=ExtResource("4_d8qwp")]

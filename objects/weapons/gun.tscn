@@ -1,7 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ccyjpftf2o3vl"]
+[gd_scene load_steps=20 format=3 uid="uid://ccyjpftf2o3vl"]
 
 [ext_resource type="Script" path="res://objects/weapons/scripts/gun.gd" id="1_klpr2"]
 [ext_resource type="PackedScene" uid="uid://bgg1l3g7xuqj3" path="res://objects/weapons/models/player_arms.tscn" id="2_5hb37"]
+[ext_resource type="PackedScene" uid="uid://nskijilrl3ai" path="res://entities/players/sounds/footsteps/footstep_grass.tscn" id="3_s1djr"]
+[ext_resource type="PackedScene" uid="uid://dre5aqlng14dy" path="res://entities/players/sounds/footsteps/footstep_gravel.tscn" id="4_3gk6j"]
+[ext_resource type="PackedScene" uid="uid://dscyyubteenkj" path="res://entities/players/sounds/footsteps/footstep_wood.tscn" id="5_yolba"]
+[ext_resource type="PackedScene" uid="uid://cmtee8dhsiwij" path="res://entities/players/sounds/footsteps/footstep_water.tscn" id="6_csk4u"]
 
 [sub_resource type="Animation" id="Animation_itln5"]
 length = 0.001
@@ -286,6 +290,7 @@ _data = {
 
 [node name="gun" type="Node3D"]
 script = ExtResource("1_klpr2")
+current_type = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -356,3 +361,11 @@ libraries = {
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, -150, 0)
 debug_shape_thickness = 5
+
+[node name="footstep_grass" parent="." instance=ExtResource("3_s1djr")]
+
+[node name="footstep_gravel" parent="." instance=ExtResource("4_3gk6j")]
+
+[node name="footstep_wood" parent="." instance=ExtResource("5_yolba")]
+
+[node name="footstep_water" parent="." instance=ExtResource("6_csk4u")]

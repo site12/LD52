@@ -1,10 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://pqsb3kqx812r"]
+[gd_scene load_steps=22 format=3 uid="uid://pqsb3kqx812r"]
 
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_o85yc"]
 [ext_resource type="Script" path="res://objects/weapons/seed_bag.gd" id="2_j3xn1"]
-[ext_resource type="PackedScene" uid="uid://c5mrud7dh4p77" path="res://objects/weapons/sounds/planting.tscn" id="3_7gu72"]
+[ext_resource type="PackedScene" path="res://objects/weapons/sounds/planting.tscn" id="3_7gu72"]
 [ext_resource type="PackedScene" uid="uid://b2tkx1sc6voxi" path="res://objects/weapons/models/seedbag.tscn" id="4_ai305"]
 [ext_resource type="PackedScene" uid="uid://cuwya3pbo3awx" path="res://objects/weapons/sounds/watering can/watering_can_empty.tscn" id="4_bgtp8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j2squ"]
+font_size = 12
 
 [sub_resource type="Animation" id="Animation_xllps"]
 length = 0.001
@@ -172,6 +175,21 @@ gun_name = "Seed"
 gunfire = ExtResource("3_7gu72")
 dryfire = ExtResource("4_bgtp8")
 max_ammo_in_reserve = 30
+infinite_ammo = true
+
+[node name="Label2" type="Label" parent="CanvasLayer/HUD/inventory" index="1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 24.0
+offset_right = -81.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[TAB]"
+label_settings = SubResource("LabelSettings_j2squ")
+horizontal_alignment = 1
 
 [node name="seedbag" parent="Player_Arms" index="1" instance=ExtResource("4_ai305")]
 transform = Transform3D(-1.13651, -0.022395, -0.978691, -0.20676, 1.47127, 0.206435, 0.956863, 0.291314, -1.11783, 4.43124, -0.685773, 0.0904148)

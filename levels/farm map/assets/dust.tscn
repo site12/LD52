@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://7loacmo8wm37"]
+
+[ext_resource type="Texture2D" uid="uid://t8fi68cfrkyl" path="res://textures/Smoke30Frames_0.png" id="1_nqlk7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk204"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_nqlk7")
+billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_e2l2p"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_pk204")
+
+[sub_resource type="Curve" id="Curve_im6k2"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_if0xm"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_tg3ii"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.110588, 1), 1.81108, 1.81108, 0, 0, Vector2(1, 0.127273), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_rn3ov"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myw77"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_voc1g"]
+material = SubResource("StandardMaterial3D_myw77")
+size = Vector2(10, 10)
+
+[node name="dust" type="Node3D"]
+
+[node name="dust" type="CPUParticles3D" parent="."]
+amount = 500
+lifetime = 0.1
+speed_scale = 0.01
+randomness = 1.0
+fixed_fps = 30
+draw_order = 2
+mesh = SubResource("QuadMesh_e2l2p")
+emission_shape = 1
+emission_sphere_radius = 64.39
+direction = Vector3(0, -1, 0)
+spread = 180.0
+gravity = Vector3(0, -10, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+angular_velocity_curve = SubResource("Curve_im6k2")
+angle_min = 360.0
+angle_max = 360.0
+angle_curve = SubResource("Curve_if0xm")
+scale_amount_min = 0.0
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_tg3ii")
+color = Color(0.956863, 0.956863, 0.956863, 1)
+color_ramp = SubResource("Gradient_rn3ov")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_max = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_voc1g")

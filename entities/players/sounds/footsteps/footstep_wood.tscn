@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dscyyubteenkj"]
+
+[ext_resource type="AudioStream" uid="uid://dw4ftmq7g4hya" path="res://entities/players/sounds/footsteps/wood_1.wav" id="1_usjxx"]
+[ext_resource type="Script" path="res://entities/players/sounds/footsteps/footstep_grass.gd" id="2_m2ww3"]
+
+[node name="footstep_wood" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_usjxx")
+volume_db = -30.0
+pitch_scale = 2.07
+script = ExtResource("2_m2ww3")

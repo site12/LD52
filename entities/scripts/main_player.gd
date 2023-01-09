@@ -11,6 +11,9 @@ var doors_opened:int = 0
 #where the gun is attached to
 @onready var gun_spot = $pivot/Camera3D/gun_spot
 
+func get_class():
+	return "Player"
+
 #these are deprecated as this logic is handled by the gamemode
 func give_weapon(weapon:PackedScene):
 	gun_spot.add_child(weapon.instantiate())
@@ -21,6 +24,7 @@ func give_points(_points):
 	ui_give_money(_points)
 
 func ui_spend_money(price):
+	$Control/buy.play()
 	$Control/inventory/Control/lose.text = "-$"+str(price)
 	$Control/AnimationPlayer.play("lose_money")
 
@@ -29,4 +33,10 @@ func ui_give_money(price):
 	$Control/AnimationPlayer.play("lose_money")
 
 func ui_hit_marker():
+	$Control/hit.play()
 	$Control/AnimationPlayer.play("hit")
+
+func ui_get_hit(dmg):
+	$Control/hurt.play()
+	$Control/health/Control/lose.text = "-"+str(dmg)
+	$Control/AnimationPlayer.play("get_hit")

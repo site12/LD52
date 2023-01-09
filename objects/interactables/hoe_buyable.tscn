@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dyrexdvqicmta" path="res://objects/interactables/buyable.tscn" id="1_qikfr"]
 [ext_resource type="Script" path="res://objects/scripts/hoe_buyable.gd" id="2_3xywd"]
-[ext_resource type="Material" path="res://objects/weapons/mats/hoe_tool_iron.tres" id="3_y3lhe"]
+[ext_resource type="Material" uid="uid://dkp7cle8yyeux" path="res://objects/weapons/mats/hoe_tool_iron.tres" id="3_y3lhe"]
 [ext_resource type="ArrayMesh" uid="uid://cethlaxu6gwb1" path="res://objects/weapons/models/hoe_tool.obj" id="4_qm40s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e7oj7"]

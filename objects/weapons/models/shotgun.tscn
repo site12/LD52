@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhc2d2llnetl8"]
+[gd_scene load_steps=3 format=3 uid="uid://ck5ucqn1h0tck"]
 
 [ext_resource type="ArrayMesh" uid="uid://kipanxj4f360" path="res://objects/weapons/models/shotgun.obj" id="1_sqhvl"]
-[ext_resource type="Material" uid="uid://bduc5n34e82x0" path="res://objects/weapons/mats/shotgun.tres" id="2_nyig1"]
+[ext_resource type="Material" uid="uid://bkfjpamdtyqd4" path="res://objects/weapons/mats/shotgun_rusty.tres" id="2_yckly"]
 
 [node name="shotgun" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_sqhvl")
-surface_material_override/0 = ExtResource("2_nyig1")
+surface_material_override/0 = ExtResource("2_yckly")

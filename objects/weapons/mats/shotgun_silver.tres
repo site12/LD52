@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://debtjf5kueosu"]
+
+[ext_resource type="Texture2D" uid="uid://dncck3g4jejob" path="res://objects/weapons/models/shotgun_UV2.png" id="1_b6nhy"]
+
+[resource]
+albedo_texture = ExtResource("1_b6nhy")

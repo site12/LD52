@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d1dvxkbok7di"]
 
-[ext_resource type="Texture2D" uid="uid://c7nlfc5cfspif" path="res://objects/weapons/models/UV_Scythe.png" id="1_fbj6m"]
+[ext_resource type="Texture2D" uid="uid://cnseyiiqq1na0" path="res://objects/weapons/models/UV_Scythe_Iron.png" id="1_6nxtl"]
 
 [resource]
-albedo_texture = ExtResource("1_fbj6m")
+albedo_texture = ExtResource("1_6nxtl")
