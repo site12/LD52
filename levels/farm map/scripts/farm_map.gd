@@ -75,6 +75,7 @@ func _on_line_edit_pname_text_submitted(new_text):
 	await get_tree().create_timer(17).timeout
 	$intro.queue_free()
 	$player.show_ui()
+	$weed_spawn_timer.start()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 

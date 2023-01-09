@@ -1,7 +1,7 @@
 [gd_scene load_steps=112 format=3 uid="uid://dhu3n23upt33b"]
 
 [ext_resource type="Script" path="res://levels/farm map/scripts/farm_map.gd" id="1_7daaw"]
-[ext_resource type="NavigationMesh" path="res://levels/farm map/farm_map_nav_mesh.tres" id="2_sivh8"]
+[ext_resource type="NavigationMesh" uid="uid://xntfyknhkbnf" path="res://levels/farm map/farm_map_nav_mesh.tres" id="2_sivh8"]
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="3_0t2qc"]
 [ext_resource type="Texture2D" uid="uid://b8e4qo6554l60" path="res://textures/Grass_12-256x256.png" id="3_2tu1g"]
 [ext_resource type="Script" path="res://disable_filter.gd" id="3_jy4ns"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c05ny5scq2ewr" path="res://textures/Corn_field.png" id="13_3fdy1"]
 [ext_resource type="Material" uid="uid://d3qo236srqkoq" path="res://levels/farm map/materials/farm_map_corn.tres" id="13_6h0n0"]
 [ext_resource type="PackedScene" uid="uid://ca547hl6h3t4v" path="res://objects/interactables/door.tscn" id="19_6y75k"]
-[ext_resource type="NavigationMesh" path="res://levels/farm map/farm_map_weed_nav.tres" id="19_ntj7r"]
+[ext_resource type="NavigationMesh" uid="uid://c6yamstbmiimk" path="res://levels/farm map/farm_map_weed_nav.tres" id="19_ntj7r"]
 [ext_resource type="PackedScene" uid="uid://84tk7aklg2o5" path="res://objects/interactables/seed_bag.tscn" id="20_f67iq"]
 [ext_resource type="PackedScene" uid="uid://cnd5nyukhr4vq" path="res://levels/farm map/assets/haybale.tscn" id="20_qs0ex"]
 [ext_resource type="PackedScene" uid="uid://b00nv5qf1feki" path="res://objects/interactables/scythe_buyable.tscn" id="20_r3wom"]
@@ -40,7 +40,7 @@
 [ext_resource type="Script" path="res://levels/farm map/wood_area.gd" id="34_5u07r"]
 [ext_resource type="Script" path="res://levels/farm map/gravel_area.gd" id="35_bas4t"]
 [ext_resource type="FontFile" uid="uid://duy2h5y7vworx" path="res://main_menu/resources/AlegreyaSansSC-Medium.ttf" id="37_uafvh"]
-[ext_resource type="PackedScene" path="res://objects/interactables/weed_spawner.tscn" id="39_nwryr"]
+[ext_resource type="PackedScene" uid="uid://dtpv8snpj8j8d" path="res://objects/interactables/weed_spawner.tscn" id="39_nwryr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omaak"]
 albedo_texture = ExtResource("3_2tu1g")
@@ -1212,7 +1212,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0918, 2.65241e-05, 70.4612
 
 [node name="weed_spawn_timer" type="Timer" parent="."]
 wait_time = 10.0
-autostart = true
 
 [node name="spawn_loc" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.2577, 0, 4.371)
