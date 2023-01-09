@@ -2,7 +2,7 @@ extends Node3D
 
 
 @onready var player = preload("res://entities/players/player.tscn")
-@onready var p = player.instantiate()
+@onready var p
 
 
 @onready var cam1 = $tutcam_intro
@@ -15,7 +15,7 @@ var planted = false
 
 func _unhandled_key_input(event):
 	if event.is_pressed() and not spawned:
-		
+		p = player.instantiate()
 		add_child(p)
 		
 		p.global_transform = $spawn_loc.global_transform
@@ -32,7 +32,7 @@ func _unhandled_key_input(event):
 		$tut/screen_2.visible = false
 
 func _physics_process(delta):
-	if Global.money != 1000 and not purchased:
+	if Global.money != 10000 and not purchased:
 		purchased = true
 		await get_tree().create_timer(1.5).timeout
 		$tut/screen_3.visible = true
@@ -42,7 +42,7 @@ func _physics_process(delta):
 		cam3.current = false
 		
 		
-	if Global.money != 1000 and p.seeds[Global.SeedType.CARROT]==0:
+	if Global.money != 10000 and p.seeds[Global.SeedType.CARROT]==0:
 		planted = true
 		await get_tree().create_timer(1).timeout
 		$tut/screen_4.visible = true

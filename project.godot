@@ -99,7 +99,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD52"
-run/main_scene="res://main_menu/main_menu.tscn"
+run/main_scene="res://main_menu/intro.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/fullsize=false
@@ -124,7 +124,7 @@ movie_writer/movie_file="C:/Users/shane/Desktop/.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/tbloader/plugin.cfg")
 
 [input]
 
