@@ -27,6 +27,8 @@ func fire_anim():
 					if interactable_object.plant(Global.selected_seed):
 						player.seeds[Global.selected_seed] -= 1
 						Global.update_seed_ui()
+						var s = gunfire.instantiate()
+						add_child(s)
 						
 	$animations/AnimationTree["parameters/playback"].travel("hoeuse_hoe")
 	await get_tree().create_timer($animations/AnimationPlayer.get_animation("hoe/use_hoe").length).timeout
@@ -40,3 +42,19 @@ func seed_swapped():
 		seedbag.material_override = carrot_mat
 	if Global.selected_seed == Global.SeedType.POTATO:
 		seedbag.material_override = potato_mat
+
+
+#handles shooting the weapon
+func fire_weapon():
+	weapon_state = WeaponState.USING
+	if infinite_ammo != true:
+		ammo_in_clip -= 1
+
+	fire_anim()
+	
+	#var s = gunfire.instantiate()
+	#add_child(s)
+	#print("attacking")
+	if ray.is_colliding() and ray.get_collider().get_name().contains("enemy"):
+		ray.get_collider().take_damage(body_damage)
+
