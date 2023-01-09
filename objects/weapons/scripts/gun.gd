@@ -29,6 +29,7 @@ var weapon_state:WeaponState = WeaponState.READY
 var aiming = false
 var walking = false
 var playing_footstep = false
+var interactable_object = null
 
 #gun specific info
 @export var max_ammo_in_clip:int = 6
