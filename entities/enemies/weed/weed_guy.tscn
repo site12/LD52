@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://cw53ytdirejx2"]
+
+[ext_resource type="PackedScene" uid="uid://bkih3akf4q4qp" path="res://entities/enemies/weed/weed_idles.glb" id="1_oc2bs"]
+[ext_resource type="Texture2D" uid="uid://ca7sop8p1q75m" path="res://entities/enemies/weed/WeedMan_BC2.png" id="2_swplu"]
+[ext_resource type="AnimationLibrary" uid="uid://dpgaxiw24qwuq" path="res://entities/enemies/weed/anims/weed.res" id="3_6u0ff"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c508q"]
+albedo_texture = ExtResource("2_swplu")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lw15y"]
+animation = &"weed/idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_accrw"]
+animation = &"weed/run_2"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_03hkm"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_lw15y")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_accrw")
+blend_point_1/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fbguf"]
+animation = &"weed/attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gkvcq"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7ne8x"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ubv65"]
+xfade_time = 0.1
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_i5sf6"]
+states/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_03hkm")
+states/BlendSpace1D/position = Vector2(335, 211)
+states/weedattack/node = SubResource("AnimationNodeAnimation_fbguf")
+states/weedattack/position = Vector2(479, 92)
+transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_gkvcq"), "BlendSpace1D", "weedattack", SubResource("AnimationNodeStateMachineTransition_7ne8x"), "weedattack", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_ubv65")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_jy2i7"]
+
+[node name="weed_idles" instance=ExtResource("1_oc2bs")]
+
+[node name="ikHandle1" parent="Carrot/Carrot_Rig" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0108936, -0.0206572, -0.0176306)
+
+[node name="ikHandle2" parent="Carrot/Carrot_Rig" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106783, 0.00692812, -0.0120089)
+
+[node name="Skeleton3D" parent="Carrot/Carrot_Rig" index="2"]
+bones/0/position = Vector3(1.71468e-09, -2.03702, -46.9743)
+bones/0/rotation = Quaternion(-0.510571, 0.015134, -0.193617, 0.837616)
+bones/1/position = Vector3(-5.962, -0.0627538, 1.05508e-06)
+bones/1/rotation = Quaternion(-0.411331, -0.166175, 0.00408475, 0.896201)
+bones/2/rotation = Quaternion(0.512122, 0.00371702, -0.00238443, 0.858901)
+bones/3/rotation = Quaternion(-0.237831, -0.275986, 0.183986, 0.912917)
+bones/4/position = Vector3(5.962, 0.0627619, 1.2056e-07)
+bones/4/rotation = Quaternion(-0.515774, -0.195982, 0.158037, 0.818897)
+bones/5/rotation = Quaternion(0.590566, 0.0042362, -0.00331781, 0.806972)
+bones/6/rotation = Quaternion(-0.221083, 0.216367, -0.0891359, 0.946764)
+bones/9/rotation = Quaternion(0.0569709, -0.294142, -0.413049, 0.860015)
+bones/10/rotation = Quaternion(-0.0705134, -0.147633, -0.168501, 0.972029)
+bones/11/rotation = Quaternion(0.183015, 0.00375696, -0.0888156, 0.979083)
+bones/12/rotation = Quaternion(-0.139742, 0.265655, 0.479534, 0.824589)
+bones/13/rotation = Quaternion(0.319663, 0.184578, 0.333922, 0.867319)
+bones/14/rotation = Quaternion(0.000481027, -0.000160862, -5.0851e-05, 1)
+
+[node name="L_Wd_Hand" parent="Carrot/Carrot_Rig/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_c508q")
+
+[node name="L_Wd_LowerArm" parent="Carrot/Carrot_Rig/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_c508q")
+
+[node name="L_Wd_UpperArm" parent="Carrot/Carrot_Rig/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_c508q")
+
+[node name="R_Ca_LowerArm" parent="Carrot/Carrot_Rig/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_c508q")
+
+[node name="R_Ca_UpperArm" parent="Carrot/Carrot_Rig/Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_c508q")
+
+[node name="R_Wd_Hand" parent="Carrot/Carrot_Rig/Skeleton3D" index="5"]
+material_override = SubResource("StandardMaterial3D_c508q")
+
+[node name="Wd_Head" parent="Carrot/Carrot_Rig/Skeleton3D" index="6"]
+material_override = SubResource("StandardMaterial3D_c508q")
+
+[node name="Wd_Waist" parent="Carrot/Carrot_Rig/Skeleton3D" index="7"]
+material_override = SubResource("StandardMaterial3D_c508q")
+
+[node name="We_Chest" parent="Carrot/Carrot_Rig/Skeleton3D" index="8"]
+material_override = SubResource("StandardMaterial3D_c508q")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"weed": ExtResource("3_6u0ff")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeStateMachine_i5sf6")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_jy2i7")
+parameters/BlendSpace1D/blend_position = 0.000929368

@@ -1,11 +1,11 @@
 [gd_scene load_steps=92 format=3 uid="uid://dhu3n23upt33b"]
 
+[ext_resource type="Script" path="res://levels/farm map/scripts/farm_map.gd" id="1_7daaw"]
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="3_0t2qc"]
 [ext_resource type="Texture2D" uid="uid://b8e4qo6554l60" path="res://textures/Grass_12-256x256.png" id="3_2tu1g"]
 [ext_resource type="Script" path="res://disable_filter.gd" id="3_jy4ns"]
 [ext_resource type="Texture2D" uid="uid://bsiyv2o7vurkp" path="res://textures/floor1_texture.png" id="5_q2w0o"]
 [ext_resource type="Texture2D" uid="uid://bj1qu4s45nr88" path="res://textures/Roofs_01-256x256.png" id="5_ynww6"]
-[ext_resource type="PackedScene" uid="uid://dg58bvyt562ba" path="res://entities/players/player.tscn" id="6_bbyr1"]
 [ext_resource type="Texture2D" uid="uid://b3apvuy3mvql6" path="res://skies/kloppenheim_red_02_2k.hdr" id="6_o4ru3"]
 [ext_resource type="Texture2D" uid="uid://c8eisdv5yqmnc" path="res://textures/Wood_14-256x256.png" id="6_twxrt"]
 [ext_resource type="Texture2D" uid="uid://8xtq0oiaf2rf" path="res://textures/stone_darker_2.png" id="7_10k8c"]
@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://l48mioanawpc" path="res://levels/farm map/assets/shelf.tscn" id="22_c1jto"]
 [ext_resource type="PackedScene" uid="uid://cdlaybrmyo2qm" path="res://objects/interactables/hoe_buyable.tscn" id="25_8ot6m"]
 [ext_resource type="PackedScene" uid="uid://c7ovvm2rqgq43" path="res://objects/interactables/ammo_buyable.tscn" id="25_v23kb"]
-[ext_resource type="PackedScene" uid="uid://cyd7fhprx85hb" path="res://objects/interactables/shotgun_buyable.tscn" id="26_2bqs0"]
+[ext_resource type="PackedScene" uid="uid://bm22g8rgf352i" path="res://objects/interactables/shotgun_buyable.tscn" id="26_2bqs0"]
 [ext_resource type="PackedScene" uid="uid://cbmv5sqfwuvf1" path="res://levels/farm map/assets/arch.tscn" id="27_t338y"]
 [ext_resource type="PackedScene" uid="uid://blhhvycgbhhmj" path="res://objects/interactables/dirt_patch.tscn" id="29_w6w8j"]
 [ext_resource type="AudioStream" uid="uid://du1e05rbccxhh" path="res://sounds/ambience_smaller.wav" id="31_twivb"]
@@ -506,6 +506,7 @@ albedo_texture_force_srgb = true
 size = Vector3(10.292, 3.06781, 14.3324)
 
 [node name="dev_map" type="Node3D"]
+script = ExtResource("1_7daaw")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_dpikn")
@@ -637,9 +638,6 @@ mesh = SubResource("ArrayMesh_vnvwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TBLoader/corn/entity_10_geometry_col"]
 shape = SubResource("ConcavePolygonShape3D_ires8")
-
-[node name="player" parent="." instance=ExtResource("6_bbyr1")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 9.03287, 0, 18.1548)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_delbv")

@@ -1,7 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://crgfnd6nkaqlr"]
+[gd_scene load_steps=24 format=3 uid="uid://crgfnd6nkaqlr"]
 
 [ext_resource type="PackedScene" uid="uid://b53q4jhodgaoq" path="res://entities/enemies/carrot/carrot_attack.glb" id="1_ymie0"]
+[ext_resource type="Texture2D" uid="uid://o80gpkl5qki1" path="res://entities/enemies/carrot/CarrotMan_BC.png" id="2_igsqy"]
 [ext_resource type="AnimationLibrary" uid="uid://b1286u31xs63d" path="res://entities/enemies/carrot/anims/carrot.res" id="2_urb0t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu7bc"]
+albedo_texture = ExtResource("2_igsqy")
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7t438"]
 animation = &"carrot/attack"
@@ -94,6 +98,48 @@ bones/9/rotation = Quaternion(-0.0210939, -0.253561, -0.3773, 0.890453)
 bones/10/rotation = Quaternion(-0.125955, -0.167216, -0.128241, 0.969396)
 bones/11/rotation = Quaternion(0.183015, 0.00375696, -0.0888156, 0.979083)
 bones/13/rotation = Quaternion(0.270155, 0.128963, 0.30511, 0.904042)
+
+[node name="Ca_Body" parent="Carrot/Carrot_Rig/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="Ca_Leaves" parent="Carrot/Carrot_Rig/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="L_Ca_Foot" parent="Carrot/Carrot_Rig/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="L_Ca_Hand" parent="Carrot/Carrot_Rig/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="L_Ca_LowerArm" parent="Carrot/Carrot_Rig/Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="L_Ca_LowerLeg" parent="Carrot/Carrot_Rig/Skeleton3D" index="5"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="L_Ca_UpperArm" parent="Carrot/Carrot_Rig/Skeleton3D" index="6"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="L_Ca_UpperLeg" parent="Carrot/Carrot_Rig/Skeleton3D" index="7"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="R_Ca_Foot" parent="Carrot/Carrot_Rig/Skeleton3D" index="8"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="R_Ca_Hand" parent="Carrot/Carrot_Rig/Skeleton3D" index="9"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="R_Ca_LowerArm" parent="Carrot/Carrot_Rig/Skeleton3D" index="10"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="R_Ca_LowerLeg" parent="Carrot/Carrot_Rig/Skeleton3D" index="11"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="R_Ca_UpperArm" parent="Carrot/Carrot_Rig/Skeleton3D" index="12"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="R_Ca_UpperLeg" parent="Carrot/Carrot_Rig/Skeleton3D" index="13"]
+material_override = SubResource("StandardMaterial3D_cu7bc")
 
 [node name="AnimationPlayer" parent="." index="2"]
 playback_speed = 0.5

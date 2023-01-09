@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://j32wduax1gb4"]
+
+[ext_resource type="PackedScene" uid="uid://b472rl8vw03d5" path="res://entities/enemies/enemy.tscn" id="1_nr1ry"]
+[ext_resource type="PackedScene" uid="uid://cw53ytdirejx2" path="res://entities/enemies/weed/weed_guy.tscn" id="2_ff7cg"]
+
+[node name="weed_enemy" instance=ExtResource("1_nr1ry")]
+
+[node name="temp_face" parent="mesh" index="0"]
+visible = false
+
+[node name="health" parent="mesh" index="1"]
+visible = false
+
+[node name="carrot_growth_3" parent="." index="4"]
+visible = false
+
+[node name="weed_idles" parent="." index="5" instance=ExtResource("2_ff7cg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
