@@ -172,6 +172,7 @@ gun_name = "Seed"
 gunfire = ExtResource("3_7gu72")
 dryfire = ExtResource("4_bgtp8")
 max_ammo_in_reserve = 30
+infinite_ammo = true
 
 [node name="seedbag" parent="Player_Arms" index="1" instance=ExtResource("4_ai305")]
 transform = Transform3D(-1.13651, -0.022395, -0.978691, -0.20676, 1.47127, 0.206435, 0.956863, 0.291314, -1.11783, 4.43124, -0.685773, 0.0904148)

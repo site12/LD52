@@ -16,10 +16,3 @@ func purchase_successful(player):
 		current_type = buyable_type.MAX
 		update_label()
 
-
-
-func show_ui():
-	$Control.visible = true
-
-func hide_ui():
-	$Control.visible = false

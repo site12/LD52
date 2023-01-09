@@ -8,8 +8,8 @@ noise = SubResource("FastNoiseLite_vd5g6")
 [resource]
 transparency = 1
 blend_mode = 1
-albedo_color = Color(0.560784, 0.705882, 1, 0.141176)
+albedo_color = Color(1, 1, 1, 0.458824)
 albedo_texture = SubResource("NoiseTexture2D_ayqnq")
 emission_enabled = true
-emission_energy_multiplier = 4.24
+emission_energy_multiplier = 16.0
 grow_amount = 0.05

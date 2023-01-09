@@ -28,10 +28,3 @@ func purchase_successful(player):
 		update_label()
 
 
-		
-
-func show_ui():
-	$Control.visible = true
-
-func hide_ui():
-	$Control.visible = false
