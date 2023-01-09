@@ -3,7 +3,7 @@ extends Node
 enum SeedType {CARROT, POTATO, CORN}
 
 var selected_seed:SeedType = SeedType.CARROT
-var money:int = 1000
+var money:int = 100
 
 var money_before_update:int
 

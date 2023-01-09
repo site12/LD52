@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnacsu56kovlm"]
+[gd_scene load_steps=4 format=3 uid="uid://d4kp0hpbs4onv"]
 
 [ext_resource type="PackedScene" uid="uid://b472rl8vw03d5" path="res://entities/enemies/enemy.tscn" id="1_60fns"]
 [ext_resource type="Script" path="res://entities/enemies/potato_enemy.gd" id="2_tu6u0"]
@@ -11,16 +11,12 @@ script = ExtResource("2_tu6u0")
 visible = false
 
 [node name="NavigationAgent3D" parent="." index="1"]
-target_desired_distance = 10.0
+target_desired_distance = 2.0
 
 [node name="CollisionShape3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.734056, 0)
 
 [node name="attack_timer" parent="timers" index="1"]
-one_shot = true
-
-[node name="cool_down_timer" parent="timers" index="2"]
-wait_time = 5.0
 one_shot = true
 
 [node name="carrot_growth_3" parent="." index="4"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=112 format=3 uid="uid://dhu3n23upt33b"]
 
 [ext_resource type="Script" path="res://levels/farm map/scripts/farm_map.gd" id="1_7daaw"]
-[ext_resource type="NavigationMesh" uid="uid://xntfyknhkbnf" path="res://levels/farm map/farm_map_nav_mesh.tres" id="2_sivh8"]
+[ext_resource type="NavigationMesh" path="res://levels/farm map/farm_map_nav_mesh.tres" id="2_sivh8"]
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="3_0t2qc"]
 [ext_resource type="Texture2D" uid="uid://b8e4qo6554l60" path="res://textures/Grass_12-256x256.png" id="3_2tu1g"]
 [ext_resource type="Script" path="res://disable_filter.gd" id="3_jy4ns"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c05ny5scq2ewr" path="res://textures/Corn_field.png" id="13_3fdy1"]
 [ext_resource type="Material" uid="uid://d3qo236srqkoq" path="res://levels/farm map/materials/farm_map_corn.tres" id="13_6h0n0"]
 [ext_resource type="PackedScene" uid="uid://ca547hl6h3t4v" path="res://objects/interactables/door.tscn" id="19_6y75k"]
-[ext_resource type="NavigationMesh" uid="uid://c6yamstbmiimk" path="res://levels/farm map/farm_map_weed_nav.tres" id="19_ntj7r"]
+[ext_resource type="NavigationMesh" path="res://levels/farm map/farm_map_weed_nav.tres" id="19_ntj7r"]
 [ext_resource type="PackedScene" uid="uid://84tk7aklg2o5" path="res://objects/interactables/seed_bag.tscn" id="20_f67iq"]
 [ext_resource type="PackedScene" uid="uid://cnd5nyukhr4vq" path="res://levels/farm map/assets/haybale.tscn" id="20_qs0ex"]
 [ext_resource type="PackedScene" uid="uid://b00nv5qf1feki" path="res://objects/interactables/scythe_buyable.tscn" id="20_r3wom"]
@@ -40,7 +40,7 @@
 [ext_resource type="Script" path="res://levels/farm map/wood_area.gd" id="34_5u07r"]
 [ext_resource type="Script" path="res://levels/farm map/gravel_area.gd" id="35_bas4t"]
 [ext_resource type="FontFile" uid="uid://duy2h5y7vworx" path="res://main_menu/resources/AlegreyaSansSC-Medium.ttf" id="37_uafvh"]
-[ext_resource type="PackedScene" uid="uid://dtpv8snpj8j8d" path="res://objects/interactables/weed_spawner.tscn" id="39_nwryr"]
+[ext_resource type="PackedScene" path="res://objects/interactables/weed_spawner.tscn" id="39_nwryr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omaak"]
 albedo_texture = ExtResource("3_2tu1g")
@@ -802,17 +802,18 @@ transform = Transform3D(0.916111, 0, -0.400925, 0, 1, 0, 0.400925, 0, 0.916111, 
 
 [node name="seed_buyable" parent="buyables" instance=ExtResource("20_f67iq")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 49.4368, 0.864903, 11.6648)
-seed_type = 0
-price = 250
+seed_type = 1
+price = 100
 
 [node name="seed_buyable2" parent="buyables" instance=ExtResource("20_f67iq")]
-transform = Transform3D(-0.200428, 0, -0.979708, 0, 1, 0, 0.979708, 0, -0.200428, 49.4368, 1.61617, 12.5924)
+transform = Transform3D(0.533718, 0, -0.845662, 0, 1, 0, 0.845662, 0, 0.533718, 49.4368, 1.61617, 12.5924)
 seed_type = 0
-price = 250
+price = 15
 
 [node name="seed_buyable3" parent="buyables" instance=ExtResource("20_f67iq")]
-transform = Transform3D(0.141005, 0, -0.990009, 0, 1, 0, 0.990009, 0, 0.141005, 49.4368, 0.86282, 13.2935)
+transform = Transform3D(-0.144702, 0, -0.989475, 0, 1, 0, 0.989475, 0, -0.144702, 49.4368, 0.86282, 13.2935)
 seed_type = 2
+price = 40
 
 [node name="watercan_buyable" parent="buyables" instance=ExtResource("21_p5vq8")]
 transform = Transform3D(0.5393, 0, -0.842114, 0, 1, 0, 0.842114, 0, 0.5393, 16.0991, 0.641045, -32.5137)
@@ -828,7 +829,7 @@ current_type = 1
 
 [node name="shotgun_buyable" parent="buyables" instance=ExtResource("26_2bqs0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50, 1.65959, 15.5619)
-price = 1200
+price = 2000
 
 [node name="ammo_buyable2" parent="buyables" instance=ExtResource("25_v23kb")]
 transform = Transform3D(-0.166683, 0, -0.986011, 0, 1, 0, 0.986011, 0, -0.166683, 49.5177, 0.863242, 16.2321)
@@ -1238,26 +1239,21 @@ grow_vertical = 2
 mouse_filter = 0
 
 [node name="left" type="VBoxContainer" parent="intro/your_name"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="middle" type="VBoxContainer" parent="intro/your_name"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="intro/your_name/middle"]
-layout_mode = 2
 
 [node name="Label" type="Label" parent="intro/your_name/middle/HBoxContainer"]
-layout_mode = 2
 text = "what should we call you? "
 label_settings = SubResource("LabelSettings_26pgc")
 vertical_alignment = 1
 
 [node name="LineEdit_yname" type="LineEdit" parent="intro/your_name/middle/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
 theme_override_fonts/font = ExtResource("37_uafvh")
 theme_override_font_sizes/font_size = 12
 placeholder_text = "Your Name Here"
@@ -1265,7 +1261,6 @@ max_length = 30
 caret_blink = true
 
 [node name="right" type="VBoxContainer" parent="intro/your_name"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="your_farms_name" type="HBoxContainer" parent="intro"]
@@ -1277,26 +1272,21 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="left" type="VBoxContainer" parent="intro/your_farms_name"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="middle" type="VBoxContainer" parent="intro/your_farms_name"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="intro/your_farms_name/middle"]
-layout_mode = 2
 
 [node name="Label" type="Label" parent="intro/your_farms_name/middle/HBoxContainer"]
-layout_mode = 2
 text = "what would you like to call this place? "
 label_settings = SubResource("LabelSettings_26pgc")
 vertical_alignment = 1
 
 [node name="LineEdit_fname" type="LineEdit" parent="intro/your_farms_name/middle/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
 theme_override_fonts/font = ExtResource("37_uafvh")
 theme_override_font_sizes/font_size = 12
 placeholder_text = "Farm Name Here"
@@ -1304,7 +1294,6 @@ max_length = 15
 caret_blink = true
 
 [node name="right" type="VBoxContainer" parent="intro/your_farms_name"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="your_pets_name" type="HBoxContainer" parent="intro"]
@@ -1316,26 +1305,21 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="left" type="VBoxContainer" parent="intro/your_pets_name"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="middle" type="VBoxContainer" parent="intro/your_pets_name"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="intro/your_pets_name/middle"]
-layout_mode = 2
 
 [node name="Label" type="Label" parent="intro/your_pets_name/middle/HBoxContainer"]
-layout_mode = 2
 text = "What was the name of your childhood pet? "
 label_settings = SubResource("LabelSettings_26pgc")
 vertical_alignment = 1
 
 [node name="LineEdit_pname" type="LineEdit" parent="intro/your_pets_name/middle/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
 theme_override_fonts/font = ExtResource("37_uafvh")
 theme_override_font_sizes/font_size = 12
 placeholder_text = "Pet Name Here"
@@ -1343,7 +1327,6 @@ max_length = 30
 caret_blink = true
 
 [node name="right" type="VBoxContainer" parent="intro/your_pets_name"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="intro_anim" type="HBoxContainer" parent="intro"]
@@ -1355,20 +1338,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="left" type="VBoxContainer" parent="intro/intro_anim"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="middle" type="VBoxContainer" parent="intro/intro_anim"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="intro/intro_anim/middle"]
-layout_mode = 2
 
 [node name="description" type="RichTextLabel" parent="intro/intro_anim/middle/HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
 bbcode_enabled = true
 text = "Dear [name], 
 We are writing to you to inform you of the fact that you have been selected to acquire a small property from your [descriptor] [family member] in their will. This property contains a small farm on it named [farm name]. Their only wish was for you to maintain the farm, and keep it from becoming overgrown. Good Luck!
@@ -1380,7 +1359,6 @@ Pleasant Valley Planning Department
 fit_content_height = true
 
 [node name="right" type="VBoxContainer" parent="intro/intro_anim"]
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intro/intro_anim"]
@@ -1400,7 +1378,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="dying/scorecard"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1408,23 +1385,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="dying/scorecard/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 3
 color = Color(0.0235294, 0.0235294, 0.0235294, 0.596078)
 
 [node name="ColorRect2" type="ColorRect" parent="dying/scorecard/VBoxContainer"]
 custom_minimum_size = Vector2(0, 250)
-layout_mode = 2
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0)
 
 [node name="ColorRect3" type="ColorRect" parent="dying/scorecard/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 3
 color = Color(0.0235294, 0.0235294, 0.0235294, 0.596078)
 
 [node name="screen" type="VBoxContainer" parent="dying/scorecard"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1432,91 +1405,74 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="top" type="HBoxContainer" parent="dying/scorecard/screen"]
-layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Label3" type="Label" parent="dying/scorecard/screen/top"]
-layout_mode = 2
 text = "YOU DIED"
 label_settings = SubResource("LabelSettings_6kb04")
 
 [node name="middle" type="HBoxContainer" parent="dying/scorecard/screen"]
-layout_mode = 2
 size_flags_vertical = 3
 
 [node name="left" type="VBoxContainer" parent="dying/scorecard/screen/middle"]
 custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="name" type="Label" parent="dying/scorecard/screen/middle/left"]
-layout_mode = 2
 text = "[Name]"
 label_settings = SubResource("LabelSettings_6kb04")
 horizontal_alignment = 1
 
 [node name="farm_name" type="Label" parent="dying/scorecard/screen/middle/left"]
-layout_mode = 2
 text = "[Farm]"
 label_settings = SubResource("LabelSettings_hcwru")
 horizontal_alignment = 1
 
 [node name="middle" type="VBoxContainer" parent="dying/scorecard/screen/middle"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="mharvest" type="Label" parent="dying/scorecard/screen/middle/middle"]
-layout_mode = 2
 text = "Melee Harvests:                  [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="rharvest" type="Label" parent="dying/scorecard/screen/middle/middle"]
-layout_mode = 2
 text = "Ranged Harvests:              [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="upgrades" type="Label" parent="dying/scorecard/screen/middle/middle"]
-layout_mode = 2
 text = "Upgrades Purchased: [x]/9"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="right" type="VBoxContainer" parent="dying/scorecard/screen/middle"]
-layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="time_alive" type="Label" parent="dying/scorecard/screen/middle/right"]
-layout_mode = 2
 text = "Time Spent Alive:              [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="steps_taken" type="Label" parent="dying/scorecard/screen/middle/right"]
-layout_mode = 2
 text = "Steps Taken:                          [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="paths_opened" type="Label" parent="dying/scorecard/screen/middle/right"]
-layout_mode = 2
 text = "Paths Opened:                  [x]/6"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="bottom" type="HBoxContainer" parent="dying/scorecard/screen"]
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="dying/scorecard/screen/bottom"]
-layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
 [node name="spacer" type="Label" parent="dying/scorecard/screen/bottom/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 label_settings = SubResource("LabelSettings_do83d")
@@ -1525,7 +1481,6 @@ autowrap_mode = 2
 
 [node name="epilogue2" type="Label" parent="dying/scorecard/screen/bottom/HBoxContainer"]
 custom_minimum_size = Vector2(400, 50)
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Unfortunately, you were unable to fulfill your [family member]'s wishes. Your cat was adopted by your [new family member], and the farm had to shut down.
@@ -1537,7 +1492,6 @@ autowrap_mode = 2
 
 [node name="spacer2" type="Label" parent="dying/scorecard/screen/bottom/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 label_settings = SubResource("LabelSettings_do83d")
@@ -1545,13 +1499,11 @@ vertical_alignment = 2
 autowrap_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="dying/scorecard/screen/bottom/HBoxContainer"]
-layout_mode = 2
 alignment = 1
 
 [node name="try_again" type="Button" parent="dying/scorecard/screen/bottom/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(100, 35)
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
@@ -1565,7 +1517,6 @@ text = "Try again"
 [node name="qtm" type="Button" parent="dying/scorecard/screen/bottom/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(100, 35)
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1

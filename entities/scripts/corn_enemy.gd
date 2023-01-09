@@ -6,7 +6,7 @@ class_name CornEnemy
 # @onready var carrot_scene = $carrot_man
 
 func _ready() -> void:
-	enemy_val = 750
+	enemy_val = 80
 
 func anim_process():
 	if velocity.length() > 0 and $timers/attack_timer.is_stopped():

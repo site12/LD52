@@ -9,7 +9,7 @@ func get_class():
 	return "CarrotEnemy"
 
 func _ready() -> void:
-	enemy_val = 750
+	enemy_val = 25
 
 func anim_process():
 	if velocity.length() > 0 and $timers/attack_timer.is_stopped():
