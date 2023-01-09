@@ -8,6 +8,8 @@ extends Gun
 
 @onready var upgrades = [mat_rust, mat_iron, mat_silver]
 
+@onready var dam_numbers = [5, 10, 15]
+
 #this handles the animations every frame and handles the player state and updates the ammo count
 func _physics_process(delta):
 	walk()
@@ -21,4 +23,5 @@ func fire_anim():
 	$animations/AnimationTree["parameters/playback"].travel("hoeuse_hoe")
 
 func update_level(level):
+	body_damage = dam_numbers[level-1]
 	$Player_Arms/hoe_tool.set_surface_override_material(0, upgrades[level-1])

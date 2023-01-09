@@ -7,6 +7,10 @@ var money:int = 10000
 
 var money_before_update:int
 
+var farm_name:String
+var your_name:String
+var cat_name:String
+
 signal seed_swapped
 signal update_money
 

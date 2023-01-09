@@ -158,7 +158,7 @@ script = ExtResource("2_yxauq")
 gunfire = ExtResource("3_t3k16")
 
 [node name="Player_Arms" parent="." index="1"]
-transform = Transform3D(0.9895, 0.126826, -0.0693088, -0.00909019, 0.533214, 0.845932, 0.144242, -0.83642, 0.528768, 0.0558081, -3.91037, 0.421915)
+transform = Transform3D(0.9895, 0.126826, -0.0693088, -0.0090902, 0.533214, 0.845932, 0.144242, -0.83642, 0.528768, 0.0558081, -3.91037, 0.421915)
 
 [node name="scythe_tool" parent="Player_Arms" index="1" instance=ExtResource("4_ymnic")]
 transform = Transform3D(4.96552, 0.586214, 0, -0.586214, 4.96552, 0, 0, 0, 5, 3.19814, -5.42934, 0.445306)

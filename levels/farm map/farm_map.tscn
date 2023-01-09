@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://l48mioanawpc" path="res://levels/farm map/assets/shelf.tscn" id="22_c1jto"]
 [ext_resource type="PackedScene" uid="uid://cdlaybrmyo2qm" path="res://objects/interactables/hoe_buyable.tscn" id="25_8ot6m"]
 [ext_resource type="PackedScene" uid="uid://c7ovvm2rqgq43" path="res://objects/interactables/ammo_buyable.tscn" id="25_v23kb"]
-[ext_resource type="PackedScene" uid="uid://bm22g8rgf352i" path="res://objects/interactables/shotgun_buyable.tscn" id="26_2bqs0"]
+[ext_resource type="PackedScene" uid="uid://cyd7fhprx85hb" path="res://objects/interactables/shotgun_buyable.tscn" id="26_2bqs0"]
 [ext_resource type="PackedScene" uid="uid://cbmv5sqfwuvf1" path="res://levels/farm map/assets/arch.tscn" id="27_t338y"]
 [ext_resource type="PackedScene" uid="uid://blhhvycgbhhmj" path="res://objects/interactables/dirt_patch.tscn" id="29_w6w8j"]
 [ext_resource type="AudioStream" uid="uid://du1e05rbccxhh" path="res://sounds/ambience_smaller.wav" id="31_twivb"]
