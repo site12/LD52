@@ -38,7 +38,7 @@ func get_seed_type():
 func swap_seed():
 	selected_seed += 1
 	if selected_seed > SeedType.size()-1: selected_seed = 0
-	print(selected_seed)
+	# print(selected_seed)
 	seed_swapped.emit()
 
 func update_seed_ui():

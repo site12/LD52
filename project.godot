@@ -10,11 +10,6 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Node3D",
-"class": &"Barrier",
-"language": &"GDScript",
-"path": "res://objects/scripts/window.gd"
-}, {
-"base": "Node3D",
 "class": &"Buyable",
 "language": &"GDScript",
 "path": "res://objects/scripts/buyable.gd"
@@ -73,9 +68,13 @@ _global_script_classes=[{
 "class": &"TBPlugin",
 "language": &"GDScript",
 "path": "res://addons/tbloader/src/plugin.gd"
+}, {
+"base": "Enemy",
+"class": &"WeedEnemy",
+"language": &"GDScript",
+"path": "res://entities/enemies/weed_enemy.gd"
 }]
 _global_script_class_icons={
-"Barrier": "",
 "Buyable": "",
 "CarrotEnemy": "",
 "CornEnemy": "",
@@ -87,7 +86,8 @@ _global_script_class_icons={
 "MainPlayer": "",
 "Player": "",
 "Shotgun": "",
-"TBPlugin": ""
+"TBPlugin": "",
+"WeedEnemy": ""
 }
 
 [application]

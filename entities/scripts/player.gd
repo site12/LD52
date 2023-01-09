@@ -118,7 +118,7 @@ func handle_interactions()->void:
 	if Input.is_action_just_pressed("attack"):
 		attempting_to_interact = true
 		attempt_to_interact(interactable_object)
-		print(interactable_object)
+		# print(interactable_object)
 		
 	if Input.is_action_just_released("attack"):
 		attempting_to_interact = false

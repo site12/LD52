@@ -1,5 +1,6 @@
 extends Node3D
 
+const CURVE = 1.1
 
 var family:Array[String] = [
 	"Mother",
@@ -24,6 +25,10 @@ var descriptor:Array[String] = [
 
 var chosen_family_member = "Ex-Husband"
 var chosen_descriptor
+var difficulty:float = 1.0
+var sim_time = 0
+@onready var player_char = $player
+@onready var weed_spawners = $weed_spawners.get_children()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -84,3 +89,13 @@ func player_death():
 	$dying/scorecard/screen/middle/right/paths_opened.text = "Paths Opened:                  "+str(Global.pathways_opened)+"/6"
 	$dying/scorecard/screen/bottom/HBoxContainer/epilogue2.text = "Unfortunately, you were unable to fulfill your "+chosen_family_member+"'s wishes. Your cat was adopted by your "+get_family_member()+", and the farm had to shut down."
 	$dying/scorecard.visible = true
+
+
+func _on_weed_spawn_timer_timeout() -> void:
+	sim_time += 10
+	print("time = " + str(sim_time))
+	print("Current Difficulty: " + str(difficulty))
+	print("Spawning " + str(floor(difficulty)) + " weeds")
+	for enemy in range(floor(difficulty)):
+		weed_spawners[randi() % weed_spawners.size()].spawn_enemy(15)
+	difficulty *= CURVE

@@ -21,7 +21,7 @@ func run_attack_anim():
 func _on_attack_timer_timeout():
 	if targeted_player != null:
 		var dist = targeted_player.global_position.distance_to(global_position)
-		print(str(dist))
+		# print(str(dist))
 		if dist< 5:
 			targeted_player.take_damage(DAMAGE)
 		current_behavior = "targeting_player"

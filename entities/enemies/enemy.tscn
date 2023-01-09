@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/scripts/enemy.gd" id="1_vheyf"]
 [ext_resource type="PackedScene" uid="uid://dd66k41qg80ii" path="res://objects/crops/Carrot/carrot_growth_3.tscn" id="2_746hg"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lkh1t"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ykiap"]
 radius = 0.4
 
 [node name="enemy" type="CharacterBody3D"]
@@ -34,7 +34,7 @@ max_neighbors = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_lkh1t")
+shape = SubResource("CapsuleShape3D_ykiap")
 
 [node name="timers" type="Node" parent="."]
 
@@ -43,6 +43,8 @@ wait_time = 1.5
 
 [node name="attack_timer" type="Timer" parent="timers"]
 
+[node name="cool_down_timer" type="Timer" parent="timers"]
+
 [node name="carrot_growth_3" parent="." instance=ExtResource("2_746hg")]
 transform = Transform3D(1, 0, 0, 0, 1.86, 0, 0, 0, 1, -0.0409542, 0.967997, 0.00993416)
 
@@ -50,3 +52,4 @@ transform = Transform3D(1, 0, 0, 0, 1.86, 0, 0, 0, 1, -0.0409542, 0.967997, 0.00
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="timeout" from="timers/death_timer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="timers/attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="timers/cool_down_timer" to="." method="_on_cool_down_timer_timeout"]

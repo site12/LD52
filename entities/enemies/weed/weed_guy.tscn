@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cw53ytdirejx2"]
+[gd_scene load_steps=15 format=3 uid="uid://cw53ytdirejx2"]
 
 [ext_resource type="PackedScene" uid="uid://bkih3akf4q4qp" path="res://entities/enemies/weed/weed_idles.glb" id="1_oc2bs"]
 [ext_resource type="Script" path="res://entities/enemies/weed/weed_guy_ragdoll.gd" id="2_p03nh"]
@@ -7,46 +7,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c508q"]
 albedo_texture = ExtResource("2_swplu")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kq22k"]
-radius = 0.596233
-height = 5.96233
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j7wmu"]
-radius = 2.08384
-height = 20.8384
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_chq31"]
-radius = 2.10284
-height = 21.0284
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mbvgk"]
-radius = 2.08384
-height = 20.8384
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xkeeu"]
-radius = 2.10284
-height = 21.0284
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7won0"]
-radius = 5.98977
-height = 59.8977
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_12bh7"]
-radius = 2.08642
-height = 20.8642
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q45fk"]
-radius = 2.80383
-height = 28.0383
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8lhdf"]
-radius = 2.08642
-height = 20.8642
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qe8oq"]
-radius = 2.80383
-height = 28.0383
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lw15y"]
 animation = &"weed/idle"
@@ -81,6 +41,7 @@ states/BlendSpace1D/position = Vector2(335, 211)
 states/weedattack/node = SubResource("AnimationNodeAnimation_fbguf")
 states/weedattack/position = Vector2(479, 92)
 transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_gkvcq"), "BlendSpace1D", "weedattack", SubResource("AnimationNodeStateMachineTransition_7ne8x"), "weedattack", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_ubv65")]
+graph_offset = Vector2(-47, 44)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_jy2i7"]
 
@@ -88,28 +49,29 @@ transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTr
 script = ExtResource("2_p03nh")
 
 [node name="ikHandle1" parent="Carrot/Carrot_Rig" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0108936, -0.0206572, -0.0176306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0126446, -0.0239775, -0.0204645)
 
 [node name="ikHandle2" parent="Carrot/Carrot_Rig" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106783, 0.00692812, -0.0120089)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0123947, 0.00804171, -0.0139391)
 
 [node name="Skeleton3D" parent="Carrot/Carrot_Rig" index="2"]
-bones/0/position = Vector3(5.24926e-08, -2.03896, -48.6898)
-bones/0/rotation = Quaternion(-0.553056, 0.0168494, -0.162572, 0.816955)
-bones/1/position = Vector3(-5.962, -0.0627538, 1.05508e-06)
-bones/1/rotation = Quaternion(-0.344926, -0.137496, -0.0054166, 0.928489)
-bones/2/rotation = Quaternion(0.447406, 0.00321712, -0.0017441, 0.894324)
-bones/3/rotation = Quaternion(-0.233825, -0.205024, 0.12902, 0.941618)
-bones/4/position = Vector3(5.962, 0.0627619, 1.2056e-07)
-bones/4/rotation = Quaternion(-0.440759, -0.165756, 0.142528, 0.870599)
-bones/5/rotation = Quaternion(0.527926, 0.00382997, -0.00255816, 0.849278)
-bones/6/rotation = Quaternion(-0.258104, 0.195983, -0.129183, 0.937168)
-bones/9/rotation = Quaternion(-0.0196957, -0.254332, -0.378035, 0.889953)
-bones/10/rotation = Quaternion(-0.12483, -0.166575, -0.128948, 0.969558)
+bones/0/position = Vector3(4.48389e-08, -2.03534, -47.3838)
+bones/0/rotation = Quaternion(-0.52496, 0.0161286, -0.174235, 0.832946)
+bones/1/position = Vector3(-5.962, -0.0627538, 1.0548e-06)
+bones/1/rotation = Quaternion(-0.397489, -0.149378, -0.00536047, 0.905351)
+bones/2/rotation = Quaternion(0.501463, 0.0036373, -0.00227292, 0.865168)
+bones/3/rotation = Quaternion(-0.236873, -0.293542, 0.195979, 0.905161)
+bones/4/position = Vector3(5.962, 0.0627619, 1.20802e-07)
+bones/4/rotation = Quaternion(-0.494247, -0.178218, 0.148076, 0.837873)
+bones/5/rotation = Quaternion(0.574499, 0.00413871, -0.003112, 0.818489)
+bones/6/rotation = Quaternion(-0.211895, 0.222017, -0.0795291, 0.948411)
+bones/9/rotation = Quaternion(0.0591988, -0.281846, -0.415943, 0.862583)
+bones/10/rotation = Quaternion(-0.0717269, -0.158451, -0.168942, 0.970159)
 bones/11/rotation = Quaternion(0.183015, 0.00375696, -0.0888156, 0.979083)
-bones/12/rotation = Quaternion(-0.212124, 0.178476, 0.423768, 0.862305)
-bones/13/rotation = Quaternion(0.271227, 0.12983, 0.305761, 0.903377)
-bones/14/rotation = Quaternion(0.000507837, -0.000163139, -4.6381e-05, 1)
+bones/12/position = Vector3(-13.2939, -0.139944, 0)
+bones/12/rotation = Quaternion(-0.149342, 0.259955, 0.490286, 0.818376)
+bones/13/rotation = Quaternion(0.319801, 0.181733, 0.334941, 0.867476)
+bones/14/rotation = Quaternion(0.000592582, -0.000189621, -5.33166e-05, 1)
 
 [node name="L_Wd_Hand" parent="Carrot/Carrot_Rig/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_c508q")
@@ -138,142 +100,6 @@ material_override = SubResource("StandardMaterial3D_c508q")
 [node name="We_Chest" parent="Carrot/Carrot_Rig/Skeleton3D" index="8"]
 material_override = SubResource("StandardMaterial3D_c508q")
 
-[node name="Physical Bone J_Waist" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="9"]
-transform = Transform3D(-0.205613, 0.232144, 0.950645, -0.901035, 0.333675, -0.27633, -0.381376, -0.913545, 0.140585, -2.83398, -1.21369, -49.1157)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00570762, 0.0117953, 2.97946)
-body_offset = Transform3D(-4.21703e-05, -0.01051, 0.999868, -3.41237e-05, 0.999842, 0.010562, -0.999794, -5.26607e-05, 5.51492e-05, -2.97895, -0.0432625, 0.00554276)
-bone_name = "J_Waist"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_Waist" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_kq22k")
-
-[node name="Physical Bone J_L_Hip" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="10"]
-transform = Transform3D(-0.787224, 0.599574, 0.143473, 0.52153, 0.772011, -0.363218, -0.328438, -0.211017, -0.920147, -7.16319, 3.39343, -39.9448)
-joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00580028, 0.00404806, 10.4337)
-body_offset = Transform3D(-0.837909, 0.545508, -0.0102028, -6.634e-05, 0.0186404, 0.999414, 0.545431, 0.837909, -0.015852, 0.109105, -10.4277, 0.15884)
-bone_name = "J_L_Hip"
-joint_constraints/bias = 0.3
-joint_constraints/damping = 1.0
-joint_constraints/impulse_clamp = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_L_Hip" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_j7wmu")
-
-[node name="Physical Bone J_L_Knee" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="11"]
-transform = Transform3D(-0.260313, 0.954413, 0.145504, 0.829301, 0.144086, 0.538774, 0.493372, 0.261032, -0.829025, -10.1868, 1.51098, -21.636)
-joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00247052, -0.00429852, 10.5262)
-body_offset = Transform3D(-0.187203, 0.982185, -0.00987362, -0.000113666, 0.0101513, 0.999315, 0.98177, 0.187112, -0.00185761, 0.107691, -10.5189, 0.0227833)
-bone_name = "J_L_Knee"
-joint_constraints/bias = 0.3
-joint_constraints/damping = 1.0
-joint_constraints/impulse_clamp = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_L_Knee" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_chq31")
-
-[node name="Physical Bone J_R_Hip" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="12"]
-transform = Transform3D(-0.881003, 0.453969, -0.132944, 0.451163, 0.722604, -0.523183, -0.141362, -0.520631, -0.841815, 7.05384, 1.76435, -39.0888)
-joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00212251, 0.0062305, 10.4286)
-body_offset = Transform3D(-0.837966, 0.545527, -0.0102251, 0.000110537, 0.0186457, 0.999847, 0.545445, 0.837469, -0.0157574, 0.105014, -10.4272, 0.157953)
-bone_name = "J_R_Hip"
-joint_constraints/bias = 0.3
-joint_constraints/damping = 1.0
-joint_constraints/impulse_clamp = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_R_Hip" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_mbvgk")
-
-[node name="Physical Bone J_R_Knee" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="13"]
-transform = Transform3D(-0.114843, 0.982627, -0.145086, 0.82115, 0.176107, 0.541619, 0.557769, -0.0569781, -0.827179, 9.96308, 1.517, -21.6204)
-joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00381523, 0.0029025, 10.526)
-body_offset = Transform3D(-0.187159, 0.982166, -0.0100076, -1.21891e-05, 0.0101333, 0.999261, 0.981608, 0.187247, -0.00185624, 0.101775, -10.5183, 0.0227404)
-bone_name = "J_R_Knee"
-joint_constraints/bias = 0.3
-joint_constraints/damping = 1.0
-joint_constraints/impulse_clamp = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_R_Knee" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_xkeeu")
-
-[node name="Physical Bone J_Body" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="14"]
-transform = Transform3D(0.935231, 0.298541, -0.190017, -0.329621, 0.930155, -0.16093, 0.128695, 0.213148, 0.968257, 14.3088, 16.4005, -109.188)
-joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00245294, 0.00174475, 29.9306)
-body_offset = Transform3D(0.998384, 0.0547342, 0.0103204, 4.37945e-05, 0.18561, -0.982393, -0.0556765, 0.980969, 0.185268, -0.306541, 29.4033, -5.54704)
-bone_name = "J_Body"
-joint_constraints/bias = 0.3
-joint_constraints/damping = 1.0
-joint_constraints/impulse_clamp = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_Body" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_7won0")
-
-[node name="Physical Bone J_R_Shoulder" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="15"]
-transform = Transform3D(-0.179593, 0.846955, -0.500308, 0.981805, 0.18439, -0.0403482, 0.0581007, -0.498426, -0.864738, 26.4772, 8.33214, -69.2939)
-joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00136705, 0.0121567, 10.4512)
-body_offset = Transform3D(4.96209e-06, -0.0103645, -0.999798, -1.64509e-05, 0.999827, -0.0105344, 0.999785, -1.52439e-05, 7.15256e-07, 10.4492, 0.0979424, 0.00135946)
-bone_name = "J_R_Shoulder"
-joint_constraints/bias = 0.3
-joint_constraints/damping = 1.0
-joint_constraints/impulse_clamp = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_R_Shoulder" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_12bh7")
-
-[node name="Physical Bone J_R_Elbow" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="16"]
-transform = Transform3D(-0.063361, 0.97385, -0.217413, 0.937574, -0.0162654, -0.345748, -0.340272, -0.225853, -0.912216, 34.7452, 13.6, -47.4807)
-joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00825895, 0.00679641, 14.0403)
-body_offset = Transform3D(-9.89735e-05, -0.0105044, -0.999418, -5.6454e-05, 0.999774, -0.0105772, 0.999422, -4.74667e-05, -8.67248e-05, 14.0322, 0.141712, -0.00703621)
-bone_name = "J_R_Elbow"
-joint_constraints/bias = 0.3
-joint_constraints/damping = 1.0
-joint_constraints/impulse_clamp = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_R_Elbow" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_q45fk")
-
-[node name="Physical Bone J_L_Shoulder" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="17"]
-transform = Transform3D(-0.418529, -0.681623, 0.599879, -0.89838, 0.215789, -0.381564, 0.130649, -0.698903, -0.702489, -10.2819, 19.2416, -74.7215)
-joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00516257, 0.0154469, 10.4533)
-body_offset = Transform3D(-5.5939e-05, -0.0105726, 0.999415, 5.38528e-05, 0.999764, 0.010312, -0.999661, -5.35995e-05, 1.40071e-06, -10.447, -0.123238, -0.00517464)
-bone_name = "J_L_Shoulder"
-joint_constraints/bias = 0.3
-joint_constraints/damping = 1.0
-joint_constraints/impulse_clamp = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_L_Shoulder" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_8lhdf")
-
-[node name="Physical Bone J_L_Elbow" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="18"]
-transform = Transform3D(-0.862459, -0.505479, 0.0196855, -0.496866, 0.839107, -0.220235, 0.0947615, -0.199785, -0.974839, -16.8135, 26.3103, -53.7276)
-joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00118726, 0.00587353, 14.0328)
-body_offset = Transform3D(1.48639e-05, -0.010514, 0.999546, 8.09133e-05, 0.999706, 0.0105197, -0.999845, -1.87755e-05, -5.64158e-05, -14.0264, -0.153492, -0.000395298)
-bone_name = "J_L_Elbow"
-joint_constraints/bias = 0.3
-joint_constraints/damping = 1.0
-joint_constraints/impulse_clamp = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_L_Elbow" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_qe8oq")
-
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
 "weed": ExtResource("3_6u0ff")
@@ -284,4 +110,4 @@ tree_root = SubResource("AnimationNodeStateMachine_i5sf6")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_jy2i7")
-parameters/BlendSpace1D/blend_position = 0.000929368
+parameters/BlendSpace1D/blend_position = 0.00107875

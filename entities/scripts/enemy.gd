@@ -139,3 +139,7 @@ func run_attack_anim():
 	pass
 
 
+
+
+func _on_cool_down_timer_timeout() -> void:
+	pass # Replace with function body.
