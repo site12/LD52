@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://dhu3n23upt33b"]
+[gd_scene load_steps=106 format=3 uid="uid://dhu3n23upt33b"]
 
 [ext_resource type="Script" path="res://levels/farm map/scripts/farm_map.gd" id="1_7daaw"]
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="3_0t2qc"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://di4fjq70wu6fi" path="res://entities/npcs/cat/cat.tscn" id="30_birt4"]
 [ext_resource type="AudioStream" uid="uid://du1e05rbccxhh" path="res://sounds/ambience_smaller.wav" id="31_twivb"]
 [ext_resource type="Script" path="res://levels/farm map/water_area.gd" id="32_2hmcp"]
+[ext_resource type="Script" path="res://entities/npcs/cat/loop_sound.gd" id="33_3ayxw"]
 [ext_resource type="PackedScene" uid="uid://dg58bvyt562ba" path="res://entities/players/player.tscn" id="33_dms4t"]
 [ext_resource type="Script" path="res://levels/farm map/wood_area.gd" id="34_5u07r"]
 [ext_resource type="Script" path="res://levels/farm map/gravel_area.gd" id="35_bas4t"]
@@ -522,7 +523,7 @@ size = Vector2(25, 25)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kfrrs"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aiqne"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4ls1w"]
 seamless = true
 noise = SubResource("FastNoiseLite_kfrrs")
 
@@ -530,7 +531,7 @@ noise = SubResource("FastNoiseLite_kfrrs")
 transparency = 1
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.184314, 0.470588, 1, 0.890196)
-albedo_texture = SubResource("NoiseTexture2D_aiqne")
+albedo_texture = SubResource("NoiseTexture2D_4ls1w")
 albedo_texture_force_srgb = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_irp0j"]
@@ -1080,6 +1081,7 @@ stream = ExtResource("31_twivb")
 volume_db = -5.0
 pitch_scale = 0.8
 autoplay = true
+script = ExtResource("33_3ayxw")
 
 [node name="water_area" type="Area3D" parent="."]
 transform = Transform3D(0.673286, 0, 0, 0, 1, 0, 0, 0, 0.798417, 38.0881, 0.513695, 58.1255)
@@ -1123,7 +1125,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="dying/scorecard"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1131,23 +1132,27 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="dying/scorecard/VBoxContainer"]
-layout_mode = 2
+offset_right = 640.0
+offset_bottom = 111.0
 size_flags_vertical = 3
 color = Color(0.0235294, 0.0235294, 0.0235294, 0.596078)
 
 [node name="ColorRect2" type="ColorRect" parent="dying/scorecard/VBoxContainer"]
 custom_minimum_size = Vector2(0, 250)
-layout_mode = 2
+offset_top = 115.0
+offset_right = 640.0
+offset_bottom = 365.0
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0)
 
 [node name="ColorRect3" type="ColorRect" parent="dying/scorecard/VBoxContainer"]
-layout_mode = 2
+offset_top = 369.0
+offset_right = 640.0
+offset_bottom = 480.0
 size_flags_vertical = 3
 color = Color(0.0235294, 0.0235294, 0.0235294, 0.596078)
 
 [node name="screen" type="VBoxContainer" parent="dying/scorecard"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1155,91 +1160,123 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="top" type="HBoxContainer" parent="dying/scorecard/screen"]
-layout_mode = 2
+offset_right = 640.0
+offset_bottom = 157.0
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Label3" type="Label" parent="dying/scorecard/screen/top"]
-layout_mode = 2
+offset_left = 230.0
+offset_top = 54.0
+offset_right = 410.0
+offset_bottom = 102.0
 text = "YOU DIED"
 label_settings = SubResource("LabelSettings_6kb04")
 
 [node name="middle" type="HBoxContainer" parent="dying/scorecard/screen"]
-layout_mode = 2
+offset_top = 161.0
+offset_right = 640.0
+offset_bottom = 318.0
 size_flags_vertical = 3
 
 [node name="left" type="VBoxContainer" parent="dying/scorecard/screen/middle"]
 custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
+offset_right = 300.0
+offset_bottom = 157.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="name" type="Label" parent="dying/scorecard/screen/middle/left"]
-layout_mode = 2
+offset_top = 36.0
+offset_right = 300.0
+offset_bottom = 84.0
 text = "[Name]"
 label_settings = SubResource("LabelSettings_6kb04")
 horizontal_alignment = 1
 
 [node name="farm_name" type="Label" parent="dying/scorecard/screen/middle/left"]
-layout_mode = 2
+offset_top = 88.0
+offset_right = 300.0
+offset_bottom = 121.0
 text = "[Farm]"
 label_settings = SubResource("LabelSettings_hcwru")
 horizontal_alignment = 1
 
 [node name="middle" type="VBoxContainer" parent="dying/scorecard/screen/middle"]
-layout_mode = 2
+offset_left = 304.0
+offset_right = 470.0
+offset_bottom = 157.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="mharvest" type="Label" parent="dying/scorecard/screen/middle/middle"]
-layout_mode = 2
+offset_top = 50.0
+offset_right = 166.0
+offset_bottom = 66.0
 text = "Melee Harvests:                  [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="rharvest" type="Label" parent="dying/scorecard/screen/middle/middle"]
-layout_mode = 2
+offset_top = 70.0
+offset_right = 166.0
+offset_bottom = 86.0
 text = "Ranged Harvests:              [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="upgrades" type="Label" parent="dying/scorecard/screen/middle/middle"]
-layout_mode = 2
+offset_top = 90.0
+offset_right = 166.0
+offset_bottom = 106.0
 text = "Upgrades Purchased: [x]/9"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="right" type="VBoxContainer" parent="dying/scorecard/screen/middle"]
-layout_mode = 2
+offset_left = 474.0
+offset_right = 640.0
+offset_bottom = 157.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="time_alive" type="Label" parent="dying/scorecard/screen/middle/right"]
-layout_mode = 2
+offset_top = 50.0
+offset_right = 166.0
+offset_bottom = 66.0
 text = "Time Spent Alive:              [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="steps_taken" type="Label" parent="dying/scorecard/screen/middle/right"]
-layout_mode = 2
+offset_top = 70.0
+offset_right = 166.0
+offset_bottom = 86.0
 text = "Steps Taken:                          [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="paths_opened" type="Label" parent="dying/scorecard/screen/middle/right"]
-layout_mode = 2
+offset_top = 90.0
+offset_right = 166.0
+offset_bottom = 106.0
 text = "Paths Opened:                  [x]/6"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="bottom" type="HBoxContainer" parent="dying/scorecard/screen"]
-layout_mode = 2
+offset_left = 14.0
+offset_top = 370.0
+offset_right = 626.0
+offset_bottom = 480.0
 size_flags_horizontal = 4
 size_flags_vertical = 10
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="dying/scorecard/screen/bottom"]
-layout_mode = 2
+offset_right = 612.0
+offset_bottom = 110.0
 size_flags_vertical = 4
 alignment = 1
 
 [node name="spacer" type="Label" parent="dying/scorecard/screen/bottom/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
+offset_right = 50.0
+offset_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 label_settings = SubResource("LabelSettings_do83d")
@@ -1248,19 +1285,23 @@ autowrap_mode = 2
 
 [node name="epilogue2" type="Label" parent="dying/scorecard/screen/bottom/HBoxContainer"]
 custom_minimum_size = Vector2(400, 50)
-layout_mode = 2
+offset_left = 54.0
+offset_right = 454.0
+offset_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Unfortunately, you were unable to fulfill your [family member]'s wishes. Your cat was adopted by your [new family member], and the farm had to shut down.
 
 "
 label_settings = SubResource("LabelSettings_do83d")
-vertical_alignment = 2
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="spacer2" type="Label" parent="dying/scorecard/screen/bottom/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
+offset_left = 458.0
+offset_right = 508.0
+offset_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 label_settings = SubResource("LabelSettings_do83d")
@@ -1268,13 +1309,17 @@ vertical_alignment = 2
 autowrap_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="dying/scorecard/screen/bottom/HBoxContainer"]
-layout_mode = 2
-alignment = 2
+offset_left = 512.0
+offset_right = 612.0
+offset_bottom = 110.0
+alignment = 1
 
 [node name="try_again" type="Button" parent="dying/scorecard/screen/bottom/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(100, 35)
-layout_mode = 2
+offset_top = 18.0
+offset_right = 100.0
+offset_bottom = 53.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
@@ -1288,7 +1333,9 @@ text = "Try again"
 [node name="qtm" type="Button" parent="dying/scorecard/screen/bottom/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(100, 35)
-layout_mode = 2
+offset_top = 57.0
+offset_right = 100.0
+offset_bottom = 92.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1

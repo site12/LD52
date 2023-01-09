@@ -32,7 +32,7 @@ func _ready():
 func get_family_member()->String:
 	randomize()
 	var x = randi_range(0,family.size()-1)
-	if x == chosen_family_member:
+	if family[x] == chosen_family_member:
 		get_family_member()
 	chosen_family_member = x
 	return family[x]
