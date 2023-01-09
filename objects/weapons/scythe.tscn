@@ -40,7 +40,7 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_i1y6b"]
-length = 0.25
+length = 0.4
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -49,7 +49,7 @@ tracks/0/path = NodePath("../Player_Arms:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.25),
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-1.00831, -0.130334, -0.0170463), Vector3(-0.582117, -0.360175, 0.416906), Vector3(-1.20092, -0.43517, -0.972914), Vector3(-1.00831, -0.130334, -0.0170463)]

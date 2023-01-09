@@ -10,4 +10,6 @@ func _physics_process(delta):
 
 func fire_anim():
 	$animations/AnimationTree["parameters/playback"].travel("hoeuse_hoe")
+	await get_tree().create_timer($animations/AnimationPlayer.get_animation("hoe/use_hoe").length).timeout
+	weapon_state = WeaponState.READY
 
