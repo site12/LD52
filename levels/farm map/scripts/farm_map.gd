@@ -27,6 +27,8 @@ var chosen_descriptor
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$player.hide_ui()
 	pass
 
 func get_family_member()->String:
@@ -34,7 +36,7 @@ func get_family_member()->String:
 	var x = randi_range(0,family.size()-1)
 	if family[x] == chosen_family_member:
 		get_family_member()
-	chosen_family_member = x
+	chosen_family_member = family[x]
 	return family[x]
 
 func get_descriptor()->String:
@@ -67,10 +69,9 @@ func _on_line_edit_pname_text_submitted(new_text):
 	$props/arch.set_farm_name(Global.farm_name)
 	$props/arch2.set_farm_name(Global.farm_name)
 	await get_tree().create_timer(17).timeout
-	var player = load("res://entities/players/player.tscn").instantiate()
-	player.global_transform = $intro/spawn_loc.global_transform
-	add_child(player)
 	$intro.queue_free()
+	$player.show_ui()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func player_death():
@@ -84,3 +85,14 @@ func player_death():
 	$dying/scorecard/screen/middle/right/paths_opened.text = "Paths Opened:                  "+str(Global.pathways_opened)+"/6"
 	$dying/scorecard/screen/bottom/HBoxContainer/epilogue2.text = "Unfortunately, you were unable to fulfill your "+chosen_family_member+"'s wishes. Your cat was adopted by your "+get_family_member()+", and the farm had to shut down."
 	$dying/scorecard.visible = true
+	
+
+
+func _on_try_again_button_up():
+	Global.reset_globals()
+	get_tree().change_scene_to_file("res://levels/farm map/farm_map.tscn")
+
+
+func _on_qtm_button_up():
+	Global.reset_globals()
+	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")

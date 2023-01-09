@@ -8,6 +8,12 @@ var corn_mat = preload("res://objects/weapons/mats/seedbag_corn.tres")
 var carrot_mat = preload("res://objects/weapons/mats/seedbag_carrot.tres")
 var potato_mat = preload("res://objects/weapons/mats/seedbag_potato.tres")
 
+
+func hide_ui():
+	$CanvasLayer.visible = false
+func show_ui():
+	$CanvasLayer.visible = true
+
 func _ready() -> void:
 	set_player(get_parent().get_parent().get_parent().get_parent())
 	Global.seed_swapped.connect(self.seed_swapped)

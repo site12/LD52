@@ -5,6 +5,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_4twul"]
 font = ExtResource("1_hmgc0")
 
+[sub_resource type="Animation" id="Animation_7nkgb"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_qfx0e"]
 resource_name = "text"
 length = 15.0
@@ -20,9 +23,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 500]
 }
-
-[sub_resource type="Animation" id="Animation_7nkgb"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6jjc1"]
 _data = {
@@ -54,21 +54,34 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="left" type="VBoxContainer" parent="your_name"]
+offset_right = 176.0
+offset_bottom = 480.0
 size_flags_horizontal = 3
 
 [node name="middle" type="VBoxContainer" parent="your_name"]
+offset_left = 180.0
+offset_right = 460.0
+offset_bottom = 480.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="your_name/middle"]
+offset_top = 229.0
+offset_right = 280.0
+offset_bottom = 250.0
 
 [node name="Label" type="Label" parent="your_name/middle/HBoxContainer"]
+offset_right = 176.0
+offset_bottom = 20.0
 text = "what should we call you? "
 label_settings = SubResource("LabelSettings_4twul")
 vertical_alignment = 1
 
 [node name="LineEdit_yname" type="LineEdit" parent="your_name/middle/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
+offset_left = 180.0
+offset_right = 280.0
+offset_bottom = 21.0
 theme_override_fonts/font = ExtResource("1_hmgc0")
 theme_override_font_sizes/font_size = 12
 placeholder_text = "Your Name Here"
@@ -76,6 +89,9 @@ max_length = 30
 caret_blink = true
 
 [node name="right" type="VBoxContainer" parent="your_name"]
+offset_left = 464.0
+offset_right = 640.0
+offset_bottom = 480.0
 size_flags_horizontal = 3
 
 [node name="your_farms_name" type="HBoxContainer" parent="."]
@@ -180,6 +196,3 @@ size_flags_horizontal = 3
 libraries = {
 "": SubResource("AnimationLibrary_6jjc1")
 }
-
-[node name="spawn_loc" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.2577, 0, 4.371)
