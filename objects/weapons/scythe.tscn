@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://r33r8dpurqcl"]
+[gd_scene load_steps=22 format=3 uid="uid://r33r8dpurqcl"]
 
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_5fowe"]
 [ext_resource type="Script" path="res://objects/weapons/scripts/scythe.gd" id="2_yxauq"]
 [ext_resource type="PackedScene" uid="uid://bgg1l3g7xuqj3" path="res://objects/weapons/models/player_arms.tscn" id="3_a3ujb"]
 [ext_resource type="PackedScene" uid="uid://0lxi44hf6f27" path="res://objects/weapons/sounds/hoe/swing.tscn" id="3_t3k16"]
 [ext_resource type="PackedScene" uid="uid://cr5kvgar5op2d" path="res://objects/weapons/models/scythe_tool.tscn" id="4_ymnic"]
+[ext_resource type="Material" uid="uid://cngh7uunbilmo" path="res://objects/weapons/mats/scythe_tool_rust.tres" id="5_pxli7"]
 
 [sub_resource type="Animation" id="Animation_g2c3b"]
 length = 0.001
@@ -161,6 +162,7 @@ transform = Transform3D(0.9895, 0.126826, -0.0693088, -0.00909019, 0.533214, 0.8
 
 [node name="scythe_tool" parent="Player_Arms" index="1" instance=ExtResource("4_ymnic")]
 transform = Transform3D(4.96552, 0.586214, 0, -0.586214, 4.96552, 0, 0, 0, 5, 3.19814, -5.42934, 0.445306)
+surface_material_override/0 = ExtResource("5_pxli7")
 
 [node name="Player_Arms2" parent="Player_Arms" index="2" instance=ExtResource("3_a3ujb")]
 transform = Transform3D(0.984522, -0.108037, 0.138017, 0.131468, 0.97596, -0.173839, 0.115918, -0.189293, -0.975055, -0.275676, 2.33226, 0.259782)
