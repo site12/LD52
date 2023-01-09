@@ -4,6 +4,8 @@ class_name Enemy
 
 #constants for speed and health
 const SPEED:float = 1.5
+const DAMAGE:int = 10
+
 enum EnemyType {
 	CARROT,
 	POTATO,
@@ -12,6 +14,7 @@ enum EnemyType {
 var health:float = 1.0
 var enemy_type:EnemyType
 var enemy_val:int = 0
+
 
 
 #enemy's current state
@@ -41,8 +44,10 @@ func _physics_process(delta) -> void:
 		var current_loc = global_transform.origin
 		var next_loc
 		if not $timers/attack_timer.is_stopped():
+			current_behavior = "stopped"
 			next_loc = current_loc
 		else:
+
 			next_loc = navagent.get_next_location()
 		
 		var new_velocity = (next_loc - current_loc).normalized() * SPEED
