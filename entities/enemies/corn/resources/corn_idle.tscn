@@ -1,7 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bsbfm1s412ppq"]
+[gd_scene load_steps=15 format=3 uid="uid://bsbfm1s412ppq"]
 
 [ext_resource type="PackedScene" uid="uid://b3xq7l1dsbont" path="res://entities/enemies/corn/resources/corn_idle.glb" id="1_hrid8"]
+[ext_resource type="Texture2D" uid="uid://vsmcu5lvx8j5" path="res://entities/enemies/corn/CornMan_BC.png" id="2_1ka6g"]
 [ext_resource type="AnimationLibrary" uid="uid://dqgw3a567fvt" path="res://entities/enemies/corn/resources/corn.res" id="2_8f4xa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iklah"]
+albedo_texture = ExtResource("2_1ka6g")
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rv26m"]
 animation = &"corn/attack"
@@ -57,6 +61,45 @@ bones/9/rotation = Quaternion(-0.0210939, -0.253561, -0.3773, 0.890453)
 bones/10/rotation = Quaternion(-0.125955, -0.167216, -0.128241, 0.969396)
 bones/11/rotation = Quaternion(0.183015, 0.00375696, -0.0888156, 0.979083)
 bones/13/rotation = Quaternion(0.270155, 0.128963, 0.30511, 0.904042)
+
+[node name="Co_Body" parent="group1/Carrot_Rig/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="L_Co_Foot" parent="group1/Carrot_Rig/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="L_Co_Hand" parent="group1/Carrot_Rig/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="L_Co_LowerArm" parent="group1/Carrot_Rig/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="L_Co_LowerLeg" parent="group1/Carrot_Rig/Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="L_Co_UpperArm" parent="group1/Carrot_Rig/Skeleton3D" index="5"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="L_Co_UpperLeg" parent="group1/Carrot_Rig/Skeleton3D" index="6"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="R_Co_Foot" parent="group1/Carrot_Rig/Skeleton3D" index="7"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="R_Co_Hand" parent="group1/Carrot_Rig/Skeleton3D" index="8"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="R_Co_LowerArm" parent="group1/Carrot_Rig/Skeleton3D" index="9"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="R_Co_LowerLeg" parent="group1/Carrot_Rig/Skeleton3D" index="10"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="R_Co_UpperArm" parent="group1/Carrot_Rig/Skeleton3D" index="11"]
+material_override = SubResource("StandardMaterial3D_iklah")
+
+[node name="R_Co_UpperLeg" parent="group1/Carrot_Rig/Skeleton3D" index="12"]
+material_override = SubResource("StandardMaterial3D_iklah")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
