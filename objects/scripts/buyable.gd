@@ -19,8 +19,10 @@ func purchase(player):
 	if Global.spend_money(price):
 		purchase_successful(player)
 		player.ui_spend_money(price)
+		
 
 func update_label():
+	
 	match current_type:
 		buyable_type.PURCHASE:
 			$Control/VBoxContainer/Label.text = "Press F to Purchase [cost: " + str(price)+"]"

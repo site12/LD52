@@ -66,3 +66,15 @@ func _on_line_edit_pname_text_submitted(new_text):
 	player.global_transform = $intro/spawn_loc.global_transform
 	add_child(player)
 	$intro.queue_free()
+
+
+func player_death():
+	$dying/scorecard/screen/middle/left/name.text = Global.your_name
+	$dying/scorecard/screen/middle/left/farm_name.text = Global.farm_name
+	$dying/scorecard/screen/middle/middle/mharvest.text = "Melee Harvests:                   "+str(Global.melee_harvests)
+	$dying/scorecard/screen/middle/middle/rharvest.text = "Ranged Harvests:               "+str(Global.ranged_harvests)
+	$dying/scorecard/screen/middle/middle/upgrades.text = "Upgrades Purchased:  "+str(Global.upgrades_purchased)+"/9"
+	$dying/scorecard/screen/middle/right/time_alive.text = "Time Spent Alive:              "+str(Global.time_elapsed)
+	$dying/scorecard/screen/middle/right/steps_taken.text = "Steps Taken:                          "+str(Global.steps)
+	$dying/scorecard/screen/middle/right/paths_opened.text = "Paths Opened:                  "+str(Global.pathways_opened)+"/6"
+	$dying/scorecard.visible = true

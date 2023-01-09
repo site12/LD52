@@ -28,6 +28,8 @@ var interactable_object = null
 var last_looked_at = null
 var current_weapon = Weapon.HOE
 var in_water:bool = false
+var in_gravel:bool = false
+var in_wood:bool = false
 
 @onready var seeds = {
 	Global.SeedType.CARROT : 0,
@@ -219,14 +221,21 @@ func update_weapon():
 func take_damage(amount) -> bool:
 	health -= amount
 	update_health()
+	ui_get_hit(amount)
 	if health <= 0:
 		die() #:(
 		return true
 	else:
 		return false
 
+func ui_get_hit(dmg):
+	pass
+
 func die():
 	dead = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_parent().player_death()
+	queue_free()
 	pass
 	# idk put a little you died or whatever.1
 
@@ -244,6 +253,18 @@ func water_area_entered():
 
 func water_area_exited():
 	in_water = false
+
+func wood_area_entered():
+	in_wood = true
+
+func wood_area_exited():
+	in_wood = false
+
+func gravel_area_entered():
+	in_gravel = true
+
+func gravel_area_exited():
+	in_gravel = false
 
 func ui_lose_health(damage):
 	pass

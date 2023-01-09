@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyd7fhprx85hb"]
+[gd_scene load_steps=6 format=3 uid="uid://bm22g8rgf352i"]
 
 [ext_resource type="PackedScene" uid="uid://dyrexdvqicmta" path="res://objects/interactables/buyable.tscn" id="1_j3i4i"]
 [ext_resource type="Script" path="res://objects/scripts/shotgun_buyable.gd" id="2_r3yhe"]
-[ext_resource type="Material" uid="uid://bkfjpamdtyqd4" path="res://objects/weapons/mats/shotgun_rusty.tres" id="3_k81ag"]
+[ext_resource type="Material" path="res://objects/weapons/mats/shotgun_rusty.tres" id="3_k81ag"]
 [ext_resource type="ArrayMesh" uid="uid://kipanxj4f360" path="res://objects/weapons/models/shotgun.obj" id="4_cg41e"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e7oj7"]
@@ -19,3 +19,9 @@ mesh = ExtResource("4_cg41e")
 [node name="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.630841, 0)
 shape = SubResource("SphereShape3D_e7oj7")
+
+[node name="VBoxContainer" parent="Control" index="0"]
+layout_mode = 1
+
+[node name="Label" parent="Control/VBoxContainer" index="0"]
+layout_mode = 2

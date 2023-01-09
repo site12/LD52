@@ -24,6 +24,7 @@ func give_points(_points):
 	ui_give_money(_points)
 
 func ui_spend_money(price):
+	$Control/buy.play()
 	$Control/inventory/Control/lose.text = "-$"+str(price)
 	$Control/AnimationPlayer.play("lose_money")
 
@@ -32,4 +33,10 @@ func ui_give_money(price):
 	$Control/AnimationPlayer.play("lose_money")
 
 func ui_hit_marker():
+	$Control/hit.play()
 	$Control/AnimationPlayer.play("hit")
+
+func ui_get_hit(dmg):
+	$Control/hurt.play()
+	$Control/health/Control/lose.text = "-"+str(dmg)
+	$Control/AnimationPlayer.play("get_hit")

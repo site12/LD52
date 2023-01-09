@@ -7,9 +7,21 @@ var money:int = 10000
 
 var money_before_update:int
 
-var farm_name:String
-var your_name:String
-var cat_name:String
+var farm_name:String = "Default"
+var your_name:String = "Default Farm"
+var cat_name:String = "Cajun Chicken"
+
+var melee_harvests = 0
+var ranged_harvests = 0
+var upgrades_purchased = 0
+
+var time_elapsed = 0.0
+var steps = 0
+var pathways_opened = 0
+
+
+
+
 
 signal seed_swapped
 signal update_money

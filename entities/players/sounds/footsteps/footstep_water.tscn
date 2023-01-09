@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmtee8dhsiwij"]
+
+[ext_resource type="AudioStream" uid="uid://ckjiqo2qaavrx" path="res://entities/players/sounds/footsteps/water_1.wav" id="1_jo804"]
+[ext_resource type="Script" path="res://entities/players/sounds/footsteps/footstep_grass.gd" id="2_2endn"]
+
+[node name="footstep_water" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_jo804")
+volume_db = -40.0
+pitch_scale = 2.07
+script = ExtResource("2_2endn")

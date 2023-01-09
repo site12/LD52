@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d03sjnaj0dm2j"]
+
+[ext_resource type="AudioStream" uid="uid://g1nypmf8smgy" path="res://objects/weapons/sounds/shotgun/shotgun_shoot.wav" id="1_vwbb4"]
+[ext_resource type="Script" path="res://objects/weapons/sounds/audio_timeout.gd" id="2_qvl62"]
+
+[node name="shotgun_sound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_vwbb4")
+volume_db = -10.0
+pitch_scale = 0.83
+autoplay = true
+script = ExtResource("2_qvl62")

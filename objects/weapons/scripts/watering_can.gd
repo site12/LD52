@@ -39,4 +39,7 @@ func reload_weapon():
 		$CanvasLayer/HUD/cursor.visible = true
 
 func ammo_count():
-	$CanvasLayer/HUD/inventory/Label.text = str(gun_name)+"\n"+ str(ammo_in_clip)
+	if ammo_in_clip != 0:
+		$CanvasLayer/HUD/inventory/Label.text = str(gun_name)+"\n"+ str(ammo_in_clip)
+	else:
+		$CanvasLayer/HUD/inventory/Label.text = "Empty "+str(gun_name)+"\n"+ str(ammo_in_clip)

@@ -3,6 +3,7 @@ extends Buyable
 
 
 func purchase_successful(player):
+	Global.pathways_opened +=1
 	$AnimationPlayer.play("purchased")
 	$StaticBody3D/CollisionShape3D.disabled = true
 	$Control.visible = false

@@ -11,6 +11,7 @@ const upgrade_prices = [0, 1000, 4000]
 func purchase(player):
 	if player.weapon_levels[player.Weapon.HOE] < upgrade_levels.size() and Global.spend_money(price):
 		player.weapon_levels[player.Weapon.HOE] += 1
+		Global.upgrades_purchased +=1
 		player.current_weapon = player.Weapon.HOE
 		player.update_weapon()
 		purchase_successful(player)

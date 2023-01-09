@@ -14,6 +14,9 @@ class_name Gun
 
 @export var gun_name = "Gun"
 
+enum weapontype  {MELEE,RANGE}
+@export var current_type = weapontype.RANGE
+
 enum WeaponState {
 	READY,
 	USING,
@@ -60,6 +63,9 @@ func set_player(_player):
 func get_player():
 	return player
 
+func get_weapontype():
+	return current_type
+
 #this handles firing the weapon, aiming the weapon, and reloading the weapon
 func _unhandled_input(event:InputEvent) -> void:
 	if Input.is_action_just_pressed("attack") and weapon_state == WeaponState.READY:# and not current_state == player_state[4]:
@@ -83,11 +89,32 @@ func walk():
 
 func play_footstep(ground_type):
 	
-	if ground_type == "grass" and not playing_footstep:
+	if player.in_wood and not playing_footstep:
 		playing_footstep = true
-		$footstep_grass.activate()
+		$footstep_wood.activate()
+		Global.steps+=1
+		
 		await get_tree().create_timer(0.4).timeout
 		playing_footstep = false
+	elif player.in_gravel and not playing_footstep:
+		playing_footstep = true
+		$footstep_gravel.activate()
+		Global.steps+=1
+		await get_tree().create_timer(0.4).timeout
+		playing_footstep = false
+	elif player.in_water and not playing_footstep:
+		playing_footstep = true
+		$footstep_water.activate()
+		Global.steps+=1
+		await get_tree().create_timer(0.4).timeout
+		playing_footstep = false
+	elif !player.in_wood and !player.in_gravel and !player.in_water and not playing_footstep:
+		playing_footstep = true
+		$footstep_grass.activate()
+		Global.steps+=1
+		await get_tree().create_timer(0.4).timeout
+		playing_footstep = false
+		
 
 #functionality needed
 func sprint():
@@ -116,7 +143,11 @@ func fire_weapon():
 	add_child(s)
 	print("attacking")
 	if ray.is_colliding() and ray.get_collider().get_name().contains("enemy"):
-		ray.get_collider().take_damage(body_damage)
+		if ray.get_collider().take_damage(body_damage):
+			if current_type == weapontype.MELEE:
+				Global.melee_harvests +=1
+			elif current_type == weapontype.RANGE:
+				Global.ranged_harvests +=1
 
 
 
@@ -129,7 +160,7 @@ func reload_weapon():
 			#player is reloadng
 			# current_state = player_state[4]
 			$CanvasLayer/HUD/cursor.visible = false
-			
+			reload_anim()
 			
 			await get_tree().create_timer(2.5).timeout
 			
@@ -150,6 +181,9 @@ func ammo_count():
 		$CanvasLayer/HUD/inventory/Label.text = str(gun_name)+"\n"
 	else:
 		$CanvasLayer/HUD/inventory/Label.text = str(gun_name)+"\n"+ str(ammo_in_clip)+"/"+str(ammo_in_reserve)
-	
+
+func reload_anim():
+	pass
+
 func update_level(level):
 	pass
