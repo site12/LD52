@@ -18,7 +18,9 @@ func fire_anim():
 
 func reload_weapon():
 	if Input.is_action_just_pressed("reload") and player.in_water:
-		
+		weapon_state = WeaponState.USING
+		$animations/AnimationTree["parameters/playback"].travel("hoeuse_hoe")
+		# await get_tree().create_timer($animations/AnimationPlayer.get_animation("hoe/use_hoe").length).timeout
 		
 		#player is reloadng
 		# current_state = player_state[4]
@@ -29,6 +31,7 @@ func reload_weapon():
 		
 		#player is finished reloading
 		ammo_in_clip = 30
+		weapon_state = WeaponState.READY
 		# if not walking:
 		# 	current_state = player_state[0]
 		# else:
