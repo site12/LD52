@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://crgfnd6nkaqlr"]
+[gd_scene load_steps=35 format=3 uid="uid://crgfnd6nkaqlr"]
 
 [ext_resource type="PackedScene" uid="uid://b53q4jhodgaoq" path="res://entities/enemies/carrot/carrot_attack.glb" id="1_ymie0"]
 [ext_resource type="Texture2D" uid="uid://o80gpkl5qki1" path="res://entities/enemies/carrot/CarrotMan_BC.png" id="2_igsqy"]
@@ -7,6 +7,46 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu7bc"]
 albedo_texture = ExtResource("2_igsqy")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bvk6d"]
+radius = 0.596233
+height = 5.96233
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qsqch"]
+radius = 2.08384
+height = 20.8384
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6dmbp"]
+radius = 2.10284
+height = 21.0284
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pnvby"]
+radius = 2.08385
+height = 20.8385
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_idter"]
+radius = 2.10284
+height = 21.0284
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w1uam"]
+radius = 5.98977
+height = 59.8977
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ximif"]
+radius = 2.08642
+height = 20.8642
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_utjri"]
+radius = 2.80383
+height = 28.0383
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sj6jl"]
+radius = 2.08642
+height = 20.8642
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l38bq"]
+radius = 2.80383
+height = 28.0383
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7t438"]
 animation = &"carrot/attack"
@@ -142,6 +182,142 @@ material_override = SubResource("StandardMaterial3D_cu7bc")
 
 [node name="R_Ca_UpperLeg" parent="Carrot/Carrot_Rig/Skeleton3D" index="13"]
 material_override = SubResource("StandardMaterial3D_cu7bc")
+
+[node name="Physical Bone J_Waist" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="15"]
+transform = Transform3D(-0.201855, 0.221942, 0.953937, -0.907627, 0.323631, -0.267351, -0.368061, -0.919785, 0.136114, -2.84385, -1.23834, -49.1346)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01812e-05, 4.37722e-06, 2.98117)
+body_offset = Transform3D(3.27826e-07, -0.0105245, 0.999945, 0, 0.999945, 0.0105245, -1, -8.9407e-08, 2.68221e-07, -2.981, -0.0313797, -2.09808e-05)
+bone_name = "J_Waist"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_Waist" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_bvk6d")
+
+[node name="Physical Bone J_L_Hip" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="16"]
+transform = Transform3D(-0.787335, 0.599697, 0.143074, 0.521327, 0.77147, -0.364764, -0.329124, -0.212602, -0.920044, -7.17842, 3.35921, -39.9542)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16676e-05, 4.41968e-05, 10.4192)
+body_offset = Transform3D(-0.837984, 0.545601, -0.0102498, 0, 0.0187826, 0.999825, 0.545695, 0.837836, -0.0157399, 0.10678, -10.4174, 0.163954)
+bone_name = "J_L_Hip"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_L_Hip" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_qsqch")
+
+[node name="Physical Bone J_L_Knee" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="17"]
+transform = Transform3D(-0.2603, 0.954554, 0.145149, 0.82979, 0.144317, 0.538983, 0.493597, 0.260769, -0.829637, -10.1953, 1.49211, -21.6448)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000382056, 6.91458e-05, 10.5149)
+body_offset = Transform3D(-0.18725, 0.982261, -0.00994525, -1.0103e-05, 0.0101254, 0.999883, 0.982284, 0.187243, -0.00193286, 0.104577, -10.5137, 0.0199356)
+bone_name = "J_L_Knee"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_L_Knee" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_6dmbp")
+
+[node name="Physical Bone J_R_Hip" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="18"]
+transform = Transform3D(-0.880637, 0.454841, -0.132658, 0.452467, 0.724307, -0.520243, -0.140543, -0.518169, -0.843652, 7.06989, 1.7911, -39.1271)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30311e-05, 3.15905e-06, 10.4191)
+body_offset = Transform3D(-0.837984, 0.545598, -0.0102497, 0, 0.0187828, 0.999824, 0.545695, 0.837836, -0.0157397, 0.106802, -10.4173, 0.163984)
+bone_name = "J_R_Hip"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_R_Hip" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_pnvby")
+
+[node name="Physical Bone J_R_Knee" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="19"]
+transform = Transform3D(-0.115321, 0.982769, -0.144463, 0.822047, 0.176063, 0.541517, 0.55762, -0.0563073, -0.828184, 9.97099, 1.51743, -21.6291)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000486059, 0.000120573, 10.5146)
+body_offset = Transform3D(-0.187249, 0.982264, -0.00994624, -2.98023e-08, 0.0101254, 0.999949, 0.982313, 0.187239, -0.00189602, 0.104553, -10.5141, 0.0194359)
+bone_name = "J_R_Knee"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_R_Knee" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_idter")
+
+[node name="Physical Bone J_Body" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="20"]
+transform = Transform3D(0.93882, 0.293202, -0.180692, -0.320906, 0.935183, -0.14984, 0.125047, 0.198658, 0.972059, 13.6624, 15.7318, -109.583)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.73532e-06, 7.15256e-06, 29.9488)
+body_offset = Transform3D(0.998446, 0.0547634, 0.0103435, -8.19564e-08, 0.185593, -0.982627, -0.0557316, 0.981099, 0.185304, -0.309771, 29.4285, -5.54966)
+bone_name = "J_Body"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_Body" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_w1uam")
+
+[node name="Physical Bone J_R_Shoulder" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="21"]
+transform = Transform3D(-0.185723, 0.841014, -0.508134, 0.981488, 0.183354, -0.0552649, 0.0466905, -0.508994, -0.859504, 26.2341, 8.26646, -69.6951)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60258e-07, -3.03239e-06, 10.4321)
+body_offset = Transform3D(2.01166e-07, -0.0105265, -0.999945, 4.61936e-07, 0.999944, -0.0105255, 0.999996, -2.10106e-06, -1.11759e-08, 10.4315, 0.109806, 4.76837e-07)
+bone_name = "J_R_Shoulder"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_R_Shoulder" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ximif")
+
+[node name="Physical Bone J_R_Elbow" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="22"]
+transform = Transform3D(-0.072206, 0.971868, -0.224171, 0.932699, -0.0138318, -0.360391, -0.353355, -0.235106, -0.905464, 34.6777, 13.8954, -48.0348)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20437e-12, 3.48687e-06, 14.0191)
+body_offset = Transform3D(-1.78814e-07, -0.0105266, -0.999945, 4.56348e-08, 0.999941, -0.0105259, 1, 3.44589e-07, 0, 14.0184, 0.14756, 0)
+bone_name = "J_R_Elbow"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_R_Elbow" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_utjri")
+
+[node name="Physical Bone J_L_Shoulder" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="23"]
+transform = Transform3D(-0.40996, -0.688515, 0.59823, -0.900367, 0.200603, -0.386132, 0.145851, -0.696925, -0.702156, -10.6721, 18.8268, -74.9563)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.44348e-05, -0.000347659, 10.4316)
+body_offset = Transform3D(-5.96046e-08, -0.0105256, 0.999945, 0, 0.999945, 0.0105256, -1, -1.49012e-08, -8.9407e-08, -10.4311, -0.109451, 9.53674e-05)
+bone_name = "J_L_Shoulder"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_L_Shoulder" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_sj6jl")
+
+[node name="Physical Bone J_L_Elbow" type="PhysicalBone3D" parent="Carrot/Carrot_Rig/Skeleton3D" index="24"]
+transform = Transform3D(-0.857003, -0.515084, 0.0152809, -0.503939, 0.831525, -0.233693, 0.107663, -0.207976, -0.97219, -17.1272, 26.1312, -54.0014)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36742e-05, -3.78191e-05, 14.0192)
+body_offset = Transform3D(1.49012e-08, -0.010526, 0.999945, 2.98023e-08, 0.999945, 0.0105256, -1, 4.76837e-07, -2.06381e-06, -14.0184, -0.147522, 1.52588e-05)
+bone_name = "J_L_Elbow"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/Carrot_Rig/Skeleton3D/Physical Bone J_L_Elbow" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_l38bq")
 
 [node name="AnimationPlayer" parent="." index="2"]
 playback_speed = 0.5
