@@ -11,7 +11,7 @@ var potato_mat = preload("res://objects/weapons/mats/seedbag_potato.tres")
 func _ready() -> void:
 	set_player(get_parent().get_parent().get_parent().get_parent())
 	Global.seed_swapped.connect(self.seed_swapped)
-	print(Global.seed_swapped.is_connected(self.seed_swapped))
+	# print(Global.seed_swapped.is_connected(self.seed_swapped))
 	# seed_swapped()
 
 #this handles the animations every frame and handles the player state and updates the ammo count
@@ -21,6 +21,13 @@ func _physics_process(delta):
 	#print(current_state)
 
 func fire_anim():
+	if interactable_object != null:
+		if interactable_object.get_class() == "DirtPatch":
+				if player.seeds[Global.selected_seed] > 0:
+					if interactable_object.plant(Global.selected_seed):
+						player.seeds[Global.selected_seed] -= 1
+						Global.update_seed_ui()
+						
 	$animations/AnimationTree["parameters/playback"].travel("hoeuse_hoe")
 	await get_tree().create_timer($animations/AnimationPlayer.get_animation("hoe/use_hoe").length).timeout
 	weapon_state = WeaponState.READY

@@ -13,8 +13,8 @@ enum Weapon {HOE, GUN, WATERING_CAN, SEEDBAG, SCYTHE}
 @onready var pivot:Node3D = $pivot
 @onready var camera:Camera3D = $pivot/Camera3D
 @onready var ui_raycast:RayCast3D = $pivot/Camera3D/RayCast3D
-@onready var shotgun_node = $pivot/Camera3D/gun_spot/shotgun
 @onready var hoe_node = $pivot/Camera3D/gun_spot/hoe
+@onready var shotgun_node = $pivot/Camera3D/gun_spot/shotgun
 @onready var watering_can_node = $pivot/Camera3D/gun_spot/watering_can
 @onready var seedbag_node = $pivot/Camera3D/gun_spot/seedbag
 @onready var scythe_node = $pivot/Camera3D/gun_spot/scythe
@@ -27,11 +27,20 @@ var attempting_to_interact:bool = true
 var interactable_object = null
 var last_looked_at = null
 var current_weapon = Weapon.HOE
+var in_water:bool = false
 
 @onready var seeds = {
 	Global.SeedType.CARROT : 0,
 	Global.SeedType.POTATO : 0,
 	Global.SeedType.CORN : 0
+}
+
+@onready var weapon_nodes = {
+	Weapon.HOE : hoe_node,
+	Weapon.GUN : shotgun_node,
+	Weapon.WATERING_CAN : watering_can_node,
+	Weapon.SEEDBAG : seedbag_node,
+	Weapon.SCYTHE : scythe_node
 }
 
 @onready var weapon_levels = {
@@ -41,6 +50,9 @@ var current_weapon = Weapon.HOE
 	Weapon.SEEDBAG : 1,
 	Weapon.SCYTHE : 0
 }
+
+func get_class():
+	return("Player")
 
 #captures the mouse upon spawn
 func _ready():
@@ -74,17 +86,7 @@ func _unhandled_input(event:InputEvent) -> void:
 			current_weapon += 1
 			if current_weapon >= Weapon.size():
 				current_weapon = 0
-		# current_weapon += 1
-		# while current_weapon not in weapon_inv:
-		# 	current_weapon += 1
-		# 	if current_weapon >= Weapon.size():
-		# 		current_weapon = 0
 
-		#-----------------------------------------
-		# if weapon_levels[current_weapon] == 0:
-		# 	current_weapon += 1
-		# if current_weapon >= Weapon.size():
-		# 	current_weapon = 0
 		update_weapon()
 
 	if Input.is_action_just_released("last_weapon"):
@@ -95,10 +97,6 @@ func _unhandled_input(event:InputEvent) -> void:
 			current_weapon -= 1
 			if current_weapon == -1:
 				current_weapon = Weapon.size()-1
-		# if weapon_levels[current_weapon] == 0:
-		# 	current_weapon -= 1
-		# if current_weapon == -1:
-		# 	current_weapon = Weapon.size()-1
 		update_weapon()
 
 	if Input.is_action_just_pressed("swap_seed"):
@@ -145,6 +143,7 @@ func _physics_process(delta) -> void:
 		if target.get_class() == "DirtPatch":
 			target.show_ui()
 			interactable_object = target
+			weapon_nodes[current_weapon].interactable_object = target
 			last_looked_at = target
 		elif target.get_class() == "Buyable":
 			target.show_ui()
@@ -181,16 +180,17 @@ func get_player_location() -> Vector3:
 func attempt_to_interact(object):
 	if object != null:
 		if object.get_class() == "DirtPatch":
-			match current_weapon:
-				Weapon.HOE:
-					object.hoe()
-				Weapon.WATERING_CAN:
-					object.water()
-				Weapon.SEEDBAG:
-					if seeds[Global.selected_seed] > 0:
-						if object.plant(Global.selected_seed):
-							seeds[Global.selected_seed] -= 1
-							Global.update_seed_ui()
+			pass
+			# match current_weapon:
+			# 	# Weapon.HOE:
+			# 	# 	object.hoe()
+			# 	# Weapon.WATERING_CAN:
+			# 	# 	object.water()
+			# 	Weapon.SEEDBAG:
+			# 		if seeds[Global.selected_seed] > 0:
+			# 			if object.plant(Global.selected_seed):
+			# 				seeds[Global.selected_seed] -= 1
+			# 				Global.update_seed_ui()
 					
 		#if object is door
 		if object.is_in_group("doors") and attempting_to_interact:
@@ -238,6 +238,12 @@ func update_money():
 
 func update_health():
 	$Control/health/Label.text = str(health)
+
+func water_area_entered():
+	in_water = true
+
+func water_area_exited():
+	in_water = false
 
 func ui_lose_health(damage):
 	pass
