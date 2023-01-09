@@ -111,7 +111,7 @@ func die():
 	var new_part = death_particle.instantiate()
 	new_part.global_position = global_position
 	get_parent().add_child(new_part)
-	new_part.emiting = true
+	new_part.emitting = true
 	self.queue_free()
 
 	$CollisionShape3D.queue_free()
