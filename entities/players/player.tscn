@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dg58bvyt562ba"]
+[gd_scene load_steps=18 format=3 uid="uid://dg58bvyt562ba"]
 
 [ext_resource type="Script" path="res://entities/scripts/main_player.gd" id="1_ga1bi"]
 [ext_resource type="PackedScene" uid="uid://co46tlyuaqvmw" path="res://objects/weapons/shotgun.tscn" id="2_dayko"]
 [ext_resource type="PackedScene" uid="uid://cob3ptky5luxy" path="res://objects/weapons/hoe.tscn" id="3_axfg1"]
 [ext_resource type="PackedScene" uid="uid://48rvnojl1g6x" path="res://objects/weapons/watering_can.tscn" id="4_e6awh"]
-[ext_resource type="PackedScene" uid="uid://cjwr2u2vhwyyk" path="res://objects/weapons/sounds/revolver/revolver_empty.tscn" id="4_sspb1"]
 [ext_resource type="PackedScene" uid="uid://pqsb3kqx812r" path="res://objects/weapons/seed_bag.tscn" id="5_hyo7h"]
 [ext_resource type="PackedScene" uid="uid://r33r8dpurqcl" path="res://objects/weapons/scythe.tscn" id="6_ubq60"]
 [ext_resource type="Texture2D" uid="uid://r7h420uv2xel" path="res://entities/players/hit_marker.png" id="7_ea28i"]
@@ -296,9 +295,6 @@ transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-0
 [node name="shotgun" parent="pivot/Camera3D/gun_spot" instance=ExtResource("2_dayko")]
 
 [node name="hoe" parent="pivot/Camera3D/gun_spot" instance=ExtResource("3_axfg1")]
-dryfire = ExtResource("4_sspb1")
-max_ammo_in_clip = 6
-max_ammo_in_reserve = 84
 
 [node name="watering_can" parent="pivot/Camera3D/gun_spot" instance=ExtResource("4_e6awh")]
 
@@ -309,7 +305,7 @@ gun_name = "Scythe"
 infinite_ammo = true
 
 [node name="RayCast3D" type="RayCast3D" parent="pivot/Camera3D"]
-target_position = Vector3(0, 0, -10)
+target_position = Vector3(0, 0, -5)
 collision_mask = 256
 
 [node name="interactable_area" type="Area3D" parent="."]
