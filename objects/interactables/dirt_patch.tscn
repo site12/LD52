@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="1_bp3qh"]
 [ext_resource type="Script" path="res://disable_filter.gd" id="2_erat0"]
 [ext_resource type="Material" uid="uid://durwe1gwugorb" path="res://objects/materials/dirt_patch.tres" id="3_aowrn"]
-[ext_resource type="PackedScene" uid="uid://b4rs4xcxt8pv2" path="res://objects/crops/Carrot/carrot_growth_1.tscn" id="4_3sfin"]
-[ext_resource type="PackedScene" path="res://objects/crops/Corn/corn_growth_1.tscn" id="5_c107u"]
+[ext_resource type="PackedScene" path="res://objects/crops/Carrot/carrot_growth_1.tscn" id="4_3sfin"]
+[ext_resource type="PackedScene" uid="uid://f84qsos0d30k" path="res://objects/crops/Corn/corn_growth_1.tscn" id="5_c107u"]
 [ext_resource type="PackedScene" path="res://objects/crops/Carrot/carrot_growth_2.tscn" id="5_dq3of"]
-[ext_resource type="PackedScene" path="res://objects/crops/Carrot/carrot_growth_3.tscn" id="6_04q6j"]
-[ext_resource type="PackedScene" path="res://objects/crops/Corn/corn_growth_2.tscn" id="7_wsvym"]
+[ext_resource type="PackedScene" uid="uid://dd66k41qg80ii" path="res://objects/crops/Carrot/carrot_growth_3.tscn" id="6_04q6j"]
+[ext_resource type="PackedScene" uid="uid://bnsrxjgjq640s" path="res://objects/crops/Corn/corn_growth_2.tscn" id="7_wsvym"]
 [ext_resource type="PackedScene" uid="uid://btyo5ris4w25l" path="res://objects/interactables/enemy_spawner.tscn" id="7_y8ixd"]
-[ext_resource type="PackedScene" path="res://objects/crops/Corn/corn_growth_3.tscn" id="9_4358v"]
+[ext_resource type="PackedScene" uid="uid://cq0yj3sdfdpjq" path="res://objects/crops/Corn/corn_growth_3.tscn" id="9_4358v"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_o3r0v"]
 _surfaces = [{
@@ -99,4 +99,4 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.463, 0)
 visible = false
 
 [node name="enemy_spawner" parent="." instance=ExtResource("7_y8ixd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43213, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.781736, 0)
