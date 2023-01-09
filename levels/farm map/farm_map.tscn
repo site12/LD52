@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://dhu3n23upt33b"]
+[gd_scene load_steps=105 format=3 uid="uid://dhu3n23upt33b"]
 
 [ext_resource type="Script" path="res://levels/farm map/scripts/farm_map.gd" id="1_7daaw"]
 [ext_resource type="Texture2D" uid="uid://gma1sqw20kvp" path="res://textures/Dirt_05-256x256.png" id="3_0t2qc"]
@@ -78,21 +78,27 @@ data = PackedVector3Array(-43.8081, 0.9477, 23.2791, -43.8081, 0.4477, 23.2791, 
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3fo0"]
 albedo_texture = ExtResource("5_q2w0o")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fui61"]
 albedo_texture = ExtResource("5_ynww6")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qog6n"]
 albedo_texture = ExtResource("6_twxrt")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3hg8"]
 albedo_texture = ExtResource("7_dsccc")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwx4c"]
 albedo_texture = ExtResource("7_10k8c")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4fux"]
 albedo_texture = ExtResource("10_kjj6g")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_i7x1d"]
 _surfaces = [{
@@ -162,15 +168,19 @@ data = PackedVector3Array(3.3691, -1.8885, -3.0414, 3.3691, -2.1385, -3.0414, 3.
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5bnq"]
 albedo_texture = ExtResource("5_q2w0o")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl0vy"]
 albedo_texture = ExtResource("5_ynww6")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywh5j"]
 albedo_texture = ExtResource("8_loet2")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tv5xe"]
 albedo_texture = ExtResource("9_k8awe")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_d1vnr"]
 _surfaces = [{
@@ -220,12 +230,15 @@ data = PackedVector3Array(-2.963, -1.0556, 2.1204, -2.963, -5.0556, 2.1204, -2.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_518p6"]
 albedo_texture = ExtResource("5_q2w0o")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddh70"]
 albedo_texture = ExtResource("5_ynww6")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryxik"]
 albedo_texture = ExtResource("9_k8awe")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_t5plr"]
 _surfaces = [{
@@ -265,18 +278,23 @@ data = PackedVector3Array(2.9833, -2.0694, 2.1389, 2.4833, -2.0694, 2.1389, 2.48
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_weebi"]
 albedo_texture = ExtResource("5_q2w0o")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2duo4"]
 albedo_texture = ExtResource("5_ynww6")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opqy7"]
 albedo_texture = ExtResource("7_dsccc")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0j5gg"]
 albedo_texture = ExtResource("8_loet2")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6oyy"]
 albedo_texture = ExtResource("9_1ep63")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a7fni"]
 _surfaces = [{
@@ -336,6 +354,7 @@ data = PackedVector3Array(3.7571, 2.6115, 0.7054, 3.7571, 0.6115, 0.7054, 4.0696
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xcg5"]
 albedo_texture = ExtResource("3_0t2qc")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5hks7"]
 _surfaces = [{
@@ -355,6 +374,7 @@ data = PackedVector3Array(1.933, -0.6377, -2.1189, 3.933, -0.6377, -1.1189, 3.93
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hr550"]
 albedo_texture = ExtResource("12_todjp")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_thh5r"]
 _surfaces = [{
@@ -374,9 +394,11 @@ data = PackedVector3Array(-28.672, 2, 15.0249, -28.672, -2, 15.0249, -26.672, -2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcea0"]
 albedo_texture = ExtResource("5_q2w0o")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iimcd"]
 albedo_texture = ExtResource("9_k8awe")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7b6ov"]
 _surfaces = [{
@@ -406,9 +428,11 @@ data = PackedVector3Array(-1.25, 0.5625, -0.375, -1.25, 0.4375, -0.375, 1.25, 0.
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvea6"]
 albedo_texture = ExtResource("5_q2w0o")
+texture_filter = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnrg4"]
 albedo_texture = ExtResource("9_k8awe")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ha5o1"]
 _surfaces = [{
@@ -438,6 +462,7 @@ data = PackedVector3Array(-1.25, 0.5625, -0.375, -1.25, 0.4375, -0.375, 1.25, 0.
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yuah"]
 albedo_texture = ExtResource("13_3fdy1")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_g0m7o"]
 _surfaces = [{
@@ -457,6 +482,7 @@ data = PackedVector3Array(-7.5, -1.25, -0.5, 7.5, -1.25, -0.5, 7.5, 1.25, -0.5, 
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qp1o4"]
 albedo_texture = ExtResource("13_3fdy1")
+texture_filter = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vnvwr"]
 _surfaces = [{
@@ -528,6 +554,39 @@ font_size = 12
 font_color = Color(0.627451, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="FontVariation" id="FontVariation_hbbsh"]
+base_font = ExtResource("37_uafvh")
+
+[sub_resource type="LabelSettings" id="LabelSettings_do83d"]
+font = SubResource("FontVariation_hbbsh")
+font_size = 18
+font_color = Color(0.627451, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mh5pl"]
+bg_color = Color(0, 0, 0, 0.34902)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1glfr"]
+bg_color = Color(0, 0, 0, 0.713726)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gb0ha"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 3
+
 [node name="dev_map" type="Node3D"]
 script = ExtResource("1_7daaw")
 
@@ -556,6 +615,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.13091, 2.13851, 11.5414)
 
 [node name="entity_1_geometry" type="MeshInstance3D" parent="NavigationRegion3D/TBLoader/house"]
 mesh = SubResource("ArrayMesh_i7x1d")
+script = ExtResource("3_jy4ns")
 
 [node name="entity_1_geometry_col" type="StaticBody3D" parent="NavigationRegion3D/TBLoader/house"]
 
@@ -567,6 +627,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.963, 4.05556, 18.8796)
 
 [node name="entity_2_geometry" type="MeshInstance3D" parent="NavigationRegion3D/TBLoader/barn"]
 mesh = SubResource("ArrayMesh_d1vnr")
+script = ExtResource("3_jy4ns")
 
 [node name="entity_2_geometry_col" type="StaticBody3D" parent="NavigationRegion3D/TBLoader/barn"]
 
@@ -578,6 +639,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0167, 2.06944, -30.1389)
 
 [node name="entity_3_geometry" type="MeshInstance3D" parent="NavigationRegion3D/TBLoader/shed"]
 mesh = SubResource("ArrayMesh_t5plr")
+script = ExtResource("3_jy4ns")
 
 [node name="entity_3_geometry_col" type="StaticBody3D" parent="NavigationRegion3D/TBLoader/shed"]
 
@@ -589,6 +651,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.99286, 7.63849, 64.9196)
 
 [node name="entity_4_geometry" type="MeshInstance3D" parent="NavigationRegion3D/TBLoader/grain elevator"]
 mesh = SubResource("ArrayMesh_a7fni")
+script = ExtResource("3_jy4ns")
 
 [node name="entity_4_geometry_col" type="StaticBody3D" parent="NavigationRegion3D/TBLoader/grain elevator"]
 
@@ -600,6 +663,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.067, -1.36226, 59.1189)
 
 [node name="entity_5_geometry" type="MeshInstance3D" parent="NavigationRegion3D/TBLoader/pond"]
 mesh = SubResource("ArrayMesh_5hks7")
+script = ExtResource("3_jy4ns")
 
 [node name="entity_5_geometry_col" type="StaticBody3D" parent="NavigationRegion3D/TBLoader/pond"]
 
@@ -612,6 +676,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.672, 2, 22.9751)
 [node name="entity_6_geometry" type="MeshInstance3D" parent="NavigationRegion3D/TBLoader/tree wall"]
 material_override = ExtResource("11_qgutt")
 mesh = SubResource("ArrayMesh_thh5r")
+script = ExtResource("3_jy4ns")
 
 [node name="entity_6_geometry_col" type="StaticBody3D" parent="NavigationRegion3D/TBLoader/tree wall"]
 
@@ -623,6 +688,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.375, 0.8125, -32.625)
 
 [node name="entity_7_geometry" type="MeshInstance3D" parent="NavigationRegion3D/TBLoader/shelf"]
 mesh = SubResource("ArrayMesh_7b6ov")
+script = ExtResource("3_jy4ns")
 
 [node name="entity_7_geometry_col" type="StaticBody3D" parent="NavigationRegion3D/TBLoader/shelf"]
 
@@ -634,6 +700,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.375, 0.8125, -32.625)
 
 [node name="entity_8_geometry" type="MeshInstance3D" parent="NavigationRegion3D/TBLoader/shelf2"]
 mesh = SubResource("ArrayMesh_ha5o1")
+script = ExtResource("3_jy4ns")
 
 [node name="entity_8_geometry_col" type="StaticBody3D" parent="NavigationRegion3D/TBLoader/shelf2"]
 
@@ -641,10 +708,11 @@ mesh = SubResource("ArrayMesh_ha5o1")
 shape = SubResource("ConcavePolygonShape3D_wgbpc")
 
 [node name="corn wall" type="Node3D" parent="NavigationRegion3D/TBLoader"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5, 1.25, -5.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5, 1.20117, -5.5)
 
 [node name="entity_9_geometry" type="MeshInstance3D" parent="NavigationRegion3D/TBLoader/corn wall"]
 mesh = SubResource("ArrayMesh_g0m7o")
+script = ExtResource("3_jy4ns")
 
 [node name="entity_9_geometry_col" type="StaticBody3D" parent="NavigationRegion3D/TBLoader/corn wall"]
 
@@ -652,12 +720,13 @@ mesh = SubResource("ArrayMesh_g0m7o")
 shape = SubResource("ConcavePolygonShape3D_6ewan")
 
 [node name="corn" type="Node3D" parent="NavigationRegion3D/TBLoader"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9818, 0.759615, 25.9968)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9818, 0.710785, 25.9968)
 
 [node name="entity_10_geometry" type="MeshInstance3D" parent="NavigationRegion3D/TBLoader/corn"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 0)
 material_override = ExtResource("13_6h0n0")
 mesh = SubResource("ArrayMesh_vnvwr")
+script = ExtResource("3_jy4ns")
 
 [node name="entity_10_geometry_col" type="StaticBody3D" parent="NavigationRegion3D/TBLoader/corn"]
 
@@ -1054,6 +1123,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="dying/scorecard"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1061,27 +1131,23 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="dying/scorecard/VBoxContainer"]
-offset_right = 640.0
-offset_bottom = 111.0
+layout_mode = 2
 size_flags_vertical = 3
 color = Color(0.0235294, 0.0235294, 0.0235294, 0.596078)
 
 [node name="ColorRect2" type="ColorRect" parent="dying/scorecard/VBoxContainer"]
 custom_minimum_size = Vector2(0, 250)
-offset_top = 115.0
-offset_right = 640.0
-offset_bottom = 365.0
+layout_mode = 2
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0)
 
 [node name="ColorRect3" type="ColorRect" parent="dying/scorecard/VBoxContainer"]
-offset_top = 369.0
-offset_right = 640.0
-offset_bottom = 480.0
+layout_mode = 2
 size_flags_vertical = 3
 color = Color(0.0235294, 0.0235294, 0.0235294, 0.596078)
 
 [node name="screen" type="VBoxContainer" parent="dying/scorecard"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1089,109 +1155,149 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="top" type="HBoxContainer" parent="dying/scorecard/screen"]
-offset_right = 640.0
-offset_bottom = 157.0
+layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Label3" type="Label" parent="dying/scorecard/screen/top"]
-offset_left = 230.0
-offset_top = 54.0
-offset_right = 410.0
-offset_bottom = 102.0
+layout_mode = 2
 text = "YOU DIED"
 label_settings = SubResource("LabelSettings_6kb04")
 
 [node name="middle" type="HBoxContainer" parent="dying/scorecard/screen"]
-offset_top = 161.0
-offset_right = 640.0
-offset_bottom = 318.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="left" type="VBoxContainer" parent="dying/scorecard/screen/middle"]
 custom_minimum_size = Vector2(300, 0)
-offset_right = 300.0
-offset_bottom = 157.0
+layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="name" type="Label" parent="dying/scorecard/screen/middle/left"]
-offset_top = 36.0
-offset_right = 300.0
-offset_bottom = 84.0
+layout_mode = 2
 text = "[Name]"
 label_settings = SubResource("LabelSettings_6kb04")
 horizontal_alignment = 1
 
 [node name="farm_name" type="Label" parent="dying/scorecard/screen/middle/left"]
-offset_top = 88.0
-offset_right = 300.0
-offset_bottom = 121.0
+layout_mode = 2
 text = "[Farm]"
 label_settings = SubResource("LabelSettings_hcwru")
 horizontal_alignment = 1
 
 [node name="middle" type="VBoxContainer" parent="dying/scorecard/screen/middle"]
-offset_left = 304.0
-offset_right = 470.0
-offset_bottom = 157.0
+layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="mharvest" type="Label" parent="dying/scorecard/screen/middle/middle"]
-offset_top = 50.0
-offset_right = 166.0
-offset_bottom = 66.0
+layout_mode = 2
 text = "Melee Harvests:                  [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="rharvest" type="Label" parent="dying/scorecard/screen/middle/middle"]
-offset_top = 70.0
-offset_right = 166.0
-offset_bottom = 86.0
+layout_mode = 2
 text = "Ranged Harvests:              [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="upgrades" type="Label" parent="dying/scorecard/screen/middle/middle"]
-offset_top = 90.0
-offset_right = 166.0
-offset_bottom = 106.0
+layout_mode = 2
 text = "Upgrades Purchased: [x]/9"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="right" type="VBoxContainer" parent="dying/scorecard/screen/middle"]
-offset_left = 474.0
-offset_right = 640.0
-offset_bottom = 157.0
+layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="time_alive" type="Label" parent="dying/scorecard/screen/middle/right"]
-offset_top = 50.0
-offset_right = 166.0
-offset_bottom = 66.0
+layout_mode = 2
 text = "Time Spent Alive:              [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="steps_taken" type="Label" parent="dying/scorecard/screen/middle/right"]
-offset_top = 70.0
-offset_right = 166.0
-offset_bottom = 86.0
+layout_mode = 2
 text = "Steps Taken:                          [x]"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="paths_opened" type="Label" parent="dying/scorecard/screen/middle/right"]
-offset_top = 90.0
-offset_right = 166.0
-offset_bottom = 106.0
+layout_mode = 2
 text = "Paths Opened:                  [x]/6"
 label_settings = SubResource("LabelSettings_1odg7")
 
 [node name="bottom" type="HBoxContainer" parent="dying/scorecard/screen"]
-offset_top = 322.0
-offset_right = 640.0
-offset_bottom = 480.0
-size_flags_vertical = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="dying/scorecard/screen/bottom"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="spacer" type="Label" parent="dying/scorecard/screen/bottom/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_do83d")
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="epilogue2" type="Label" parent="dying/scorecard/screen/bottom/HBoxContainer"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Unfortunately, you were unable to fulfill your [family member]'s wishes. Your cat was adopted by your [new family member], and the farm had to shut down.
+
+"
+label_settings = SubResource("LabelSettings_do83d")
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="spacer2" type="Label" parent="dying/scorecard/screen/bottom/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_do83d")
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="dying/scorecard/screen/bottom/HBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="try_again" type="Button" parent="dying/scorecard/screen/bottom/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("37_uafvh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mh5pl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1glfr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gb0ha")
+text = "Try again"
+
+[node name="qtm" type="Button" parent="dying/scorecard/screen/bottom/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("37_uafvh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mh5pl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1glfr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gb0ha")
+text = "Quit to menu"
 
 [node name="end" type="Control" parent="dying"]
 layout_mode = 3

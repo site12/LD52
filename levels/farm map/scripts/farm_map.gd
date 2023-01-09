@@ -22,6 +22,8 @@ var descriptor:Array[String] = [
 	
 ]
 
+var chosen_family_member = "Ex-Husband"
+var chosen_descriptor
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +32,9 @@ func _ready():
 func get_family_member()->String:
 	randomize()
 	var x = randi_range(0,family.size()-1)
+	if x == chosen_family_member:
+		get_family_member()
+	chosen_family_member = x
 	return family[x]
 
 func get_descriptor()->String:
@@ -77,4 +82,5 @@ func player_death():
 	$dying/scorecard/screen/middle/right/time_alive.text = "Time Spent Alive:              "+str(Global.time_elapsed)
 	$dying/scorecard/screen/middle/right/steps_taken.text = "Steps Taken:                          "+str(Global.steps)
 	$dying/scorecard/screen/middle/right/paths_opened.text = "Paths Opened:                  "+str(Global.pathways_opened)+"/6"
+	$dying/scorecard/screen/bottom/HBoxContainer/epilogue2.text = "Unfortunately, you were unable to fulfill your "+chosen_family_member+"'s wishes. Your cat was adopted by your "+get_family_member()+", and the farm had to shut down."
 	$dying/scorecard.visible = true
