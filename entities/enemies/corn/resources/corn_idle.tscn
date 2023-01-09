@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bsbfm1s412ppq"]
+[gd_scene load_steps=16 format=3 uid="uid://bsbfm1s412ppq"]
 
 [ext_resource type="PackedScene" uid="uid://b3xq7l1dsbont" path="res://entities/enemies/corn/resources/corn_idle.glb" id="1_hrid8"]
 [ext_resource type="Texture2D" uid="uid://vsmcu5lvx8j5" path="res://entities/enemies/corn/CornMan_BC.png" id="2_1ka6g"]
 [ext_resource type="AnimationLibrary" uid="uid://dqgw3a567fvt" path="res://entities/enemies/corn/resources/corn.res" id="2_8f4xa"]
+[ext_resource type="Script" path="res://entities/enemies/weed/weed_guy_ragdoll.gd" id="2_bihxh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iklah"]
 albedo_texture = ExtResource("2_1ka6g")
@@ -39,6 +40,7 @@ graph_offset = Vector2(27, -15)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_rchpu"]
 
 [node name="corn_model" instance=ExtResource("1_hrid8")]
+script = ExtResource("2_bihxh")
 
 [node name="pPlane1" parent="." index="1"]
 visible = false

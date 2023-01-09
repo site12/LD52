@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://crgfnd6nkaqlr"]
+[gd_scene load_steps=25 format=3 uid="uid://crgfnd6nkaqlr"]
 
 [ext_resource type="PackedScene" uid="uid://b53q4jhodgaoq" path="res://entities/enemies/carrot/carrot_attack.glb" id="1_ymie0"]
 [ext_resource type="Texture2D" uid="uid://o80gpkl5qki1" path="res://entities/enemies/carrot/CarrotMan_BC.png" id="2_igsqy"]
+[ext_resource type="Script" path="res://entities/enemies/carrot/carrot_man_ragdoll.gd" id="2_jrwuu"]
 [ext_resource type="AnimationLibrary" uid="uid://b1286u31xs63d" path="res://entities/enemies/carrot/anims/carrot.res" id="2_urb0t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu7bc"]
@@ -79,6 +80,7 @@ transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTr
 
 [node name="carrot_man" instance=ExtResource("1_ymie0")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+script = ExtResource("2_jrwuu")
 
 [node name="ikHandle1" parent="Carrot/Carrot_Rig" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
