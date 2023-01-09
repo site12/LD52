@@ -774,7 +774,7 @@ transform = Transform3D(0.916111, 0, -0.400925, 0, 1, 0, 0.400925, 0, 0.916111, 
 
 [node name="seed_buyable" parent="buyables" instance=ExtResource("20_f67iq")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 49.4368, 0.864903, 11.6648)
-seed_type = 1
+seed_type = 0
 price = 250
 
 [node name="seed_buyable2" parent="buyables" instance=ExtResource("20_f67iq")]

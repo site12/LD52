@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://6f3gc6oob8ek"]
+[gd_scene load_steps=13 format=3 uid="uid://6f3gc6oob8ek"]
 
 [ext_resource type="PackedScene" uid="uid://ddvoafwstxaqd" path="res://entities/enemies/potato/potato.glb" id="1_5ikib"]
 [ext_resource type="Texture2D" uid="uid://cnlnpv1p3ngtx" path="res://entities/enemies/potato/PotatoMan_BC.png" id="2_rmryt"]
@@ -6,7 +6,93 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b77c4"]
 albedo_texture = ExtResource("2_rmryt")
 
+[sub_resource type="Animation" id="Animation_n5ipk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_enw7k"]
+_data = {
+"RESET": SubResource("Animation_n5ipk")
+}
+
+[sub_resource type="Animation" id="Animation_cj0mc"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0.0872665), Vector3(0, 1.5708, -0.0872665), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e4yp4"]
+resource_name = "roll"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(6.28319, 1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6g7hr"]
+_data = {
+"idle": SubResource("Animation_cj0mc"),
+"roll": SubResource("Animation_e4yp4")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7g5cm"]
+animation = &"Potato/roll"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6v0n4"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0a5f1"]
+states/Potatoroll/node = SubResource("AnimationNodeAnimation_7g5cm")
+states/Potatoroll/position = Vector2(444.418, 106.518)
+states/Start/position = Vector2(199, 100)
+transitions = ["Start", "Potatoroll", SubResource("AnimationNodeStateMachineTransition_6v0n4")]
+graph_offset = Vector2(-137.582, 26.5182)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_r7xow"]
+
 [node name="potato" instance=ExtResource("1_5ikib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838887, 0)
 
 [node name="PotatoMan" parent="." index="0"]
+transform = Transform3D(0.01, 0, 0, 0, -1.19209e-09, -0.01, 0, 0.01, -1.19209e-09, 0, -0.776521, 0)
 material_override = SubResource("StandardMaterial3D_b77c4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_enw7k"),
+"Potato": SubResource("AnimationLibrary_6g7hr")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_0a5f1")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_r7xow")
