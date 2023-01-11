@@ -366,7 +366,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 15)
 [node name="seed_buyable" parent="buyables" instance=ExtResource("10_u8gfg")]
 transform = Transform3D(-0.270785, 0, -0.962639, 0, 1, 0, 0.962639, 0, -0.270785, 27.1053, 1.31028, 23.3785)
 seed_type = 0
-price = 250
+price = 15
 
 [node name="tut" type="Control" parent="."]
 layout_mode = 3

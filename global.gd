@@ -3,7 +3,7 @@ extends Node
 enum SeedType {CARROT, POTATO, CORN}
 
 var selected_seed:SeedType = SeedType.CARROT
-var money:int = 100
+var money:int = 150
 
 var money_before_update:int
 
@@ -61,7 +61,7 @@ func give_money(amt):
 	update_money.emit()
 
 func reset_globals():
-	money = 1000
+	money = 150
 	melee_harvests = 0
 	ranged_harvests = 0
 	upgrades_purchased = 0

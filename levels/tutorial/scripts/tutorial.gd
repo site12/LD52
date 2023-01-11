@@ -11,10 +11,13 @@ var planted = false
 
 func _ready():
 	$player.hide_ui()
+	$tutcam_intro.current = true
+	Global.money = 15
 
 func _unhandled_key_input(event):
 	if event.is_pressed() and not spawned:
 		$tutcam_intro.current = false
+		$player.camera.current = true
 		spawned = true
 		$player.show_ui()
 		$tut/screen_1.visible = false
@@ -30,7 +33,7 @@ func _unhandled_key_input(event):
 		$tut/screen_2.visible = false
 
 func _physics_process(delta):
-	if Global.money != 10000 and not purchased:
+	if Global.money != 15 and not purchased:
 		purchased = true
 		await get_tree().create_timer(1.5).timeout
 		$player.hide_ui()
@@ -42,7 +45,7 @@ func _physics_process(delta):
 		$player.show_ui()
 		
 		
-	if Global.money != 10000 and $player.seeds[Global.SeedType.CARROT]==0:
+	if Global.money != 15 and $player.seeds[Global.SeedType.CARROT]==0:
 		planted = true
 		$player.hide_ui()
 		await get_tree().create_timer(1).timeout

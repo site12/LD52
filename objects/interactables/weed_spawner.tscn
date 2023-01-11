@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtpv8snpj8j8d"]
+[gd_scene load_steps=4 format=3 uid="uid://bo8w2pauk181i"]
 
 [ext_resource type="Script" path="res://objects/interactables/weed_spawner.gd" id="1_ait43"]
 

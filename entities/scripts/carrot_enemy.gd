@@ -9,7 +9,7 @@ func get_class():
 	return "CarrotEnemy"
 
 func _ready() -> void:
-	enemy_val = 25
+	enemy_val = 30
 
 func anim_process():
 	if velocity.length() > 0 and $timers/attack_timer.is_stopped():
@@ -25,6 +25,7 @@ func _on_attack_timer_timeout():
 		if dist< 5:
 			targeted_player.take_damage(DAMAGE)
 		current_behavior = "targeting_player"
+		$timers/cool_down_timer.start()
 
 func local_death():
 	pass

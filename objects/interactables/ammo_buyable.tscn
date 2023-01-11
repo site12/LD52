@@ -13,6 +13,7 @@ radius = 0.3
 
 [node name="ammo_buyable" instance=ExtResource("1_d3vhv")]
 script = ExtResource("2_smp7k")
+price = 150
 
 [node name="MeshInstance3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0101921, 0)
@@ -22,3 +23,9 @@ mesh = ExtResource("4_5s6e3")
 [node name="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.155445, 0)
 shape = SubResource("SphereShape3D_e7oj7")
+
+[node name="VBoxContainer" parent="Control" index="0"]
+layout_mode = 1
+
+[node name="Label" parent="Control/VBoxContainer" index="0"]
+layout_mode = 2

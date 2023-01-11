@@ -1,6 +1,6 @@
 extends Buyable
 
-const upgrade_prices = [0, 1000, 4000]
+const upgrade_prices = [0, 300, 500]
 
 @onready var hoe_rust = preload("res://objects/weapons/mats/hoe_tool_rust.tres")
 @onready var hoe_iron = preload("res://objects/weapons/mats/hoe_tool_iron.tres")

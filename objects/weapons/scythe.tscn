@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bgg1l3g7xuqj3" path="res://objects/weapons/models/player_arms.tscn" id="3_a3ujb"]
 [ext_resource type="PackedScene" uid="uid://0lxi44hf6f27" path="res://objects/weapons/sounds/hoe/swing.tscn" id="3_t3k16"]
 [ext_resource type="PackedScene" uid="uid://cr5kvgar5op2d" path="res://objects/weapons/models/scythe_tool.tscn" id="4_ymnic"]
-[ext_resource type="Material" uid="uid://cngh7uunbilmo" path="res://objects/weapons/mats/scythe_tool_rust.tres" id="5_pxli7"]
+[ext_resource type="Material" path="res://objects/weapons/mats/scythe_tool_rust.tres" id="5_pxli7"]
 
 [sub_resource type="Animation" id="Animation_g2c3b"]
 length = 0.001
@@ -157,6 +157,16 @@ transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTr
 script = ExtResource("2_yxauq")
 gun_name = "Scythe"
 gunfire = ExtResource("3_t3k16")
+infinite_ammo = true
+
+[node name="cursor" parent="CanvasLayer/HUD" index="0"]
+layout_mode = 1
+
+[node name="inventory" parent="CanvasLayer/HUD" index="1"]
+layout_mode = 1
+
+[node name="Label" parent="CanvasLayer/HUD/inventory" index="0"]
+layout_mode = 1
 
 [node name="Player_Arms" parent="." index="1"]
 transform = Transform3D(0.9895, 0.126826, -0.0693088, -0.00909019, 0.533214, 0.845932, 0.144242, -0.83642, 0.528768, 0.0558081, -3.91037, 0.421915)

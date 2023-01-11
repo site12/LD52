@@ -61,6 +61,6 @@ func fire_weapon():
 	#var s = gunfire.instantiate()
 	#add_child(s)
 	#print("attacking")
-	if ray.is_colliding() and ray.get_collider().get_name().contains("enemy"):
-		ray.get_collider().take_damage(body_damage)
+	#if ray.is_colliding() and ray.get_collider().get_name().contains("enemy"):
+		#ray.get_collider().take_damage(body_damage)
 

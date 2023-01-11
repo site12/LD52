@@ -188,4 +188,4 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_qyfut")
 parameters/BlendSpace1D/blend_position = 0.0561896
 
 [node name="RayCast3D" parent="." index="3"]
-target_position = Vector3(0, -8, 0)
+target_position = Vector3(0, -12, 0)

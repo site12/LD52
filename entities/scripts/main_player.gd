@@ -8,6 +8,7 @@ var points:int = 0
 var headshots:int = 0
 var doors_opened:int = 0
 
+
 #where the gun is attached to
 @onready var gun_spot = $pivot/Camera3D/gun_spot
 
@@ -41,16 +42,20 @@ func ui_spend_money(price):
 	$Control/buy.play()
 	$Control/inventory/Control/lose.text = "-$"+str(price)
 	$Control/AnimationPlayer.play("lose_money")
+	$Control/AnimationPlayer.queue("RESET")
 
 func ui_give_money(price):
 	$Control/inventory/Control/gain.text = "+$"+str(price)
 	$Control/AnimationPlayer.play("lose_money")
+	$Control/AnimationPlayer.queue("RESET")
 
 func ui_hit_marker():
 	$Control/hit.play()
 	$Control/AnimationPlayer.play("hit")
+	$Control/AnimationPlayer.queue("RESET")
 
 func ui_get_hit(dmg):
 	$Control/hurt.play()
 	$Control/health/Control/lose.text = "-"+str(dmg)
 	$Control/AnimationPlayer.play("get_hit")
+	$Control/AnimationPlayer.queue("RESET")

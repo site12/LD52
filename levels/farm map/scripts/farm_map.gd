@@ -2,14 +2,14 @@ extends Node3D
 
 
 var family:Array[String] = [
-	"Mother",
-	"Father",
-	"Uncle",
-	"Aunt",
-	"Grandfather",
-	"Grandmother",
-	"Ex-Wife",
-	"Ex-Husband"
+	"mother",
+	"father",
+	"uncle",
+	"aunt",
+	"grandfather",
+	"grandmother",
+	"ex-wife",
+	"ex-husband"
 ]
 
 var descriptor:Array[String] = [
@@ -21,7 +21,7 @@ var descriptor:Array[String] = [
 	"hard-Working"
 	
 ]
-const CURVE = 1.1
+const CURVE = 1.05
 var chosen_family_member = "Ex-Husband"
 var chosen_descriptor
 var difficulty:float = 1.0
@@ -88,7 +88,7 @@ func player_death():
 	$dying/scorecard/screen/middle/right/time_alive.text = "Time Spent Alive:              "+str(Global.time_elapsed)
 	$dying/scorecard/screen/middle/right/steps_taken.text = "Steps Taken:                          "+str(Global.steps)
 	$dying/scorecard/screen/middle/right/paths_opened.text = "Paths Opened:                  "+str(Global.pathways_opened)+"/6"
-	$dying/scorecard/screen/bottom/HBoxContainer/epilogue2.text = "Unfortunately, you were unable to fulfill your "+chosen_family_member+"'s wishes. Your cat was adopted by your "+get_family_member()+", and the farm had to shut down."
+	$dying/scorecard/screen/bottom/HBoxContainer/epilogue2.text = "Unfortunately, you were unable to fulfill your "+chosen_family_member+"'s wishes. "+Global.cat_name+" was adopted by your "+get_family_member()+", and the farm had to shut down."
 	$dying/scorecard.visible = true
 
 func _on_weed_spawn_timer_timeout() -> void:

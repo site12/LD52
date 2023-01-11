@@ -9,7 +9,7 @@ func get_class():
 	return "WeedEnemy"
 
 func _ready() -> void:
-	enemy_val = 0
+	enemy_val = 10
 
 func anim_process():
 	if velocity.length() > 0 and $timers/attack_timer.is_stopped():

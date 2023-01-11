@@ -9,7 +9,7 @@ func get_class():
 	return "PotatoEnemy"
 
 func _ready() -> void:
-	enemy_val = 150
+	enemy_val = 200
 	potato_scene.get_node("AnimationPlayer").play("Potato/roll")
 
 var next_loc

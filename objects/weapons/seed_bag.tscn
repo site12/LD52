@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ccyjpftf2o3vl" path="res://objects/weapons/gun.tscn" id="1_o85yc"]
 [ext_resource type="Script" path="res://objects/weapons/seed_bag.gd" id="2_j3xn1"]
-[ext_resource type="PackedScene" uid="uid://c5mrud7dh4p77" path="res://objects/weapons/sounds/planting.tscn" id="3_7gu72"]
+[ext_resource type="PackedScene" path="res://objects/weapons/sounds/planting.tscn" id="3_7gu72"]
 [ext_resource type="PackedScene" uid="uid://b2tkx1sc6voxi" path="res://objects/weapons/models/seedbag.tscn" id="4_ai305"]
 [ext_resource type="PackedScene" uid="uid://cuwya3pbo3awx" path="res://objects/weapons/sounds/watering can/watering_can_empty.tscn" id="4_bgtp8"]
 
